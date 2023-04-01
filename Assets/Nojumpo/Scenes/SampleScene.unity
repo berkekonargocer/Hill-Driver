@@ -210,7 +210,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -234,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.54, y: -1.82, z: -10}
+  m_LocalPosition: {x: -5.35, y: 0.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -379,7 +379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917022167}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.759, y: -0.454, z: 0}
+  m_LocalPosition: {x: 0.807, y: -0.454, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -427,7 +427,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb2a86a31564be64c9f6899dad53b807, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbbd8179e67273346877819221a47e71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -451,9 +451,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.24
+  m_Radius: 0.23
 --- !u!50 &917022171
 Rigidbody2D:
   serializedVersion: 4
@@ -500,7 +500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973874343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0472, y: 0.481, z: 0}
+  m_LocalPosition: {x: 0.012, y: 0.481, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -786,7 +786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065287633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.877, y: -0.454, z: 0}
+  m_LocalPosition: {x: -0.82899964, y: -0.454, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -834,7 +834,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb2a86a31564be64c9f6899dad53b807, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbbd8179e67273346877819221a47e71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -858,9 +858,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.24
+  m_Radius: 0.23
 --- !u!50 &1065287637
 Rigidbody2D:
   serializedVersion: 4
@@ -991,7 +991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160565373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.059, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0.164, y: 0.24, z: 0}
   m_LocalScale: {x: 0.9022734, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1039,7 +1039,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f7affc79b09e4c1449a7c5a43f56fe61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b630a96102cdd8d4bb1780a7f32f98b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1123,7 +1123,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 72a7fa9b0a4da0b4f8409f88f3df15c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6bca61adececc974cae597591038f6cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1162,7 +1162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440039246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.48, y: -0.006, z: 0}
+  m_LocalPosition: {x: -9.48, y: 0.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1200,34 +1200,34 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.04815197, y: 0.15333593}
-      - {x: -0.11417484, y: 0.1537106}
-      - {x: -0.1594019, y: 0.24418429}
-      - {x: -0.21726894, y: 0.2438352}
-      - {x: -0.16701221, y: 0.15560062}
-      - {x: -1.0794611, y: 0.15653716}
-      - {x: -1.1641445, y: 0.03606835}
-      - {x: -1.1776414, y: -0.32750198}
-      - {x: -1.0892267, y: -0.32632107}
-      - {x: -1.0572205, y: -0.22684714}
-      - {x: -0.9929476, y: -0.17685023}
-      - {x: -0.7677355, y: -0.17199875}
-      - {x: -0.6560173, y: -0.2418194}
-      - {x: -0.6282692, y: -0.3348442}
-      - {x: 0.54765856, y: -0.3395397}
-      - {x: 0.59712315, y: -0.22319083}
-      - {x: 0.7285681, y: -0.16299143}
+      - {x: -0.063607216, y: 0.14738959}
+      - {x: -0.11515522, y: 0.23154238}
+      - {x: -0.16880894, y: 0.23119329}
+      - {x: -0.11855221, y: 0.14506574}
+      - {x: -1.037322, y: 0.14178823}
+      - {x: -1.1220055, y: 0.027640373}
+      - {x: -1.1333947, y: -0.34435785}
+      - {x: -1.0597296, y: -0.34528396}
+      - {x: -1.023509, y: -0.25002396}
+      - {x: -0.9402733, y: -0.18527818}
+      - {x: -0.72138214, y: -0.18464066}
+      - {x: -0.63705444, y: -0.2270705}
+      - {x: -0.5819149, y: -0.34116516}
+      - {x: 0.5876919, y: -0.3437537}
+      - {x: 0.64979744, y: -0.24426068}
+      - {x: 0.75595856, y: -0.1798473}
       - {x: 0.8589916, y: -0.1786704}
-      - {x: 0.93981457, y: -0.23320939}
-      - {x: 1.0218925, y: -0.3452561}
-      - {x: 1.0816278, y: -0.3409255}
-      - {x: 1.06991, y: -0.10242453}
-      - {x: 0.9671354, y: 0.097145945}
+      - {x: 0.9608841, y: -0.2289954}
+      - {x: 1.0450706, y: -0.34736308}
+      - {x: 1.1279812, y: -0.34935346}
+      - {x: 1.1162634, y: -0.09188959}
+      - {x: 0.9839916, y: 0.1034669}
       - {x: 0.8145256, y: 0.14322937}
-      - {x: 0.58426666, y: 0.15935983}
-      - {x: 0.3329382, y: 0.35856304}
-      - {x: 0.28420353, y: 0.37385714}
-      - {x: 0.27963638, y: 0.3414161}
-      - {x: 0.47756672, y: 0.15653732}
+      - {x: 0.6348343, y: 0.14250393}
+      - {x: 0.3877201, y: 0.3438141}
+      - {x: 0.3284502, y: 0.36121523}
+      - {x: 0.32388306, y: 0.31823924}
+      - {x: 0.5407772, y: 0.14810935}
 --- !u!50 &1440039249
 Rigidbody2D:
   serializedVersion: 4
@@ -1263,7 +1263,7 @@ WheelJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.87699986, y: -0.454}
+  m_Anchor: {x: -0.8289995, y: -0.454}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
     m_DampingRatio: 0.35
@@ -1287,7 +1287,7 @@ WheelJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.7589998, y: -0.454}
+  m_Anchor: {x: 0.80700016, y: -0.454}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
     m_DampingRatio: 0.35
