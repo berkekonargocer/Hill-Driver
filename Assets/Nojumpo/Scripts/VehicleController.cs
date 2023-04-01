@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Nojumpo
 {
-    public class DriveCar : MonoBehaviour
+    public class VehicleController : MonoBehaviour
     {
         #region Fields
 
@@ -11,13 +11,15 @@ namespace Nojumpo
 
         [SerializeField] private Rigidbody2D _frontTireRigidbody2D;
         [SerializeField] private Rigidbody2D _backTireRigidbody2D;
+        private Rigidbody2D _vehicleRigidbody2D;
 
         #endregion
 
-        #region Car Movement Settings
+        #region Vehicle Movement Settings
 
-        [Header("Car Movement Settings")]
-        [SerializeField] private float _carSpeed = 150.0f;
+        [Header("Vehicle Movement Settings")]
+        [SerializeField] private float _vehicleMovementSpeed = 150.0f;
+        [SerializeField] private float _vehicleRotationSpeed = 300.0f;
 
         private Vector2 _moveInput = Vector2.zero;
         #endregion
@@ -28,14 +30,10 @@ namespace Nojumpo
 
         #region Unity Methods
 
-        #region Awake and Start
+        #region Awake
 
         private void Awake() {
-
-        }
-
-        private void Start() {
-
+            SetComponents();
         }
 
         #endregion
@@ -61,16 +59,15 @@ namespace Nojumpo
 
         #endregion
 
-        private void ApplyCarMovement() {
-            _frontTireRigidbody2D.AddTorque(-_moveInput.x * _carSpeed * Time.fixedDeltaTime);
-            _backTireRigidbody2D.AddTorque(-_moveInput.x * _carSpeed * Time.fixedDeltaTime);
+        private void SetComponents() {
+            _vehicleRigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-        #endregion
-
-        #region Custom Public Methods
-
-
+        private void ApplyCarMovement() {
+            _frontTireRigidbody2D.AddTorque(-_moveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
+            _backTireRigidbody2D.AddTorque(-_moveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
+            _vehicleRigidbody2D.AddTorque(_moveInput.y * _vehicleRotationSpeed * Time.fixedDeltaTime);
+        }
 
         #endregion
     }
