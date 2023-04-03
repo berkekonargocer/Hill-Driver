@@ -1779,8 +1779,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frontTireRigidbody2D: {fileID: 917022171}
   _backTireRigidbody2D: {fileID: 1065287637}
-  _vehicleMovementSpeed: 150
-  _vehicleRotationSpeed: 300
+  _vehicleMovementSpeed: 35
+  _vehicleRotationSpeed: 250
 --- !u!1 &1571220041
 GameObject:
   m_ObjectHideFlags: 0
