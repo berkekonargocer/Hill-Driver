@@ -20,6 +20,11 @@ namespace Nojumpo
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         private void OnValidate() {
             _spriteShapeController.spline.Clear();
+            GenerateLevel();
+        }
+
+        // ------------------------ CUSTOM PRIVATE METHODS ------------------------
+        private void GenerateLevel() {
             for (int i = 0; i < _levelLength; i++)
             {
                 _lastPosition = transform.position + new Vector3(i * _xMultiplier, Mathf.PerlinNoise(0, i * _noiseStep) * _yMultiplier);
@@ -35,12 +40,6 @@ namespace Nojumpo
 
             _spriteShapeController.spline.InsertPointAt(_levelLength, new Vector3(_lastPosition.x, transform.position.y - _bottom));
             _spriteShapeController.spline.InsertPointAt(_levelLength + 1, new Vector3(transform.position.x, transform.position.y - _bottom));
-            //GenerateLevel();
-        }
-
-        // ------------------------ CUSTOM PRIVATE METHODS ------------------------
-        private void GenerateLevel() {
-
         }
     }
 }
