@@ -6,30 +6,19 @@ namespace Nojumpo.UI
 {
     public class ImageFillSetter : MonoBehaviour
     {
-        #region Fields
-
+        // -------------------------------- FIELDS --------------------------------
         private Image _imageToSetFill;
-
         private float _oldValue;
-
         [SerializeField] private FloatReference _currentValue;
         [SerializeField] private FloatReference _maximumValue;
 
-        #endregion
 
-        #region Unity Methods
-
-        #region Awake
-
+        // ------------------------ UNITY BUILT-IN METHODS ------------------------
         private void Awake()
         {
             SetComponents();
         }
-
-        #endregion
-
-        #region Update
-
+        
         private void Update()
         {
             if (_currentValue.Value != _oldValue)
@@ -38,16 +27,11 @@ namespace Nojumpo.UI
             }
         }
 
-        #endregion
 
-        #endregion
-
-        #region Custom Private Methods
-
+        // ------------------------ CUSTOM PRIVATE METHODS ------------------------
         private void SetComponents()
         {
             _imageToSetFill = GetComponent<Image>();
-
             _oldValue = _currentValue.Value;
         }
 
@@ -56,7 +40,5 @@ namespace Nojumpo.UI
             _imageToSetFill.fillAmount = Mathf.Clamp01(_currentValue.Value / _maximumValue.Value);
             _oldValue = _currentValue.Value;
         }
-
-        #endregion
     }
 }

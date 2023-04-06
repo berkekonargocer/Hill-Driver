@@ -5,8 +5,6 @@ namespace Nojumpo.ScriptableObjects
     [CreateAssetMenu(fileName = "NewFloatVariable", menuName = "Nojumpo/Scriptable Objects/Datas/Variables/New Float Variable")]
     public class FloatVariableSO : ScriptableObject
     {
-        #region Fields
-
 #if UNITY_EDITOR
 
         [Multiline]
@@ -19,32 +17,22 @@ namespace Nojumpo.ScriptableObjects
 
         public float Value { get { return _value; } set { this._value = value; } }
 
-        #endregion
 
-
-
-        #region Public Methods
-
-        public void SetValue(float value)
-        {
+        // ------------------------ CUSTOM PUBLIC METHODS ------------------------
+        public void SetValue(float value) {
             Value = value;
         }
 
-        public void SetValue(FloatVariableSO value)
-        {
+        public void SetValue(FloatVariableSO value) {
             Value = value.Value;
         }
 
-        public void ApplyChange(float changeAmount)
-        {
+        public void ApplyChange(float changeAmount) {
             Value += changeAmount;
         }
 
-        public void ApplyChange(FloatVariableSO changeAmount)
-        {
+        public void ApplyChange(FloatVariableSO changeAmount) {
             Value += changeAmount.Value;
         }
-
-        #endregion
-    } 
+    }
 }
