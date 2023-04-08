@@ -27,8 +27,11 @@ namespace Nojumpo
         }
 
         private void FixedUpdate() {
-            ApplyCarMovement();
-            DrainFuel();
+            if (_vehicleFuel.Value > 0)
+            {
+                ApplyCarMovement();
+                DrainFuel(); 
+            }
         }
 
 
