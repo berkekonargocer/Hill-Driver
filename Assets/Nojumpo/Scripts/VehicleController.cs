@@ -30,7 +30,7 @@ namespace Nojumpo
             if (_vehicleFuel.Value > 0)
             {
                 ApplyCarMovement();
-                DrainFuel(); 
+                DrainFuel();
             }
         }
 
