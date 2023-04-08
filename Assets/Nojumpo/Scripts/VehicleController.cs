@@ -1,3 +1,4 @@
+using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,10 @@ namespace Nojumpo
         [SerializeField] private float _vehicleRotationSpeed = 300.0f;
         private Vector2 _moveInput = Vector2.zero;
 
+        [Header("VEHICLE FUEL SETTINGS")]
+        [SerializeField] private FloatVariableSO _vehicleFuel;
+        [SerializeField] private float _fuelDrainAmount = -0.0001f;
+
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         private void Awake() {
@@ -23,6 +28,7 @@ namespace Nojumpo
 
         private void FixedUpdate() {
             ApplyCarMovement();
+            DrainFuel();
         }
 
 
@@ -41,6 +47,13 @@ namespace Nojumpo
             _frontTireRigidbody2D.AddTorque(-_moveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
             _backTireRigidbody2D.AddTorque(-_moveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
             _vehicleRigidbody2D.AddTorque(_moveInput.y * _vehicleRotationSpeed * Time.fixedDeltaTime);
+        }
+
+        private void DrainFuel() {
+            if (_moveInput != Vector2.zero)
+            {
+                _vehicleFuel.ApplyChange(_fuelDrainAmount);
+            }
         }
     }
 }
