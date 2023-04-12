@@ -13,6 +13,7 @@ namespace Nojumpo.Managers
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         private void Awake() {
             InitializeSingleton();
+            PauseGame();
         }
 
 
@@ -27,6 +28,16 @@ namespace Nojumpo.Managers
             {
                 Destroy(gameObject);
             }
+        }
+
+
+        // ------------------------ CUSTOM PUBLIC METHODS ------------------------
+        public void PauseGame() {
+            Time.timeScale = 0;
+        }
+
+        public void ResumeGame() {
+            Time.timeScale = 1;
         }
     }
 }
