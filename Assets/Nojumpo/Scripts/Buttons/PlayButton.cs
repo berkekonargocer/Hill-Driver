@@ -5,13 +5,6 @@ namespace Nojumpo
 {
     public class PlayButton : MonoBehaviour
     {
-        // -------------------------------- FIELDS --------------------------------
-
-
-        // ------------------------ CUSTOM PRIVATE METHODS ------------------------
-
-
-
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void Play() {
             GameObject.Find("Vehicle").GetComponent<AudioSource>().Play();
