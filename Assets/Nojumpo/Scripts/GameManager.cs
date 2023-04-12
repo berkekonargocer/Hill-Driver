@@ -10,7 +10,7 @@ namespace Nojumpo.Managers
         public static GameManager Instance { get { return _instance; } }
 
         [Header("GAME LEVEL VARIABLES")]
-        private int _levelCount = SceneManager.sceneCountInBuildSettings;
+        private int _levelCount;
 
         [Header("GAME STATE VARIABLES")]
         public static bool _isDead;
@@ -20,7 +20,8 @@ namespace Nojumpo.Managers
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         private void Awake() {
             InitializeSingleton();
-            PauseGame();
+            _levelCount = SceneManager.sceneCountInBuildSettings;
+            Time.timeScale = 0.0f;
         }
 
         private void Update() {
@@ -50,12 +51,9 @@ namespace Nojumpo.Managers
 
 
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
-        public void PauseGame() {
-            Time.timeScale = 0;
-        }
-
-        public void ResumeGame() {
+        public void StartGame() {
             Time.timeScale = 1;
+            AudioManager.Instance.StartBGM();
         }
 
         public void RestartGame() {
