@@ -1638,10 +1638,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frontTireRigidbody2D: {fileID: 917022171}
   _backTireRigidbody2D: {fileID: 1065287637}
-  _vehicleMovementSpeed: 35
+  _vehicleMovementSpeed: 45
   _vehicleRotationSpeed: 300
   _vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
   _fuelDrainAmount: -0.0018
+  _vehicleEngineSound: {fileID: 1440039254}
+  _engineSoundMinimumPitch: 0.3
+  _engineSoundMaximumPitch: 1.5
 --- !u!82 &1440039254
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1655,7 +1658,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7c0dde197e1c63a48b5ab8fb81725a4e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.5
+  m_Pitch: 0.3
   Loop: 1
   Mute: 0
   Spatialize: 0

@@ -21,6 +21,12 @@ namespace Nojumpo
         [SerializeField] private float _fuelDrainAmount = -0.0001f;
 
 
+        [Header("VEHICLE ENGINE SOUND SETTINGS")]
+        [SerializeField] private AudioSource _vehicleEngineSound;
+        [SerializeField] private float _engineSoundMinimumPitch;
+        [SerializeField] private float _engineSoundMaximumPitch;
+
+
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         private void Awake() {
             SetComponents();
@@ -32,6 +38,7 @@ namespace Nojumpo
                 ApplyCarMovement();
                 DrainFuel();
             }
+            ChangeEngineSoundPitch();
         }
 
 
@@ -56,6 +63,33 @@ namespace Nojumpo
             if (_moveInput != Vector2.zero)
             {
                 _vehicleFuel.ApplyChange(_fuelDrainAmount);
+            }
+        }
+
+        private void ChangeEngineSoundPitch() {
+            if (_vehicleFuel.Value <= 0)
+            {
+                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, 0, 2f * Time.deltaTime);
+                return;
+            }
+
+            if (_moveInput.y == 0)
+            {
+                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMinimumPitch, 0.6f * Time.deltaTime);
+                return;
+            }
+
+            if (Mathf.Abs(_moveInput.y) * 2 > _engineSoundMaximumPitch)
+            {
+                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMaximumPitch, 0.6f * Time.deltaTime);
+            }
+            else if (Mathf.Abs(_moveInput.y) * 2 < _engineSoundMinimumPitch)
+            {
+                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMinimumPitch, 0.6f * Time.deltaTime);
+            }
+            else
+            {
+                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, Mathf.Abs(_moveInput.y) * 2, 0.6f * Time.deltaTime);
             }
         }
     }
