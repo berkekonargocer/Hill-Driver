@@ -12,19 +12,13 @@ namespace Nojumpo
         private Rigidbody2D _vehicleRigidbody2D;
 
         [Header("VEHICLE MOVEMENT SETTINGS")]
-        [SerializeField] private float _vehicleMovementSpeed = 150.0f;
+        [SerializeField] private float _vehicleMovementSpeed = 40.0f;
         [SerializeField] private float _vehicleRotationSpeed = 300.0f;
-        private Vector2 _moveInput = Vector2.zero;
+        public Vector2 MoveInput { get; private set; } = Vector2.zero;
 
         [Header("VEHICLE FUEL SETTINGS")]
         [SerializeField] private FloatVariableSO _vehicleFuel;
-        [SerializeField] private float _fuelDrainAmount = -0.0001f;
-
-
-        [Header("VEHICLE ENGINE SOUND SETTINGS")]
-        [SerializeField] private AudioSource _vehicleEngineSound;
-        [SerializeField] private float _engineSoundMinimumPitch;
-        [SerializeField] private float _engineSoundMaximumPitch;
+        [SerializeField] private float _fuelDrainAmount = -0.0018f;
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
@@ -38,13 +32,12 @@ namespace Nojumpo
                 ApplyCarMovement();
                 DrainFuel();
             }
-            ChangeEngineSoundPitch();
         }
 
 
-        // ------------------------ INPUT METHODS ------------------------
+        // ---------------------------- INPUT METHODS -----------------------------
         private void OnMove(InputValue inputValue) {
-            _moveInput = inputValue.Get<Vector2>();
+            MoveInput = inputValue.Get<Vector2>();
         }
 
 
@@ -54,42 +47,15 @@ namespace Nojumpo
         }
 
         private void ApplyCarMovement() {
-            _frontTireRigidbody2D.AddTorque(-_moveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
-            _backTireRigidbody2D.AddTorque(-_moveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
-            _vehicleRigidbody2D.AddTorque(_moveInput.y * _vehicleRotationSpeed * Time.fixedDeltaTime);
+            _frontTireRigidbody2D.AddTorque(-MoveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
+            _backTireRigidbody2D.AddTorque(-MoveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
+            _vehicleRigidbody2D.AddTorque(MoveInput.y * _vehicleRotationSpeed * Time.fixedDeltaTime);
         }
 
         private void DrainFuel() {
-            if (_moveInput != Vector2.zero)
+            if (MoveInput != Vector2.zero)
             {
                 _vehicleFuel.ApplyChange(_fuelDrainAmount);
-            }
-        }
-
-        private void ChangeEngineSoundPitch() {
-            if (_vehicleFuel.Value <= 0)
-            {
-                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, 0, 2f * Time.deltaTime);
-                return;
-            }
-
-            if (_moveInput.y == 0)
-            {
-                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMinimumPitch, 0.6f * Time.deltaTime);
-                return;
-            }
-
-            if (Mathf.Abs(_moveInput.y) * 2 > _engineSoundMaximumPitch)
-            {
-                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMaximumPitch, 0.6f * Time.deltaTime);
-            }
-            else if (Mathf.Abs(_moveInput.y) * 2 < _engineSoundMinimumPitch)
-            {
-                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMinimumPitch, 0.6f * Time.deltaTime);
-            }
-            else
-            {
-                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, Mathf.Abs(_moveInput.y) * 2, 0.6f * Time.deltaTime);
             }
         }
     }
