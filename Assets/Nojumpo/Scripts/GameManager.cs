@@ -90,7 +90,7 @@ namespace Nojumpo.Managers
         }
 
         private void OutOfFuel() {
-            _isDead = true;
+            _isDead = true; // out of fuel variable and players can reset if they want they wont be forced
             _vehicleRigidbody2D.bodyType = RigidbodyType2D.Static;
         }
 
