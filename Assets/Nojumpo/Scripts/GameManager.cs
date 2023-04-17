@@ -14,13 +14,11 @@ namespace Nojumpo.Managers
 
         [Header("VEHICLE VARIABLES")]
         [SerializeField] private FloatVariableSO _vehicleFuel;
-        private Rigidbody2D _vehicleRigidbody2D;
 
         [Header("GAME LEVEL VARIABLES")]
         private int _levelCount;
 
         [Header("GAME STATE VARIABLES")]
-        private static bool _isOutOfFuelCoroutineCalled = false;
         public static bool _isDead = false;
         public static bool _isLevelCompleted = false;
 
@@ -41,11 +39,6 @@ namespace Nojumpo.Managers
         }
 
         private void Update() {
-            //if (!_isOutOfFuelCoroutineCalled && !_isDead && _vehicleFuel.Value <= 0)
-            //{
-            //    StartCoroutine(OutOfFuel());
-            //}
-
             if (_isDead && Input.GetKeyDown(KeyCode.Return))
             {
                 RestartGame();
@@ -71,27 +64,16 @@ namespace Nojumpo.Managers
         }
 
         private void ResetVariables(Scene scene, LoadSceneMode loadSceneMode) {
-            _vehicleRigidbody2D = GameObject.Find("Vehicle").GetComponent<Rigidbody2D>();
             _isDead = false;
             _isLevelCompleted = false;
-            _isOutOfFuelCoroutineCalled = false;
             _vehicleFuel.Value = 1.0f;
         }
 
-        private IEnumerator OutOfFuelCoroutine() {
-            _isOutOfFuelCoroutineCalled = true;
-
-            yield return new WaitForSeconds(3.0f);
-
+        public void CheckIfReachedToEnd() {
             if (!_isLevelCompleted)
             {
-                OutOfFuel();
+                _isDead = true;
             }
-        }
-
-        private void OutOfFuel() {
-            _isDead = true; // out of fuel variable and players can reset if they want they wont be forced
-            _vehicleRigidbody2D.bodyType = RigidbodyType2D.Static;
         }
 
         private IEnumerator LevelCompleted() {
@@ -116,7 +98,7 @@ namespace Nojumpo.Managers
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        public void StartLevelCompletedCoroutine() {
+        public void CallLevelCompletedCoroutine() {
             StartCoroutine(LevelCompleted());
         }
     }

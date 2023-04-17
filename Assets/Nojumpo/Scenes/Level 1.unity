@@ -3010,6 +3010,8 @@ MonoBehaviour:
   _backTireRigidbody2D: {fileID: 1065287637}
   _vehicleMovementSpeed: 24
   _vehicleRotationSpeed: 300
+  _angularDragOnOutOfFuel: 2
+  _timeToChangeAngularDrag: 5
   _vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
   _fuelDrainAmount: -0.0018
 --- !u!82 &1440039254
