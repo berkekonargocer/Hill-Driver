@@ -19,9 +19,11 @@ namespace Nojumpo.Managers
         private int _levelCount;
 
         [Header("GAME STATE VARIABLES")]
-        public static bool _isDead = false;
-        public static bool _isLevelCompleted = false;
+        public static bool _isFailed = false;
+        public static bool _isReachedToEnd = false;
 
+        [Header("LOADING SCREEN SETTINGS")]
+        [SerializeField] private GameObject _loadingScreen;
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         private void OnEnable() {
@@ -35,20 +37,20 @@ namespace Nojumpo.Managers
         private void Awake() {
             InitializeSingleton();
             _levelCount = SceneManager.sceneCountInBuildSettings;
-            Time.timeScale = 0.0f;
         }
 
         private void Update() {
-            if (_isDead && Input.GetKeyDown(KeyCode.Return))
+            if (_isFailed && Input.GetKeyDown(KeyCode.Return))
             {
                 RestartGame();
             }
 
-            if (!_isDead && _isLevelCompleted && Input.GetKeyDown(KeyCode.Return))
+            if (!_isFailed && _isReachedToEnd && Input.GetKeyDown(KeyCode.Return))
             {
-                // Next Level
+                StartLoadNextLevelCoroutine();
             }
         }
+
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
         private void InitializeSingleton() {
@@ -64,38 +66,62 @@ namespace Nojumpo.Managers
         }
 
         private void ResetVariables(Scene scene, LoadSceneMode loadSceneMode) {
-            _isDead = false;
-            _isLevelCompleted = false;
+            _isFailed = false;
+            _isReachedToEnd = false;
             _vehicleFuel.Value = 1.0f;
         }
 
-        public void CheckIfReachedToEnd() {
-            if (!_isLevelCompleted)
-            {
-                _isDead = true;
-            }
+        private void FailedToReachToEnd() {
+            _isFailed = true;
+            // UI state
         }
 
         private IEnumerator LevelCompleted() {
             yield return new WaitForSeconds(3.5f);
-            _isLevelCompleted = true;
+            _isReachedToEnd = true;
         }
+
+        private IEnumerator LoadNextLevelCoroutine() {
+            if (SceneManager.GetActiveScene().buildIndex + 1 > _levelCount)
+                StopCoroutine(LoadNextLevelCoroutine());
+
+            _loadingScreen.SetActive(true);
+
+            AsyncOperation loadScene = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+            loadScene.allowSceneActivation = false;
+
+            while (loadScene.isDone == false)
+            {
+                if (loadScene.progress >= 0.9f)
+                {
+                    loadScene.allowSceneActivation = true;
+                }
+
+                yield return null;
+            }
+        }
+
 
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void StartGame() {
             Time.timeScale = 1;
             AudioManager.Instance.StartBGM();
+            StartLoadNextLevelCoroutine();
         }
 
         public void RestartGame() {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        public void GoToNextLevel() {
-            if (SceneManager.GetActiveScene().buildIndex + 1 > _levelCount)
-                return;
+        public void StartLoadNextLevelCoroutine() {
+            StartCoroutine(LoadNextLevelCoroutine());
+        }
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        public void CheckIfReachedToEnd() {
+            if (!_isReachedToEnd)
+            {
+                FailedToReachToEnd();
+            }
         }
 
         public void CallLevelCompletedCoroutine() {

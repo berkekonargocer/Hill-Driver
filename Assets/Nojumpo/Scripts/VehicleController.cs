@@ -19,7 +19,6 @@ namespace Nojumpo
         [SerializeField] private float _vehicleRotationSpeed = 300.0f;
         [SerializeField] private float _angularDragOnOutOfFuel = 20.0f;
         [SerializeField] private float _timeToChangeAngularDrag = 10.0f;
-        private bool _isChangeAngularDragCoroutineCalled = false;
         public Vector2 MoveInput { get; private set; } = Vector2.zero;
 
         [Header("VEHICLE FUEL SETTINGS")]
@@ -80,9 +79,6 @@ namespace Nojumpo
         }
 
         private async Task ChangeVehicleWheelsAngularDrag() {
-
-            _isChangeAngularDragCoroutineCalled = true;
-
             float timeElapsed = 0;
             float angularDragChangeTimeElapsed = 0;
 
