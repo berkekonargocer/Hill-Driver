@@ -17,11 +17,13 @@ namespace Nojumpo
         [SerializeField] private float _bottom = 10.0f;
         private Vector3 _lastPosition;
 
+
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         private void OnValidate() {
             _spriteShapeController.spline.Clear();
             GenerateTerrain();
         }
+
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
         private void GenerateTerrain() {
