@@ -1,13 +1,14 @@
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Nojumpo
 {
     public class FuelCannister : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] private FloatVariableSO _vehicleFuel;
-        [SerializeField] private float _fuelRefillAmount;
+        [SerializeField] [FormerlySerializedAs("_vehicleFuel")] private FloatVariableSO vehicleFuel;
+        [SerializeField] [FormerlySerializedAs("_fuelRefillAmount")] private float fuelRefillAmount;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
@@ -18,7 +19,7 @@ namespace Nojumpo
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         private void RefillFuel() {
-            _vehicleFuel.ApplyChange(_fuelRefillAmount);
+            vehicleFuel.ApplyChange(fuelRefillAmount);
             Destroy(gameObject);
         }
     }

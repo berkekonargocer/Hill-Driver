@@ -1,29 +1,30 @@
+using System.Threading.Tasks;
 using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
-using System.Collections;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Nojumpo
 {
     public class VehicleController : MonoBehaviour
     {
+
         [Header("COMPONENTS")]
-        [SerializeField] private Rigidbody2D _frontTireRigidbody2D;
-        [SerializeField] private Rigidbody2D _backTireRigidbody2D;
+        [SerializeField] [FormerlySerializedAs("_frontTireRigidbody2D")] private Rigidbody2D frontTireRigidbody2D;
+        [SerializeField] [FormerlySerializedAs("_backTireRigidbody2D")] private Rigidbody2D backTireRigidbody2D;
         private Rigidbody2D _vehicleRigidbody2D;
 
         [Header("VEHICLE MOVEMENT SETTINGS")]
-        [SerializeField] private float _vehicleMovementSpeed = 40.0f;
-        [SerializeField] private float _vehicleRotationSpeed = 300.0f;
-        [SerializeField] private float _angularDragOnOutOfFuel = 20.0f;
-        [SerializeField] private float _timeToChangeAngularDrag = 10.0f;
+        private const float VEHICLE_MOVEMENT_SPEED = 40.0f;
+        private const float VEHICLE_ROTATION_SPEED = 300.0f;
+        private const float ANGULAR_DRAG_ON_OUT_OF_FUEL = 20.0f;
+        private const float TIME_TO_CHANGE_ANGULAR_DRAG = 10.0f;
         public Vector2 MoveInput { get; private set; } = Vector2.zero;
-
+        
         [Header("VEHICLE FUEL SETTINGS")]
-        [SerializeField] private FloatVariableSO _vehicleFuel;
-        [SerializeField] private float _fuelDrainAmount = -0.0018f;
+        [SerializeField] [FormerlySerializedAs("_vehicleFuel")] private FloatVariableSO vehicleFuel;
+        [SerializeField] [FormerlySerializedAs("_fuelDrainAmount")] private float fuelDrainAmount = -0.0018f;
         private bool _isOutOfFuelAsyncMethodCalled;
 
 
@@ -33,13 +34,13 @@ namespace Nojumpo
         }
 
         private void FixedUpdate() {
-            if (_vehicleFuel.Value > 0)
+            if (vehicleFuel.Value > 0)
             {
                 ApplyCarMovement();
                 DrainFuel();
             }
 
-            if (_vehicleFuel.Value < 0 && !_isOutOfFuelAsyncMethodCalled)
+            if (vehicleFuel.Value < 0 && !_isOutOfFuelAsyncMethodCalled)
             {
                 OutOfFuel();
             }
@@ -58,15 +59,15 @@ namespace Nojumpo
         }
 
         private void ApplyCarMovement() {
-            _frontTireRigidbody2D.AddTorque(-MoveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
-            _backTireRigidbody2D.AddTorque(-MoveInput.y * _vehicleMovementSpeed * Time.fixedDeltaTime);
-            _vehicleRigidbody2D.AddTorque(MoveInput.y * _vehicleRotationSpeed * Time.fixedDeltaTime);
+            frontTireRigidbody2D.AddTorque(-MoveInput.y * VEHICLE_MOVEMENT_SPEED * Time.fixedDeltaTime);
+            backTireRigidbody2D.AddTorque(-MoveInput.y * VEHICLE_MOVEMENT_SPEED * Time.fixedDeltaTime);
+            _vehicleRigidbody2D.AddTorque(MoveInput.y * VEHICLE_ROTATION_SPEED * Time.fixedDeltaTime);
         }
 
         private void DrainFuel() {
             if (MoveInput != Vector2.zero)
             {
-                _vehicleFuel.ApplyChange(_fuelDrainAmount);
+                vehicleFuel.ApplyChange(fuelDrainAmount);
             }
         }
 
@@ -82,12 +83,12 @@ namespace Nojumpo
             float timeElapsed = 0;
             float angularDragChangeTimeElapsed = 0;
 
-            while (timeElapsed < _timeToChangeAngularDrag)
+            while (timeElapsed < TIME_TO_CHANGE_ANGULAR_DRAG)
             {
-                _backTireRigidbody2D.angularDrag = Mathf.MoveTowards(_backTireRigidbody2D.angularDrag, _angularDragOnOutOfFuel, angularDragChangeTimeElapsed / _timeToChangeAngularDrag);
-                _frontTireRigidbody2D.angularDrag = Mathf.MoveTowards(_frontTireRigidbody2D.angularDrag, _angularDragOnOutOfFuel, angularDragChangeTimeElapsed / _timeToChangeAngularDrag);
+                backTireRigidbody2D.angularDrag = Mathf.MoveTowards(backTireRigidbody2D.angularDrag, ANGULAR_DRAG_ON_OUT_OF_FUEL, angularDragChangeTimeElapsed / TIME_TO_CHANGE_ANGULAR_DRAG);
+                frontTireRigidbody2D.angularDrag = Mathf.MoveTowards(frontTireRigidbody2D.angularDrag, ANGULAR_DRAG_ON_OUT_OF_FUEL, angularDragChangeTimeElapsed / TIME_TO_CHANGE_ANGULAR_DRAG);
                 angularDragChangeTimeElapsed += Time.deltaTime / 15;
-                timeElapsed += Time.deltaTime;
+                timeElapsed += Time.deltaTime * 5f;
                 await Task.Yield();
             }
         }

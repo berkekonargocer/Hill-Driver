@@ -42,6 +42,9 @@ namespace Nojumpo.Managers
             if (SceneManager.GetActiveScene().buildIndex + 1 > _levelCount)
                 StopCoroutine(LoadNextLevelCoroutine());
 
+            if (_loadingScreen == null)
+                _loadingScreen = GameObject.Find("Loading Screen Panel");
+
             _loadingScreen.SetActive(true);
 
             AsyncOperation loadScene = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
@@ -56,8 +59,8 @@ namespace Nojumpo.Managers
 
                 yield return null;
             }
-
-            _loadingScreen.SetActive(false);
+            if (_loadingScreen != null)
+                _loadingScreen.SetActive(false);
         }
 
 
