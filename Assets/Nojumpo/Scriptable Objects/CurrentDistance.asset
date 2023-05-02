@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebc4472189076064d88e7fff4d015018, type: 3}
-  m_Name: Fuel
+  m_Script: {fileID: 11500000, guid: 565d1f45d5448c544addced04bc06a0f, type: 3}
+  m_Name: CurrentDistance
   m_EditorClassIdentifier: 
-  developerDescription: 
-  _value: 2493.5837
+  _developerDescription: 
+  _value: 0

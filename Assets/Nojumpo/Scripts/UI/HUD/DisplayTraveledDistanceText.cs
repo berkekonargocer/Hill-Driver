@@ -1,50 +1,38 @@
+using Nojumpo.Interfaces;
+using Nojumpo.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 
-namespace Nojumpo
+namespace Nojumpo.UI
 {
     public class DisplayTraveledDistanceText : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
         [Header("COMPONENTS")]
-        [SerializeField] private TextMeshProUGUI _traveledDistanceText;
-        [SerializeField] private Transform _vehicleTransform;
+        [SerializeField] IntVariableSO currentDistance;
+        TextMeshProUGUI _traveledDistanceText;
 
-        private Vector2 _vehicleStartPosition = Vector2.zero;
-        private Vector2 _traveledDistance = Vector2.zero;
-        private Vector2 _lastTraveledDistance = Vector2.zero;
+        int _oldValue;
 
+        
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
 
         private void Awake() {
-            _vehicleStartPosition = _vehicleTransform.position;
+            _traveledDistanceText = GetComponent<TextMeshProUGUI>();
         }
 
         private void Update() {
-            
-            CalculateTraveledDistance();
-
-            if (_lastTraveledDistance != _traveledDistance)
+            if (currentDistance.Value != _oldValue)
             {
                 TraveledDistanceToText();
-                _lastTraveledDistance = _traveledDistance;
             }
         }
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        private void CalculateTraveledDistance() {
-            _traveledDistance = (Vector2)_vehicleTransform.position - _vehicleStartPosition;
-            _traveledDistance.y = 0;
-
-            if (_traveledDistance.x < 0)
-            {
-                _traveledDistance.x = 0;
-            }
-        }
-
         private void TraveledDistanceToText() {
-            _traveledDistanceText.text = $"{_traveledDistance.x.ToString("F0")}m";
+            _traveledDistanceText.text = $"{currentDistance.Value}m";
+            _oldValue = currentDistance.Value;
         }
     }
 }

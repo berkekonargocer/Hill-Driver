@@ -1,21 +1,21 @@
+using Nojumpo.Interfaces;
 using UnityEngine;
 
 namespace Nojumpo.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "NewFloatVariable", menuName = "Nojumpo/Scriptable Objects/Datas/Variables/New Float Variable")]
-    public class FloatVariableSO : ScriptableObject
+    public class FloatVariableSO : ScriptableObject, IVariableSO<float>
     {
 #if UNITY_EDITOR
 
         [Multiline]
-        [SerializeField] private string _developerDescription = string.Empty;
+        [SerializeField] string developerDescription = string.Empty;
 
 #endif
 
         [Tooltip("Float value to use")]
-        [SerializeField] private float _value;
-
-        public float Value { get { return _value; } set { this._value = value; } }
+        [SerializeField] float _value;
+        public float Value { get { return _value; } set { _value = value; } }
 
 
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------

@@ -1,6 +1,5 @@
 using Nojumpo.Interfaces;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Nojumpo
 {
@@ -9,11 +8,6 @@ namespace Nojumpo
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField]
         GameObject howToPlayPanel;
-
-        // ------------------------- UNITY BUILT-IN METHODS ------------------------
-
-
-        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------

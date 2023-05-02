@@ -7,44 +7,40 @@ namespace Nojumpo.UI
     public class ImageFillSetter : MonoBehaviour
     {
         // -------------------------------- FIELDS --------------------------------
-        private Image _imageToSetFill;
-        private float _oldValue;
-        [SerializeField] private FloatReference _currentValue;
-        [SerializeField] private FloatReference _maximumValue;
-        [SerializeField] private Gradient _imageGradient;
+        Image _imageToSetFill;
+        float _oldValue;
+        [SerializeField] FloatReference currentValue;
+        [SerializeField] FloatReference maximumValue;
+        [SerializeField] Gradient imageGradient;
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
-        private void Awake()
-        {
+        void Awake() {
             SetComponents();
         }
-        
-        private void Update()
-        {
-            if (_currentValue.Value != _oldValue)
+
+        void Update() {
+            if (currentValue.Value != _oldValue)
             {
                 SetImageFill();
                 ChangeImageColorWithGradient();
-            }          
+            }
         }
 
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
-        private void SetComponents()
-        {
+        void SetComponents() {
             _imageToSetFill = GetComponent<Image>();
-            _oldValue = _currentValue.Value;
+            _oldValue = currentValue.Value;
         }
 
-        private void SetImageFill()
-        {
-            _imageToSetFill.fillAmount = Mathf.Clamp01(_currentValue.Value / _maximumValue.Value);
-            _oldValue = _currentValue.Value;
+        void SetImageFill() {
+            _imageToSetFill.fillAmount = Mathf.Clamp01(currentValue.Value / maximumValue.Value);
+            _oldValue = currentValue.Value;
         }
 
-        private void ChangeImageColorWithGradient() {
-            _imageToSetFill.color = _imageGradient.Evaluate(_imageToSetFill.fillAmount);
-        } 
+        void ChangeImageColorWithGradient() {
+            _imageToSetFill.color = imageGradient.Evaluate(_imageToSetFill.fillAmount);
+        }
     }
 }
