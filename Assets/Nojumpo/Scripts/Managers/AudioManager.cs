@@ -6,20 +6,20 @@ namespace Nojumpo.Managers
     {
         // -------------------------------- FIELDS --------------------------------
         [Header("SINGLETON")]
-        private static AudioManager _instance;
+        static AudioManager _instance;
         public static AudioManager Instance { get { return _instance; } }
 
         [Header("AUDIO VARIABLES")]
-        [SerializeField] private AudioSource _bgmAudioSource;
+        [SerializeField] AudioSource _bgmAudioSource;
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
-        private void Awake() {
+        void Awake() {
             InitializeSingleton();
         }
 
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
-        private void InitializeSingleton() {
+        void InitializeSingleton() {
             if (_instance == null)
             {
                 _instance = this;

@@ -14,14 +14,14 @@ namespace Nojumpo.UI
 
         int _oldValue;
 
-        
+
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
 
-        private void Awake() {
+        void Awake() {
             _traveledDistanceText = GetComponent<TextMeshProUGUI>();
         }
 
-        private void Update() {
+        void Update() {
             if (currentDistance.Value != _oldValue)
             {
                 TraveledDistanceToText();
@@ -30,7 +30,7 @@ namespace Nojumpo.UI
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        private void TraveledDistanceToText() {
+        void TraveledDistanceToText() {
             _traveledDistanceText.text = $"{currentDistance.Value}m";
             _oldValue = currentDistance.Value;
         }

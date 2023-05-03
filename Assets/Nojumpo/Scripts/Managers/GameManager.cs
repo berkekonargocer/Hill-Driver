@@ -9,7 +9,7 @@ namespace Nojumpo.Managers
     {
         // -------------------------------- FIELDS --------------------------------
         [Header("SINGLETON")]
-        private static GameManager _instance;
+        static GameManager _instance;
         public static GameManager Instance { get { return _instance; } }
 
         [Header("VEHICLE VARIABLES")]
@@ -21,19 +21,19 @@ namespace Nojumpo.Managers
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
-        private void OnEnable() {
+        void OnEnable() {
             SceneManager.sceneLoaded += ResetVariables;
         }
 
-        private void OnDisable() {
+        void OnDisable() {
             SceneManager.sceneLoaded -= ResetVariables;
         }
 
-        private void Awake() {
+        void Awake() {
             InitializeSingleton();
         }
 
-        private void Update() {
+        void Update() {
             if (_isFailed && Input.GetKeyDown(KeyCode.Return))
             {
                 LevelManager.Instance.RestartGame();
@@ -47,7 +47,7 @@ namespace Nojumpo.Managers
 
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
-        private void InitializeSingleton() {
+        void InitializeSingleton() {
             if (_instance == null)
             {
                 _instance = this;
@@ -59,18 +59,18 @@ namespace Nojumpo.Managers
             }
         }
 
-        private void ResetVariables(Scene scene, LoadSceneMode loadSceneMode) {
+        void ResetVariables(Scene scene, LoadSceneMode loadSceneMode) {
             _isFailed = false;
             _isReachedToEnd = false;
             vehicleFuel.Value = 1.0f;
         }
 
-        private void FailedToReachToEnd() {
+        void FailedToReachToEnd() {
             _isFailed = true;
             // UI state
         }
 
-        private IEnumerator LevelCompleted() {
+        IEnumerator LevelCompleted() {
             yield return new WaitForSeconds(3.5f);
             _isReachedToEnd = true;
         }

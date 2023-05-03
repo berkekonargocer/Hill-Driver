@@ -7,18 +7,18 @@ namespace Nojumpo
     public class FuelCannister : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] [FormerlySerializedAs("_vehicleFuel")] private FloatVariableSO vehicleFuel;
-        [SerializeField] [FormerlySerializedAs("_fuelRefillAmount")] private float fuelRefillAmount;
+        [SerializeField] [FormerlySerializedAs("_vehicleFuel")] FloatVariableSO vehicleFuel;
+        [SerializeField] [FormerlySerializedAs("_fuelRefillAmount")] float fuelRefillAmount;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        private void OnTriggerEnter2D(Collider2D collision) {
+        void OnTriggerEnter2D(Collider2D collision) {
             RefillFuel();
         }
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        private void RefillFuel() {
+        void RefillFuel() {
             vehicleFuel.ApplyChange(fuelRefillAmount);
             Destroy(gameObject);
         }

@@ -8,25 +8,25 @@ namespace Nojumpo.Managers
     {
         // -------------------------------- FIELDS --------------------------------
         [Header("SINGLETON")]
-        private static LevelManager _instance;
+        static LevelManager _instance;
         public static LevelManager Instance { get { return _instance; } }
 
         [Header("GAME LEVEL VARIABLES")]
-        private int _levelCount;
+        int _levelCount;
 
         [Header("LOADING SCREEN SETTINGS")]
-        [SerializeField] private GameObject _loadingScreen;
+        [SerializeField] GameObject _loadingScreen;
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
-        private void Awake() {
+        void Awake() {
             InitializeSingleton();
             _levelCount = SceneManager.sceneCountInBuildSettings;
         }
 
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
-        private void InitializeSingleton() {
+        void InitializeSingleton() {
             if (_instance == null)
             {
                 _instance = this;
@@ -38,7 +38,7 @@ namespace Nojumpo.Managers
             }
         }
 
-        private IEnumerator LoadNextLevelCoroutine() {
+        IEnumerator LoadNextLevelCoroutine() {
             if (SceneManager.GetActiveScene().buildIndex + 1 > _levelCount)
                 StopCoroutine(LoadNextLevelCoroutine());
 

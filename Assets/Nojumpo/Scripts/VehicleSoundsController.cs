@@ -7,39 +7,37 @@ namespace Nojumpo
     {
         // -------------------------------- FIELDS --------------------------------
         [Header("COMPONENTS")]
-        private VehicleController _vehicleController;
-        [SerializeField] private FloatVariableSO _vehicleFuel;
+        VehicleController _vehicleController;
+        [SerializeField] FloatVariableSO _vehicleFuel;
 
         [Header("VEHICLE ENGINE SOUND SETTINGS")]
-        [SerializeField] private AudioSource _vehicleEngineSound;
-        [SerializeField] private float _engineSoundMinimumPitch = 0.3f;
-        [SerializeField] private float _engineSoundMaximumPitch = 1.5f;
+        [SerializeField] AudioSource _vehicleEngineSound;
+        [SerializeField] float _engineSoundMinimumPitch = 0.3f;
+        [SerializeField] float _engineSoundMaximumPitch = 1.5f;
 
         /// <summary>
         /// Couldn't find any usable audios for these
         /// </summary>
         //[Header("VEHICLE HIT SOUND SETTINGS")]
-        //[SerializeField] private AudioSource _vehicleHitSound;
-        //[SerializeField] private float _maximumHitVolume;
-        //[SerializeField] private float _minimumHitVolume;
+        //[SerializeField] AudioSource _vehicleHitSound;
+        //[SerializeField] float _maximumHitVolume;
+        //[SerializeField] float _minimumHitVolume;
 
         //[Header("VEHICLE WHEEL ROLLING SOUND SETTINGS")]
-        //[SerializeField] private AudioSource _vehicleWheelRollingSound;
-
-
+        //[SerializeField] AudioSource _vehicleWheelRollingSound;
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
-        private void Awake() {
+        void Awake() {
             _vehicleController = GetComponent<VehicleController>();
         }
 
-        private void FixedUpdate() {
+        void FixedUpdate() {
             ChangeEngineSoundPitch();
         }
 
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
-        private void ChangeEngineSoundPitch() {
+        void ChangeEngineSoundPitch() {
             if (_vehicleFuel.Value <= 0)
             {
                 _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, 0, 2f * Time.deltaTime);
