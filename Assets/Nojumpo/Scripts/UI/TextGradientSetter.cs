@@ -29,7 +29,6 @@ namespace Nojumpo.UI
         }
 
         void ChangeImageColorWithGradient() {
-            
             float gradientValue = Mathf.Clamp01((float)currentValue.Value / maximumValue.Value);
             _textToChangeColor.color = gradient.Evaluate(gradientValue);
         }

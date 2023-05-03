@@ -13,11 +13,11 @@ namespace Nojumpo.Managers
         public static GameManager Instance { get { return _instance; } }
 
         [Header("VEHICLE VARIABLES")]
-        [SerializeField] private FloatVariableSO _vehicleFuel;
+        [SerializeField] FloatVariableSO vehicleFuel;
 
         [Header("GAME STATE VARIABLES")]
-        public static bool _isFailed = false;
-        public static bool _isReachedToEnd = false;
+        public static bool _isFailed;
+        public static bool _isReachedToEnd;
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
@@ -62,7 +62,7 @@ namespace Nojumpo.Managers
         private void ResetVariables(Scene scene, LoadSceneMode loadSceneMode) {
             _isFailed = false;
             _isReachedToEnd = false;
-            _vehicleFuel.Value = 1.0f;
+            vehicleFuel.Value = 1.0f;
         }
 
         private void FailedToReachToEnd() {
