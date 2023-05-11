@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47429b5580dfb5b47b93c5d8f023896d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
+  vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
 --- !u!4 &670960464
 Transform:
   m_ObjectHideFlags: 0
@@ -742,6 +742,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
+      propertyPath: m_Suspension.m_Frequency
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
+      propertyPath: m_Suspension.m_DampingRatio
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316574930501731809, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
+      propertyPath: m_Suspension.m_Frequency
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316574930501731809, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
+      propertyPath: m_Suspension.m_DampingRatio
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731811, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_BodyType
       value: 2

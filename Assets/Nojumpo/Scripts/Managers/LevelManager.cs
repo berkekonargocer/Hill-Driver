@@ -13,7 +13,7 @@ namespace Nojumpo.Managers
 
         [Header("GAME LEVEL VARIABLES")]
         int _levelCount;
-
+        
         [Header("LOADING SCREEN SETTINGS")]
         [SerializeField] GameObject _loadingScreen;
 
