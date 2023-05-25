@@ -4800,6 +4800,18 @@ PrefabInstance:
       propertyPath: gradient.key2.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2014573301211925109, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014573301211925109, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 359.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014573301211925109, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2441859616051635076, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
       propertyPath: m_IsActive
       value: 0
