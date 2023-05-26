@@ -12,7 +12,7 @@ namespace Nojumpo.UI
         Slider _slider;
 
         [Tooltip("Float Variable Scriptable Object Value to equalize to the Slider value")]
-        [SerializeField] IntVariableSO variable;
+        [SerializeField] ReadOnlyInspectorIntVariableSO variable;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------

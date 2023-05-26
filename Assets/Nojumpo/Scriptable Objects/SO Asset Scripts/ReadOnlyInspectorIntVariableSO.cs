@@ -1,20 +1,19 @@
-using Nojumpo.Interfaces;
 using UnityEngine;
+using Nojumpo.EditorAttributes;
 
 namespace Nojumpo.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "NewIntVariable", menuName = "Nojumpo/Scriptable Objects/Datas/Variable/New Integer Variable")]
-    public class IntVariableSO : ScriptableObject, IVariableSO<int>
+    [CreateAssetMenu(fileName = "NewReadOnlyInspectorIntVariableSO", menuName = "Nojumpo/Scriptable Objects/Datas/Variable/New ReadOnly Inspector Int Variable SO")]
+    public class ReadOnlyInspectorIntVariableSO : ScriptableObject
     {
         
 #if UNITY_EDITOR
 
         [TextArea]
-        [SerializeField] string developerDescription;
+        [SerializeField] string _developerDescription;
 
 #endif
-
-        [SerializeField] int _value;
+        [ReadOnlyInspector] [SerializeField] int _value;
         public int Value { get { return _value; } set { _value = value; } }
         
         
@@ -23,7 +22,7 @@ namespace Nojumpo.ScriptableObjects
             Value = value;
         }
 
-        public void SetValue(IntVariableSO value) {
+        public void SetValue(ReadOnlyInspectorIntVariableSO value) {
             Value = value.Value;
         }
 
@@ -31,7 +30,7 @@ namespace Nojumpo.ScriptableObjects
             Value += changeAmount;
         }
 
-        public void ApplyChange(IntVariableSO changeAmount) {
+        public void ApplyChange(ReadOnlyInspectorIntVariableSO changeAmount) {
             Value += changeAmount.Value;
         }
     }

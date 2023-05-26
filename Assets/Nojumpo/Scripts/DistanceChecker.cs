@@ -11,8 +11,8 @@ namespace Nojumpo
         [SerializeField] GameObject currentPosition;
         [SerializeField] GameObject arrivingDestination;
 
-        [SerializeField] IntVariableSO currentDistance;
-        [SerializeField] IntVariableSO totalDistance;
+        [SerializeField] ReadOnlyInspectorIntVariableSO currentDistance;
+        [SerializeField] ReadOnlyInspectorIntVariableSO totalDistance;
         
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------

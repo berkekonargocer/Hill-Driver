@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Nojumpo.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "NewFloatVariable", menuName = "Nojumpo/Scriptable Objects/Datas/Variables/New Float Variable")]
+    [CreateAssetMenu(fileName = "NewFloatVariable", menuName = "Nojumpo/Scriptable Objects/Datas/Variable/New Float Variable")]
     public class FloatVariableSO : ScriptableObject, IVariableSO<float>
     {
 #if UNITY_EDITOR

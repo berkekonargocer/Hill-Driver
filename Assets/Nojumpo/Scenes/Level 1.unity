@@ -463,8 +463,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPosition: {fileID: 1316541754}
   arrivingDestination: {fileID: 189570378}
-  currentDistance: {fileID: 11400000, guid: b6e886853372f4d4b93e5b2200998d48, type: 2}
-  totalDistance: {fileID: 11400000, guid: 90b0c1e3a07b3f64ca587e10406f48fb, type: 2}
+  currentDistance: {fileID: 11400000, guid: f0505489d8f93c74d823dfb122c0b7e0, type: 2}
+  totalDistance: {fileID: 11400000, guid: 17394da5bc1c6d54bb97342b6e504abd, type: 2}
 --- !u!4 &377151259
 Transform:
   m_ObjectHideFlags: 0
@@ -2537,7 +2537,7 @@ GameObject:
   - component: {fileID: 1486065065}
   - component: {fileID: 1486065064}
   m_Layer: 0
-  m_Name: Finish Flag3x
+  m_Name: Finish Flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4876,6 +4876,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -35
       objectReference: {fileID: 0}
+    - target: {fileID: 5205514275379693146, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
+      propertyPath: variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 17394da5bc1c6d54bb97342b6e504abd, type: 2}
+    - target: {fileID: 6029150810479758611, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
+      propertyPath: maxValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 17394da5bc1c6d54bb97342b6e504abd, type: 2}
     - target: {fileID: 6029150810479758611, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
       propertyPath: maxValue.variable
       value: 
