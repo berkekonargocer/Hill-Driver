@@ -4800,6 +4800,14 @@ PrefabInstance:
       propertyPath: gradient.key2.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1731813229156932448, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
+      propertyPath: currentValue.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: f0505489d8f93c74d823dfb122c0b7e0, type: 2}
+    - target: {fileID: 1731813229156932448, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
+      propertyPath: maximumValue.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 17394da5bc1c6d54bb97342b6e504abd, type: 2}
     - target: {fileID: 2014573301211925109, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4879,7 +4887,7 @@ PrefabInstance:
     - target: {fileID: 5205514275379693146, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
       propertyPath: variable
       value: 
-      objectReference: {fileID: 11400000, guid: 17394da5bc1c6d54bb97342b6e504abd, type: 2}
+      objectReference: {fileID: 11400000, guid: f0505489d8f93c74d823dfb122c0b7e0, type: 2}
     - target: {fileID: 6029150810479758611, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
       propertyPath: maxValue
       value: 
@@ -4887,7 +4895,11 @@ PrefabInstance:
     - target: {fileID: 6029150810479758611, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
       propertyPath: maxValue.variable
       value: 
-      objectReference: {fileID: 11400000, guid: 90b0c1e3a07b3f64ca587e10406f48fb, type: 2}
+      objectReference: {fileID: 11400000, guid: 17394da5bc1c6d54bb97342b6e504abd, type: 2}
+    - target: {fileID: 6679326042248460145, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
+      propertyPath: currentDistance
+      value: 
+      objectReference: {fileID: 11400000, guid: f0505489d8f93c74d823dfb122c0b7e0, type: 2}
     - target: {fileID: 6778320356002078224, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

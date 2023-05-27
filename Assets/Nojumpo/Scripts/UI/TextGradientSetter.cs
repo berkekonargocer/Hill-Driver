@@ -1,4 +1,4 @@
-using Nojumpo.Variables;
+using Nojumpo.ScriptableObjects.ScriptableObjectReferences;
 using TMPro;
 using UnityEngine;
 
@@ -8,8 +8,8 @@ namespace Nojumpo.UI
     {
         // -------------------------------- FIELDS --------------------------------
         TextMeshProUGUI _textToChangeColor;
-        [SerializeField] IntReference currentValue;
-        [SerializeField] IntReference maximumValue;
+        [SerializeField] ReadOnlyInspectorIntReference currentValue;
+        [SerializeField] ReadOnlyInspectorIntReference maximumValue;
         [SerializeField] Gradient gradient;
 
 

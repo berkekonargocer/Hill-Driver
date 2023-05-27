@@ -1,5 +1,4 @@
-using System;
-using Nojumpo.Variables;
+using Nojumpo.ScriptableObjects.ScriptableObjectReferences;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +9,8 @@ namespace Nojumpo
     {
         // -------------------------------- FIELDS ---------------------------------
         Slider _slider;
-        [SerializeField] IntReference minValue;
-        [SerializeField] IntReference maxValue;
+        [SerializeField] ReadOnlyInspectorIntReference minValue;
+        [SerializeField] ReadOnlyInspectorIntReference maxValue;
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {

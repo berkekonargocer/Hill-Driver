@@ -9,7 +9,7 @@ namespace Nojumpo.UI
     {
         // -------------------------------- FIELDS ---------------------------------
         [Header("COMPONENTS")]
-        [SerializeField] IntVariableSO currentDistance;
+        [SerializeField] ReadOnlyInspectorIntVariableSO currentDistance;
         TextMeshProUGUI _traveledDistanceText;
 
         int _oldValue;
