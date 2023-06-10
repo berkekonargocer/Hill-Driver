@@ -52,7 +52,7 @@ namespace Nojumpo
         }
 
         /// <summary>
-        /// Use this with a bool if you need to repeat a background in y position
+        /// Use this with a bool if you need a infinite background in y position
         /// </summary>
         void RepeatYPosition() {
             if (Mathf.Abs(_cameraTransform.position.y - transform.position.y) >= _textureUnitSizeY)

@@ -4442,15 +4442,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_Angle
-      value: 90
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_DampingRatio
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_AutoConfigureConnectedAnchor
@@ -4462,15 +4462,15 @@ PrefabInstance:
       objectReference: {fileID: 8316574931394282675}
     - target: {fileID: 8316574930501731809, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_Angle
-      value: 90
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731809, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731809, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_DampingRatio
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731836, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Name
