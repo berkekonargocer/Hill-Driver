@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Nojumpo.Interfaces;
 using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
@@ -46,7 +48,6 @@ namespace Nojumpo
                 OutOfFuel();
             }
         }
-
 
         // ---------------------------- INPUT METHODS -----------------------------
         void OnMove(InputValue inputValue) {

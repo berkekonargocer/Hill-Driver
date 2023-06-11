@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 8316574930501731810}
   - component: {fileID: 8316574930501731811}
   - component: {fileID: 8316574930501731815}
+  - component: {fileID: 8344913283379969828}
   - component: {fileID: 8316574930501731813}
   - component: {fileID: 8316574930501731814}
   - component: {fileID: 8316574930501731809}
@@ -316,14 +317,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5635a6db2bd14b444ab11fa61b1a70aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frontTireRigidbody2D: {fileID: 8316574932154999145}
-  _backTireRigidbody2D: {fileID: 8316574932285930343}
-  _vehicleMovementSpeed: 24
-  _vehicleRotationSpeed: 300
-  _angularDragOnOutOfFuel: 2
-  _timeToChangeAngularDrag: 5
-  _vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
-  _fuelDrainAmount: -0.0018
+  frontTireRigidbody2D: {fileID: 8316574932154999145}
+  backTireRigidbody2D: {fileID: 8316574932285930343}
+  vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
+  fuelDrainAmount: -0.0018
+--- !u!114 &8344913283379969828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316574930501731836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af807947097775f4f835f29c77ff82f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8316574930501731813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +908,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.019738778, y: -0.15132391}
-  m_ConnectedAnchor: {x: 0.03173828, y: 0.32807603}
+  m_ConnectedAnchor: {x: 0.031738758, y: 0.32807603}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

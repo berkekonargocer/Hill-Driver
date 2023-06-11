@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 402737418}
   m_Layer: 0
   m_Name: Fuel Cannister
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,8 +504,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5baf314d23ce60048b74232cc3dd91e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuelCanvasElement: {fileID: 1013662728}
   vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
-  fuelRefillAmount: 0.3
+  animationTime: 2
+  fuelAddAmount: 0.3
 --- !u!61 &402737415
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -523,7 +525,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1871,6 +1873,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999281394}
   m_CullTransparentMesh: 1
+--- !u!224 &1013662728 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7819495942400064455, guid: 1ce142e43c13c504290a1f46e2064da4, type: 3}
+  m_PrefabInstance: {fileID: 7819495941859865125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1306787062
 GameObject:
   m_ObjectHideFlags: 0
