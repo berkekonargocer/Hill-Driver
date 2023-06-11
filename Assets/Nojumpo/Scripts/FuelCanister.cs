@@ -1,14 +1,13 @@
-using Nojumpo.ScriptableObjects;
-using Nojumpo.Scripts;
-using UnityEngine;
 using System.Collections;
 using DG.Tweening;
 using Nojumpo.Interfaces;
-using UnityEngine.Serialization;
+using Nojumpo.ScriptableObjects;
+using Nojumpo.Scripts;
+using UnityEngine;
 
 namespace Nojumpo
 {
-    public class FuelCannister : MonoBehaviour, ICollectable
+    public class FuelCanister : MonoBehaviour, ICollectable
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] RectTransform fuelCanvasElement;
@@ -41,9 +40,14 @@ namespace Nojumpo
             }
         }
 
+        void DisableCollider() {
+            BoxCollider2D fuelCanisterBoxCollider2D = GetComponent<BoxCollider2D>();
+            fuelCanisterBoxCollider2D.enabled = false;
+        }
 
         // ------------------------- CUSTOM PUBLIC METHODS ------------------------
         public void Collect() {
+            DisableCollider();
             AddFuelToVehicle();
             ShrinkAnimation();
             StartCoroutine(nameof(GoToFuelUIElement));
