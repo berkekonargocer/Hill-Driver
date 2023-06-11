@@ -9,7 +9,7 @@ namespace Nojumpo
         // -------------------------------- FIELDS --------------------------------
         [Header("GENERATION SETTINGS")]
         [SerializeField] SpriteShapeController _spriteShapeController;
-        [SerializeField, Range(3.0f, 100.0f)] int _terrainLength = 50;
+        [SerializeField, Range(3.0f, 500.0f)] int _terrainLength = 100;
         [SerializeField, Range(1.0f, 50.0f)] float _xMultiplier = 2.0f;
         [SerializeField, Range(1.0f, 50.0f)] float _yMultiplier = 2.0f;
         [SerializeField, Range(0.0f, 1.0f)] float _curveSmoothness = 0.5f;
