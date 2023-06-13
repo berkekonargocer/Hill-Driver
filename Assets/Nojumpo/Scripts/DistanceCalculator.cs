@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Nojumpo
 {
-    public class DistanceChecker : MonoBehaviour
+    public class DistanceCalculator : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] GameObject currentPosition;
-        [SerializeField] GameObject arrivingDestination;
+        [SerializeField] Transform currentPosition;
+        [SerializeField] Transform arrivingDestination;
 
         [SerializeField] ReadOnlyInspectorIntVariableSO currentDistance;
         [SerializeField] ReadOnlyInspectorIntVariableSO totalDistance;
@@ -15,19 +15,19 @@ namespace Nojumpo
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
-            Invoke(nameof(CheckTotalDistance), 0.1f);
+            Invoke(nameof(CalculateTotalDistance), 0.1f);
         }
         void Update() {
-            CheckCurrentDistance();
+            CalculateCurrentDistance();
         }
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        void CheckCurrentDistance() {
+        void CalculateCurrentDistance() {
             currentDistance.Value = (int)Mathf.Abs(currentPosition.transform.position.x - arrivingDestination.transform.position.x);
         }
 
-        void CheckTotalDistance() {
+        void CalculateTotalDistance() {
             totalDistance.Value = currentDistance.Value;
         } 
     }
