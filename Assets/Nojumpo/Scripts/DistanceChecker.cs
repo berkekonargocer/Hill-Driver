@@ -1,7 +1,5 @@
-using System;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Nojumpo
 {
