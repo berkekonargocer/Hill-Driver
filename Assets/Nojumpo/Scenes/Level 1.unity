@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 262073263}
   - component: {fileID: 262073265}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Tutorial Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reach to the flag!
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd52e094ac879f94983b4544aa15f58b, type: 2}
   m_sharedMaterial: {fileID: -6176358804275527654, guid: dd52e094ac879f94983b4544aa15f58b, type: 2}
@@ -365,12 +365,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb967959be64ad4c856d0835be14841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextWaitSeconds: 3
+  changeTextWaitSeconds: 4
   animationDuration: 1
   textChangeAnimation: 1
   beginOnStart: 1
   texts:
-  - BUT BE CAREFUL ABOUT YOUR FUEL!
+  - REACH TO THE FLAG!
+  - BUT USE YOUR FUEL CAREFULLY!
   - LETS RIDE!
 --- !u!1 &282575872
 GameObject:
