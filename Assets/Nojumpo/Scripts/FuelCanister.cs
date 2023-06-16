@@ -11,6 +11,7 @@ namespace Nojumpo
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] RectTransform fuelCanvasElement;
+        [SerializeField] AudioSource collectSFX;
         
         [SerializeField] FloatVariableSO vehicleFuel;
         
@@ -24,7 +25,7 @@ namespace Nojumpo
         }
 
         void ShrinkAnimation() {
-            transform.DOScale(0, animationTime / 2);
+            transform.DOScale(0, animationTime / 1.5f);
         }
 
         IEnumerator GoToFuelUIElement() {
@@ -44,10 +45,12 @@ namespace Nojumpo
             BoxCollider2D fuelCanisterBoxCollider2D = GetComponent<BoxCollider2D>();
             fuelCanisterBoxCollider2D.enabled = false;
         }
+        
 
         // ------------------------- CUSTOM PUBLIC METHODS ------------------------
         public void Collect() {
             DisableCollider();
+            collectSFX.Play();
             AddFuelToVehicle();
             ShrinkAnimation();
             StartCoroutine(nameof(GoToFuelUIElement));

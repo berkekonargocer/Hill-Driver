@@ -439,7 +439,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7c0dde197e1c63a48b5ab8fb81725a4e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 0.3
   Loop: 1
   Mute: 0
@@ -908,7 +908,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.019738778, y: -0.15132391}
-  m_ConnectedAnchor: {x: 0.031738758, y: 0.32807603}
+  m_ConnectedAnchor: {x: 0.031738777, y: 0.32807603}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
