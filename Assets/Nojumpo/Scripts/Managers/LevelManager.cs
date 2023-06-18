@@ -13,9 +13,12 @@ namespace Nojumpo.Managers
 
         [Header("GAME LEVEL VARIABLES")]
         int _levelCount;
-        
+
         [Header("LOADING SCREEN SETTINGS")]
         [SerializeField] GameObject _loadingScreen;
+
+        public bool IsHoldingDown { get; set; }
+        public float CurrentHoldDownTime { get; set; }
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
@@ -59,6 +62,7 @@ namespace Nojumpo.Managers
 
                 yield return null;
             }
+
             if (_loadingScreen != null)
                 _loadingScreen.SetActive(false);
         }
@@ -71,12 +75,40 @@ namespace Nojumpo.Managers
             CallLoadNextLevelCoroutine();
         }
 
-        public void RestartGame() {
+        public void RestartLevel() {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void StartHoldDownToRestartLevelCoroutine(float holdDownTime) {
+            StartCoroutine(HoldDownToRestartLevelCoroutine(holdDownTime));
+        }
+
+        public void StopHoldDownToRestartLevelCoroutine(float holdDownTime) {
+            StopCoroutine(HoldDownToRestartLevelCoroutine(holdDownTime));
         }
 
         public void CallLoadNextLevelCoroutine() {
             StartCoroutine(LoadNextLevelCoroutine());
         }
+
+        IEnumerator HoldDownToRestartLevelCoroutine(float holdDownTime) {
+            IsHoldingDown = true;
+
+            while (IsHoldingDown)
+            {
+                CurrentHoldDownTime += Time.deltaTime;
+
+                yield return null;
+
+                if (CurrentHoldDownTime >= holdDownTime)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    CurrentHoldDownTime = 0.0f;
+                    IsHoldingDown = false;
+                    StopCoroutine(nameof(HoldDownToRestartLevelCoroutine));
+                }
+            }
+        }
+        
     }
 }

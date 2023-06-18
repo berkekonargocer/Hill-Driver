@@ -36,7 +36,7 @@ namespace Nojumpo.Managers
         void Update() {
             if (_isFailed && Input.GetKeyDown(KeyCode.Return))
             {
-                LevelManager.Instance.RestartGame();
+                LevelManager.Instance.RestartLevel();
             }
 
             if (!_isFailed && _isReachedToEnd && Input.GetKeyDown(KeyCode.Return))
