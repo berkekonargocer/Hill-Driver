@@ -16,8 +16,6 @@ namespace Nojumpo
         }
 
         public void OnPointerUp(PointerEventData pointerEventData) {
-            LevelManager.Instance.IsHoldingDown = false;
-            LevelManager.Instance.CurrentHoldDownTime = 0.0f;
             LevelManager.Instance.StopHoldDownToRestartLevelCoroutine(holdDownTime);
         }
         

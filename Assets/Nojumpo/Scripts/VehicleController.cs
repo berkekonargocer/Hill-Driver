@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nojumpo.Interfaces;
 using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
@@ -12,7 +9,6 @@ namespace Nojumpo
 {
     public class VehicleController : MonoBehaviour
     {
-
         [Header("COMPONENTS")]
         [SerializeField] [FormerlySerializedAs("_frontTireRigidbody2D")] Rigidbody2D frontTireRigidbody2D;
         [SerializeField] [FormerlySerializedAs("_backTireRigidbody2D")] Rigidbody2D backTireRigidbody2D;

@@ -17,16 +17,32 @@ namespace Nojumpo.Managers
         [Header("LOADING SCREEN SETTINGS")]
         [SerializeField] GameObject _loadingScreen;
 
-        public bool IsHoldingDown { get; set; }
-        public float CurrentHoldDownTime { get; set; }
+
+        [SerializeField] float holdDownToRestartTime = 2.0f;
+        float _currentHoldDownTime;
+        bool _isHoldingDown;
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void Awake() {
             InitializeSingleton();
             _levelCount = SceneManager.sceneCountInBuildSettings;
+            enabled = false;
         }
 
+        void Update() {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                StartCoroutine(HoldDownToRestartLevelCoroutine(holdDownToRestartTime));
+            }
+
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                StopCoroutine(HoldDownToRestartLevelCoroutine(holdDownToRestartTime));
+                _isHoldingDown = false;
+                _currentHoldDownTime = 0.0f;
+            }
+        }
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
         void InitializeSingleton() {
@@ -73,6 +89,7 @@ namespace Nojumpo.Managers
             Time.timeScale = 1;
             AudioManager.Instance.StartBGM();
             CallLoadNextLevelCoroutine();
+            enabled = true;
         }
 
         public void RestartLevel() {
@@ -85,6 +102,8 @@ namespace Nojumpo.Managers
 
         public void StopHoldDownToRestartLevelCoroutine(float holdDownTime) {
             StopCoroutine(HoldDownToRestartLevelCoroutine(holdDownTime));
+            _isHoldingDown = false;
+            _currentHoldDownTime = 0.0f;
         }
 
         public void CallLoadNextLevelCoroutine() {
@@ -92,20 +111,20 @@ namespace Nojumpo.Managers
         }
 
         IEnumerator HoldDownToRestartLevelCoroutine(float holdDownTime) {
-            IsHoldingDown = true;
-
-            while (IsHoldingDown)
+            _isHoldingDown = true;
+            
+            while (_isHoldingDown)
             {
-                CurrentHoldDownTime += Time.deltaTime;
+                _currentHoldDownTime += Time.deltaTime;
 
                 yield return null;
 
-                if (CurrentHoldDownTime >= holdDownTime)
+                if (_currentHoldDownTime >= holdDownTime)
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                    CurrentHoldDownTime = 0.0f;
-                    IsHoldingDown = false;
                     StopCoroutine(nameof(HoldDownToRestartLevelCoroutine));
+                    _isHoldingDown = false;
+                    _currentHoldDownTime = 0.0f;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
             }
         }

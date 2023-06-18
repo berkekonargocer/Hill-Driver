@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadingScreen: {fileID: 1916196607}
+  holdDownToRestartTime: 1
 --- !u!1 &569305800
 GameObject:
   m_ObjectHideFlags: 0
