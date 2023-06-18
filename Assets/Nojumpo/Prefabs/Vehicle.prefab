@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8316574930233726514}
   m_Layer: 0
   m_Name: CharacterBody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 8316574930440649884}
   m_Layer: 0
   m_Name: VehicleBody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 8316574930501731812}
   m_Layer: 0
   m_Name: Vehicle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,7 +217,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8316574930501731836}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.08, y: 2.48, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   frontTireRigidbody2D: {fileID: 8316574932154999145}
   backTireRigidbody2D: {fileID: 8316574932285930343}
   vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
-  fuelDrainAmount: -0.0018
+  fuelDrainAmount: -0.0016
 --- !u!114 &8344913283379969828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,9 +396,9 @@ WheelJoint2D:
   m_Anchor: {x: 0.80700016, y: -0.454}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.35
-    m_Frequency: 3
-    m_Angle: 90
+    m_DampingRatio: 1
+    m_Frequency: 6
+    m_Angle: 120
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -420,9 +420,9 @@ WheelJoint2D:
   m_Anchor: {x: -0.8289995, y: -0.454}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.35
-    m_Frequency: 3
-    m_Angle: 90
+    m_DampingRatio: 0.1
+    m_Frequency: 6
+    m_Angle: 120
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 8316574932154999144}
   m_Layer: 0
   m_Name: FrontTire
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 8316574932285930342}
   m_Layer: 0
   m_Name: BackTire
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 8316574932366581785}
   m_Layer: 0
   m_Name: CharacterHead
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

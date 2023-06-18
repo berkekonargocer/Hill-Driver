@@ -1,3 +1,4 @@
+using System;
 using Nojumpo.ScriptableObjects;
 using System.Collections;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Nojumpo.Managers
     public class GameManager : MonoBehaviour
     {
         // -------------------------------- FIELDS --------------------------------
+        public static event Action onLevelCompleted;
+        
         [Header("SINGLETON")]
         static GameManager _instance;
         public static GameManager Instance { get { return _instance; } }
@@ -15,18 +18,18 @@ namespace Nojumpo.Managers
         [Header("VEHICLE VARIABLES")]
         [SerializeField] FloatVariableSO vehicleFuel;
 
-        [Header("GAME STATE VARIABLES")]
-        public static bool _isFailed;
-        public static bool _isReachedToEnd;
-
+        public bool IsLevelCompleted { get; private set; }
+        
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             SceneManager.sceneLoaded += ResetVariables;
+            onLevelCompleted += LevelCompleted;
         }
 
         void OnDisable() {
             SceneManager.sceneLoaded -= ResetVariables;
+            onLevelCompleted -= LevelCompleted;
         }
 
         void Awake() {
@@ -34,12 +37,10 @@ namespace Nojumpo.Managers
         }
 
         void Update() {
-            if (_isFailed && Input.GetKeyDown(KeyCode.Return))
-            {
-                LevelManager.Instance.RestartLevel();
-            }
-
-            if (!_isFailed && _isReachedToEnd && Input.GetKeyDown(KeyCode.Return))
+            if (!IsLevelCompleted)
+                return;
+            
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 LevelManager.Instance.CallLoadNextLevelCoroutine();
             }
@@ -60,32 +61,21 @@ namespace Nojumpo.Managers
         }
 
         void ResetVariables(Scene scene, LoadSceneMode loadSceneMode) {
-            _isFailed = false;
-            _isReachedToEnd = false;
             vehicleFuel.Value = 1.0f;
         }
 
-        void FailedToReachToEnd() {
-            _isFailed = true;
-            // UI state
+        void LevelCompleted() {
+            IsLevelCompleted = true;
         }
 
-        IEnumerator LevelCompleted() {
-            yield return new WaitForSeconds(3.5f);
-            _isReachedToEnd = true;
+        void StartedToNewLevel() {
+            IsLevelCompleted = false;
         }
-
-
+        
+        
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
-        public void CheckIfReachedToEnd() {
-            if (!_isReachedToEnd)
-            {
-                FailedToReachToEnd();
-            }
-        }
-
-        public void CallLevelCompletedCoroutine() {
-            StartCoroutine(LevelCompleted());
+        public void InvokeOnLevelCompleted() {
+            onLevelCompleted?.Invoke();
         }
     }
 }

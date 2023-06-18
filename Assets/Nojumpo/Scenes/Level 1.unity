@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 1013662728}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 1 (2)
+      value: Fuel Canister 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -1898,7 +1898,7 @@ PrefabInstance:
       objectReference: {fileID: 1013662728}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 1 (1)
+      value: Fuel Canister 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -2039,7 +2039,7 @@ PrefabInstance:
       objectReference: {fileID: 1013662728}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 1 (4)
+      value: Fuel Canister 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -5746,7 +5746,7 @@ PrefabInstance:
       objectReference: {fileID: 1013662728}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 1 (3)
+      value: Fuel Canister 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -6262,36 +6262,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 499692564}
     m_Modifications:
     - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
-      propertyPath: m_Suspension.m_Angle
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_DampingRatio
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8316574930501731808, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
-      propertyPath: m_AutoConfigureConnectedAnchor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8316574930501731809, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
-      propertyPath: m_ConnectedRigidBody
-      value: 
-      objectReference: {fileID: 8316574931394282675}
-    - target: {fileID: 8316574930501731809, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
-      propertyPath: m_Suspension.m_Angle
-      value: 120
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731809, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731809, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Suspension.m_DampingRatio
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731836, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Name
@@ -6341,14 +6325,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8316574932366581785, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.031738777
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
---- !u!50 &8316574931394282675 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8316574932154999145, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
-  m_PrefabInstance: {fileID: 8316574931394282674}
-  m_PrefabAsset: {fileID: 0}

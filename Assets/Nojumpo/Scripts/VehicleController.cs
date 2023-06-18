@@ -1,17 +1,17 @@
+using System.Collections;
 using System.Threading.Tasks;
 using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Nojumpo
 {
     public class VehicleController : MonoBehaviour
     {
         [Header("COMPONENTS")]
-        [SerializeField] [FormerlySerializedAs("_frontTireRigidbody2D")] Rigidbody2D frontTireRigidbody2D;
-        [SerializeField] [FormerlySerializedAs("_backTireRigidbody2D")] Rigidbody2D backTireRigidbody2D;
+        [SerializeField] Rigidbody2D frontTireRigidbody2D;
+        [SerializeField] Rigidbody2D backTireRigidbody2D;
         Rigidbody2D _vehicleRigidbody2D;
 
         [Header("VEHICLE MOVEMENT SETTINGS")]
@@ -22,9 +22,9 @@ namespace Nojumpo
         public Vector2 MoveInput { get; private set; } = Vector2.zero;
 
         [Header("VEHICLE FUEL SETTINGS")]
-        [SerializeField] [FormerlySerializedAs("_vehicleFuel")] FloatVariableSO vehicleFuel;
-        [SerializeField] [FormerlySerializedAs("_fuelDrainAmount")] float fuelDrainAmount = -0.0018f;
-        bool _isOutOfFuelAsyncMethodCalled;
+        [SerializeField] FloatVariableSO vehicleFuel;
+        [SerializeField] float fuelDrainAmount = -0.0018f;
+        bool _isOutOfFuelMethodCalled;
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
@@ -39,7 +39,10 @@ namespace Nojumpo
                 DrainFuel();
             }
 
-            if (vehicleFuel.Value < 0 && !_isOutOfFuelAsyncMethodCalled)
+            if (_isOutOfFuelMethodCalled)
+                return;
+            
+            if (vehicleFuel.Value < 0)
             {
                 OutOfFuel();
             }
@@ -69,15 +72,11 @@ namespace Nojumpo
             }
         }
 
-        async void OutOfFuel() {
-            _isOutOfFuelAsyncMethodCalled = true;
-
-            await ChangeVehicleWheelsAngularDrag();
-
-            GameManager.Instance.CheckIfReachedToEnd();
+        void OutOfFuel() {
+            StartCoroutine(nameof(ChangeVehicleWheelsAngularDrag));
         }
 
-        async Task ChangeVehicleWheelsAngularDrag() {
+        IEnumerator ChangeVehicleWheelsAngularDrag() {
             float timeElapsed = 0;
             float angularDragChangeTimeElapsed = 0;
 
@@ -87,7 +86,7 @@ namespace Nojumpo
                 frontTireRigidbody2D.angularDrag = Mathf.MoveTowards(frontTireRigidbody2D.angularDrag, ANGULAR_DRAG_ON_OUT_OF_FUEL, angularDragChangeTimeElapsed / TIME_TO_CHANGE_ANGULAR_DRAG);
                 angularDragChangeTimeElapsed += Time.deltaTime / 15;
                 timeElapsed += Time.deltaTime * 5f;
-                await Task.Yield();
+                yield return null;
             }
         }
     }

@@ -1,39 +1,16 @@
+using Nojumpo.Managers;
 using UnityEngine;
 
 namespace Nojumpo
 {
     public class FinishFlag : MonoBehaviour
     {
-        // -------------------------------- FIELDS ---------------------------------
-
-
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void OnEnable() {
-
+        void OnTriggerEnter2D(Collider2D other) {
+            if (other.CompareTag("Player"))
+            {
+                GameManager.Instance.InvokeOnLevelCompleted();
+            }
         }
-
-        void OnDisable() {
-
-        }
-
-        void Awake() {
-
-        }
-
-        void Start() {
-
-        }
-
-        void Update() {
-
-        }
-
-
-        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-
-
-
-        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
     }
 }

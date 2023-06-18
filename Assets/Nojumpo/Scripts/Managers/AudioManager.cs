@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Nojumpo.Managers
 {
@@ -8,9 +9,11 @@ namespace Nojumpo.Managers
         [Header("SINGLETON")]
         static AudioManager _instance;
         public static AudioManager Instance { get { return _instance; } }
-
+        
         [Header("AUDIO VARIABLES")]
-        [SerializeField] AudioSource _bgmAudioSource;
+        [SerializeField] AudioSource bgmAudioSource;
+        [SerializeField] AudioSource levelCompletedAudioSource;
+        
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void Awake() {
@@ -33,7 +36,7 @@ namespace Nojumpo.Managers
 
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void StartBGM() {
-            _bgmAudioSource.Play();
+            bgmAudioSource.Play();
         }
     }
 }

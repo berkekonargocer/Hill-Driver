@@ -27,10 +27,12 @@ namespace Nojumpo.Managers
         void Awake() {
             InitializeSingleton();
             _levelCount = SceneManager.sceneCountInBuildSettings;
-            enabled = false;
         }
 
         void Update() {
+            if (GameManager.Instance.IsLevelCompleted)
+                return;
+            
             if (Input.GetKeyDown(KeyCode.R))
             {
                 StartCoroutine(HoldDownToRestartLevelCoroutine(holdDownToRestartTime));
@@ -89,7 +91,6 @@ namespace Nojumpo.Managers
             Time.timeScale = 1;
             AudioManager.Instance.StartBGM();
             CallLoadNextLevelCoroutine();
-            enabled = true;
         }
 
         public void RestartLevel() {
