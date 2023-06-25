@@ -117,7 +117,7 @@ namespace Nojumpo.Managers
             while (_isHoldingDown)
             {
                 _currentHoldDownTime += Time.deltaTime;
-
+                
                 yield return null;
 
                 if (_currentHoldDownTime >= holdDownTime)

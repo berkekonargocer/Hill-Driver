@@ -1,6 +1,5 @@
 using System;
 using Nojumpo.ScriptableObjects;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

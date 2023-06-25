@@ -38,10 +38,10 @@ namespace Nojumpo
             {
                 case DestroyAnimation.FADE:
                     TextMeshProUGUI textMeshProUGUI = GetComponent<TextMeshProUGUI>();
-                    textMeshProUGUI.DOFade(0, animationDuration).onComplete = () => Destroy(gameObject);
+                    textMeshProUGUI.DOFade(0, animationDuration).OnComplete(() => Destroy(gameObject));
                     break;
                 case DestroyAnimation.SCALE_DOWN:
-                    transform.DOScale(0, animationDuration).onComplete = () => Destroy(gameObject);
+                    transform.DOScale(0, animationDuration).OnComplete(() => Destroy(gameObject));
                     break;
             }
 
