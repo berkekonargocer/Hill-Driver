@@ -1,3 +1,5 @@
+using System;
+using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
 
@@ -27,6 +29,14 @@ namespace Nojumpo
         //[SerializeField] AudioSource _vehicleWheelRollingSound;
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
+        void OnEnable() {
+            GameManager.onLevelCompleted += DisableUpdate;
+        }
+
+        void OnDisable() {
+            GameManager.onLevelCompleted -= DisableUpdate;
+        }
+
         void Awake() {
             _vehicleController = GetComponent<VehicleController>();
         }
@@ -58,6 +68,10 @@ namespace Nojumpo
             {
                 _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, Mathf.Abs(_vehicleController.MoveInput.y) * 2, 0.6f * Time.deltaTime);
             }
+        }
+
+        void DisableUpdate() {
+            enabled = false;
         }
 
     }

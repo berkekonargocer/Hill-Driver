@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Threading.Tasks;
 using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
@@ -28,6 +27,14 @@ namespace Nojumpo
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
+        void OnEnable() {
+            GameManager.onLevelCompleted += DisableUpdate;
+        }
+
+        void OnDisable() {
+            GameManager.onLevelCompleted -= DisableUpdate;
+        }
+
         void Awake() {
             SetComponents();
         }
@@ -76,6 +83,10 @@ namespace Nojumpo
             StartCoroutine(nameof(ChangeVehicleWheelsAngularDrag));
         }
 
+        void DisableUpdate() {
+            enabled = false;
+        }
+        
         IEnumerator ChangeVehicleWheelsAngularDrag() {
             float timeElapsed = 0;
             float angularDragChangeTimeElapsed = 0;
