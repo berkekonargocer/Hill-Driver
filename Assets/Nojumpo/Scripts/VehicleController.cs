@@ -14,7 +14,7 @@ namespace Nojumpo
         Rigidbody2D _vehicleRigidbody2D;
 
         [Header("VEHICLE MOVEMENT SETTINGS")]
-        const float VEHICLE_MOVEMENT_SPEED = 40.0f;
+        const float VEHICLE_MOVEMENT_SPEED = 45.0f;
         const float VEHICLE_ROTATION_SPEED = 300.0f;
         const float ANGULAR_DRAG_ON_OUT_OF_FUEL = 20.0f;
         const float TIME_TO_CHANGE_ANGULAR_DRAG = 10.0f;

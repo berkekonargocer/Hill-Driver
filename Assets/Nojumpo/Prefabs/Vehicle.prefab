@@ -396,8 +396,8 @@ WheelJoint2D:
   m_Anchor: {x: 0.80700016, y: -0.454}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 1
-    m_Frequency: 6
+    m_DampingRatio: 0.5
+    m_Frequency: 7
     m_Angle: 120
   m_UseMotor: 0
   m_Motor:
@@ -420,8 +420,8 @@ WheelJoint2D:
   m_Anchor: {x: -0.8289995, y: -0.454}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.1
-    m_Frequency: 6
+    m_DampingRatio: 0.5
+    m_Frequency: 7
     m_Angle: 120
   m_UseMotor: 0
   m_Motor:
@@ -908,7 +908,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.019738778, y: -0.15132391}
-  m_ConnectedAnchor: {x: 0.031738777, y: 0.32807603}
+  m_ConnectedAnchor: {x: 0.031738758, y: 0.32807603}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
