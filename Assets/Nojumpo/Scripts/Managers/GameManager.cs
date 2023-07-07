@@ -60,6 +60,7 @@ namespace Nojumpo.Managers
         }
 
         void ResetVariables(Scene scene, LoadSceneMode loadSceneMode) {
+            IsLevelCompleted = false;
             vehicleFuel.Value = 1.0f;
         }
 
@@ -67,11 +68,6 @@ namespace Nojumpo.Managers
             IsLevelCompleted = true;
         }
 
-        void StartedToNewLevel() {
-            IsLevelCompleted = false;
-        }
-        
-        
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void InvokeOnLevelCompleted() {
             onLevelCompleted?.Invoke();

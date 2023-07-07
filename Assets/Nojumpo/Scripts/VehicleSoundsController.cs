@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
@@ -20,6 +20,7 @@ namespace Nojumpo
         /// <summary>
         /// Couldn't find any usable audios for these
         /// </summary>
+
         //[Header("VEHICLE HIT SOUND SETTINGS")]
         //[SerializeField] AudioSource _vehicleHitSound;
         //[SerializeField] float _maximumHitVolume;
@@ -30,10 +31,12 @@ namespace Nojumpo
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
+            GameManager.onLevelCompleted += MinimumEngineSound;
             GameManager.onLevelCompleted += DisableUpdate;
         }
 
         void OnDisable() {
+            GameManager.onLevelCompleted -= MinimumEngineSound;
             GameManager.onLevelCompleted -= DisableUpdate;
         }
 
@@ -70,10 +73,23 @@ namespace Nojumpo
             }
         }
 
+        void MinimumEngineSound() {
+            StartCoroutine(LowerEngineSoundToMinimum());
+        }
+
         void DisableUpdate() {
+            Debug.Log("<color=yellow>GOT CALLED</color>");
             enabled = false;
         }
 
+        IEnumerator LowerEngineSoundToMinimum() {
+            Debug.Log("<color=green>GOT CALLED</color>");
+
+            while (_vehicleEngineSound.pitch > _engineSoundMinimumPitch)
+            {
+                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMinimumPitch, 0.6f * Time.deltaTime);
+                yield return null;
+            }
+        }
     }
 }
- 

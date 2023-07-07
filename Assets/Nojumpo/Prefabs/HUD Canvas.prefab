@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 1961295233}
   m_Layer: 0
   m_Name: Restart Button Fill Image
-  m_TagString: Untagged
+  m_TagString: UI/Restart Button Fill Image
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

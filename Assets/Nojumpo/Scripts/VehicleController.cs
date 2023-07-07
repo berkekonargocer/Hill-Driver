@@ -29,10 +29,13 @@ namespace Nojumpo
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             GameManager.onLevelCompleted += DisableUpdate;
+            GameManager.onLevelCompleted += StopCarSlowly;
+
         }
 
         void OnDisable() {
             GameManager.onLevelCompleted -= DisableUpdate;
+            GameManager.onLevelCompleted -= StopCarSlowly;
         }
 
         void Awake() {
@@ -51,7 +54,7 @@ namespace Nojumpo
             
             if (vehicleFuel.Value < 0)
             {
-                OutOfFuel();
+                StopCarSlowly();
             }
         }
 
@@ -78,8 +81,8 @@ namespace Nojumpo
                 vehicleFuel.ApplyChange(fuelDrainAmount);
             }
         }
-
-        void OutOfFuel() {
+        
+        void StopCarSlowly() {
             StartCoroutine(nameof(ChangeVehicleWheelsAngularDrag));
         }
 
@@ -88,9 +91,9 @@ namespace Nojumpo
         }
         
         IEnumerator ChangeVehicleWheelsAngularDrag() {
-            float timeElapsed = 0;
-            float angularDragChangeTimeElapsed = 0;
-
+            float timeElapsed = 0.0f;
+            float angularDragChangeTimeElapsed = 0.0f;
+            
             while (timeElapsed < TIME_TO_CHANGE_ANGULAR_DRAG)
             {
                 backTireRigidbody2D.angularDrag = Mathf.MoveTowards(backTireRigidbody2D.angularDrag, ANGULAR_DRAG_ON_OUT_OF_FUEL, angularDragChangeTimeElapsed / TIME_TO_CHANGE_ANGULAR_DRAG);

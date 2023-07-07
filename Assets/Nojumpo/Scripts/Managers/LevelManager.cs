@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Nojumpo.Managers
 {
@@ -21,9 +24,18 @@ namespace Nojumpo.Managers
         [SerializeField] float holdDownToRestartTime = 2.0f;
         float _currentHoldDownTime;
         bool _isHoldingDown;
+        Image _restartButtonFillImage;
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
+        void OnEnable() {
+            SceneManager.sceneLoaded += SetComponents;
+        }
+
+        void OnDisable() {
+            SceneManager.sceneLoaded -= SetComponents;
+        }
+
         void Awake() {
             InitializeSingleton();
             _levelCount = SceneManager.sceneCountInBuildSettings;
@@ -40,9 +52,7 @@ namespace Nojumpo.Managers
 
             if (Input.GetKeyUp(KeyCode.R))
             {
-                StopCoroutine(HoldDownToRestartLevelCoroutine(holdDownToRestartTime));
-                _isHoldingDown = false;
-                _currentHoldDownTime = 0.0f;
+                StopHoldDownToRestartLevelCoroutine(holdDownToRestartTime);
             }
         }
 
@@ -57,6 +67,10 @@ namespace Nojumpo.Managers
             {
                 Destroy(gameObject);
             }
+        }
+
+        void SetComponents(Scene scene, LoadSceneMode loadSceneMode) {
+            _restartButtonFillImage = GameObject.FindWithTag("UI/Restart Button Fill Image").GetComponent<Image>();
         }
 
         IEnumerator LoadNextLevelCoroutine() {
@@ -105,6 +119,7 @@ namespace Nojumpo.Managers
             StopCoroutine(HoldDownToRestartLevelCoroutine(holdDownTime));
             _isHoldingDown = false;
             _currentHoldDownTime = 0.0f;
+            _restartButtonFillImage.color = new Color(_restartButtonFillImage.color.r, _restartButtonFillImage.color.g, _restartButtonFillImage.color.b, 0);
         }
 
         public void CallLoadNextLevelCoroutine() {
@@ -117,6 +132,8 @@ namespace Nojumpo.Managers
             while (_isHoldingDown)
             {
                 _currentHoldDownTime += Time.deltaTime;
+
+                _restartButtonFillImage.color = new Color(_restartButtonFillImage.color.r, _restartButtonFillImage.color.g, _restartButtonFillImage.color.b, _currentHoldDownTime);
                 
                 yield return null;
 
@@ -125,7 +142,7 @@ namespace Nojumpo.Managers
                     StopCoroutine(nameof(HoldDownToRestartLevelCoroutine));
                     _isHoldingDown = false;
                     _currentHoldDownTime = 0.0f;
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    RestartLevel();
                 }
             }
         }

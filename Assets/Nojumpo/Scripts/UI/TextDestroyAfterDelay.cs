@@ -1,11 +1,15 @@
 using System.Collections;
-using UnityEngine;
 using DG.Tweening;
 using TMPro;
-using UnityEngine.Serialization;
+using UnityEngine;
 
 namespace Nojumpo
 {
+    
+    /// <summary>
+    ///  TURN THIS INTO EXTENSION METHOD!!!
+    /// </summary>
+    
     public class TextDestroyAfterDelay : MonoBehaviour
     {
         enum DestroyAnimation
