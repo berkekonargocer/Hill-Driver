@@ -8,8 +8,7 @@ namespace Nojumpo
     {
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void OnClick() {
-            GameObject.Find("Main Menu Panel").SetActive(false);
-            GameObject.Find("Menu Background").SetActive(false);
+            GameObject.Find("Menu Canvas").SetActive(false);
             LevelManager.Instance.StartGame();
         }
     }

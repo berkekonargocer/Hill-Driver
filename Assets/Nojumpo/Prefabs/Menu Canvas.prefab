@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 2170769861438135859}
   m_Layer: 0
   m_Name: Menu Canvas
-  m_TagString: Untagged
+  m_TagString: UI/Menu Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1380,6 +1380,7 @@ GameObject:
   - component: {fileID: 2170769862580130940}
   - component: {fileID: 2170769862580130943}
   - component: {fileID: 2170769862580130942}
+  - component: {fileID: 1625259839}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -1489,7 +1490,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2170769862580130943}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1625259839}
+        m_TargetAssemblyTypeName: Nojumpo.ClickToRestartButton, Assembly-CSharp
+        m_MethodName: RestartLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1625259839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170769862580130936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0bd569abf0f0345b129d6d5d4bd51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2170769862753754534
 GameObject:
   m_ObjectHideFlags: 0

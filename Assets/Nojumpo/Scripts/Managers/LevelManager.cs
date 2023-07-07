@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -70,7 +68,9 @@ namespace Nojumpo.Managers
         }
 
         void SetComponents(Scene scene, LoadSceneMode loadSceneMode) {
-            _restartButtonFillImage = GameObject.FindWithTag("UI/Restart Button Fill Image").GetComponent<Image>();
+            _restartButtonFillImage = GameObject.FindWithTag("UI/Restart Button Fill Image")?.GetComponent<Image>();
+            _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas");
+            _loadingScreen.SetActive(false);
         }
 
         IEnumerator LoadNextLevelCoroutine() {
@@ -78,7 +78,7 @@ namespace Nojumpo.Managers
                 StopCoroutine(LoadNextLevelCoroutine());
 
             if (_loadingScreen == null)
-                _loadingScreen = GameObject.Find("Loading Screen Panel");
+                _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas");
 
             _loadingScreen.SetActive(true);
 

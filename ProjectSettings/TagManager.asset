@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Collectable
   - UI/Restart Button Fill Image
+  - UI/HUD Canvas
+  - UI/Menu Canvas
+  - UI/Loading Screen Canvas
+  - Environment
   layers:
   - Default
   - TransparentFX
