@@ -8,13 +8,21 @@ namespace Nojumpo.Managers
         [Header("SINGLETON")]
         static AudioManager _instance;
         public static AudioManager Instance { get { return _instance; } }
-        
+
         [Header("AUDIO VARIABLES")]
         [SerializeField] AudioSource bgmAudioSource;
         [SerializeField] AudioSource levelCompletedAudioSource;
-        
+
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
+        void OnEnable() {
+            GameManager.onLevelCompleted += levelCompletedAudioSource.Play;
+        }
+
+        void OnDisable() {
+            GameManager.onLevelCompleted -= levelCompletedAudioSource.Play;
+        }
+
         void Awake() {
             InitializeSingleton();
         }
