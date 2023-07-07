@@ -78,13 +78,10 @@ namespace Nojumpo
         }
 
         void DisableUpdate() {
-            Debug.Log("<color=yellow>GOT CALLED</color>");
             enabled = false;
         }
 
         IEnumerator LowerEngineSoundToMinimum() {
-            Debug.Log("<color=green>GOT CALLED</color>");
-
             while (_vehicleEngineSound.pitch > _engineSoundMinimumPitch)
             {
                 _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMinimumPitch, 0.6f * Time.deltaTime);

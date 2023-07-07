@@ -4,10 +4,10 @@ using UnityEngine.EventSystems;
 
 namespace Nojumpo
 {
-    public class RestartButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class HoldToRestartButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         // -------------------------------- FIELDS --------------------------------
-        [SerializeField] float holdDownTime = 2.0f;
+        [SerializeField] float holdDownTime = 1.0f;
 
         // ------------------------ CUSTOM PUBLIC METHODS -------------------------
 
