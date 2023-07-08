@@ -1,3 +1,4 @@
+using Nojumpo.Managers;
 using UnityEngine;
 
 namespace Nojumpo

@@ -63,14 +63,9 @@ namespace Nojumpo
                 return;
             }
 
-            if (Mathf.Abs(_vehicleController.MoveInput.y) * 2 > _engineSoundMaximumPitch)
-            {
-                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMaximumPitch, 0.6f * Time.deltaTime);
-            }
-            else
-            {
-                _vehicleEngineSound.pitch = Mathf.Lerp(_vehicleEngineSound.pitch, Mathf.Abs(_vehicleController.MoveInput.y) * 2, 0.6f * Time.deltaTime);
-            }
+            _vehicleEngineSound.pitch = Mathf.Abs(_vehicleController.MoveInput.y) * 2 > _engineSoundMaximumPitch ?
+                Mathf.Lerp(_vehicleEngineSound.pitch, _engineSoundMaximumPitch, 0.6f * Time.deltaTime) :
+                Mathf.Lerp(_vehicleEngineSound.pitch, Mathf.Abs(_vehicleController.MoveInput.y) * 2, 0.6f * Time.deltaTime);
         }
 
         void MinimumEngineSound() {

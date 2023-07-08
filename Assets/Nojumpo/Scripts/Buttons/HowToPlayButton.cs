@@ -1,16 +1,12 @@
-using Nojumpo.Interfaces;
 using UnityEngine;
 
 namespace Nojumpo
 {
-    public class HowToPlayButton : MonoBehaviour, IButton
+    public class HowToPlayButton : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] GameObject _tutorialPanel;
         
-
-        // ------------------------- UNITY BUILT-IN METHODS ------------------------
-
         
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
 

@@ -73,16 +73,16 @@ namespace Nojumpo.Managers
             _loadingScreen.SetActive(false);
         }
 
-        IEnumerator LoadNextLevelCoroutine() {
-            if (SceneManager.GetActiveScene().buildIndex + 1 > _levelCount)
-                StopCoroutine(LoadNextLevelCoroutine());
+        IEnumerator LoadLevelCoroutine(int levelToLoad) {
+            if (levelToLoad > _levelCount)
+                StopCoroutine(LoadLevelCoroutine(levelToLoad));
 
             if (_loadingScreen == null)
                 _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas");
 
             _loadingScreen.SetActive(true);
 
-            AsyncOperation loadScene = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+            AsyncOperation loadScene = SceneManager.LoadSceneAsync(levelToLoad);
             loadScene.allowSceneActivation = false;
 
             while (loadScene.isDone == false)
@@ -101,10 +101,10 @@ namespace Nojumpo.Managers
 
 
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
-        public void StartGame() {
+        public void StartGame(int level) {
             Time.timeScale = 1;
-            AudioManager.Instance.StartBGM();
-            CallLoadNextLevelCoroutine();
+            AudioManager.Instance.SelectBGMAudioClipAndPlay(level - 1);
+            CallLoadLevelCoroutine(level);
         }
 
         public void RestartLevel() {
@@ -122,8 +122,8 @@ namespace Nojumpo.Managers
             _restartButtonFillImage.color = new Color(_restartButtonFillImage.color.r, _restartButtonFillImage.color.g, _restartButtonFillImage.color.b, 0);
         }
 
-        public void CallLoadNextLevelCoroutine() {
-            StartCoroutine(LoadNextLevelCoroutine());
+        public void CallLoadLevelCoroutine(int levelToLoad) {
+            StartCoroutine(LoadLevelCoroutine(levelToLoad));
         }
 
         IEnumerator HoldDownToRestartLevelCoroutine(float holdDownTime) {

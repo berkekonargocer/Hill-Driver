@@ -1,15 +1,14 @@
-using Nojumpo.Interfaces;
 using Nojumpo.Managers;
 using UnityEngine;
 
 namespace Nojumpo
 {
-    public class PlayButton : MonoBehaviour, IButton
+    public class PlayButton : MonoBehaviour
     {
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
-        public void OnClick() {
+        public void OnClick(int level) {
             GameObject.Find("Menu Canvas").SetActive(false);
-            LevelManager.Instance.StartGame();
+            LevelManager.Instance.StartGame(level);
         }
     }
 }

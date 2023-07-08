@@ -12,6 +12,7 @@ namespace Nojumpo.Managers
         [Header("AUDIO VARIABLES")]
         [SerializeField] AudioSource bgmAudioSource;
         [SerializeField] AudioSource levelCompletedAudioSource;
+        [SerializeField] AudioClip[] bgmAudios;
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
@@ -45,5 +46,17 @@ namespace Nojumpo.Managers
         public void StartBGM() {
             bgmAudioSource.Play();
         }
+
+        public void StopBGM() {
+            bgmAudioSource.Stop();
+        }
+
+        public void SelectBGMAudioClipAndPlay(int clipNo) {
+            bgmAudioSource.clip = bgmAudios[clipNo];
+            bgmAudioSource.volume = clipNo == 1 ? 0.4f : 0.2f;
+            bgmAudioSource.Play();
+        }
+
+
     }
 }

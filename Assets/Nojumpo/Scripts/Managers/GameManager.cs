@@ -41,7 +41,7 @@ namespace Nojumpo.Managers
             
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                LevelManager.Instance.CallLoadNextLevelCoroutine();
+                LevelManager.Instance.CallLoadLevelCoroutine(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
 
