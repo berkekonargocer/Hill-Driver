@@ -1,3 +1,4 @@
+using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,7 +12,6 @@ namespace Nojumpo
         [SerializeField] LevelDataSO levelData;
         [SerializeField] Image[] stars;
         
-        
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
@@ -20,18 +20,6 @@ namespace Nojumpo
 
         void OnDisable() {
             SceneManager.sceneLoaded -= UpdateStars;
-        }
-
-        void Awake() {
-
-        }
-
-        void Start() {
-
-        }
-
-        void Update() {
-
         }
 
 
@@ -62,6 +50,9 @@ namespace Nojumpo
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
+        public void OnClick() {
+            GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
+            LevelManager.Instance.StartGame(levelData.LevelBuildIndex);
+        }
     }
 }

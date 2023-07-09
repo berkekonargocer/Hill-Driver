@@ -10,6 +10,8 @@ TagManager:
   - UI/Menu Canvas
   - UI/Loading Screen Canvas
   - Environment
+  - UI/Main Menu Panel
+  - UI/Level Select Panel
   layers:
   - Default
   - TransparentFX
