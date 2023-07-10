@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ namespace Nojumpo.Managers
         float _currentHoldDownTime;
         bool _isHoldingDown;
         Image _restartButtonFillImage;
+        Transform _restartButtonTransform;
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
@@ -69,6 +71,7 @@ namespace Nojumpo.Managers
 
         void SetComponents(Scene scene, LoadSceneMode loadSceneMode) {
             _restartButtonFillImage = GameObject.FindWithTag("UI/Restart Button Fill Image")?.GetComponent<Image>();
+            _restartButtonTransform = GameObject.FindWithTag("UI/Restart Button")?.GetComponent<Transform>();
             _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas");
             _loadingScreen.SetActive(false);
         }
@@ -120,6 +123,7 @@ namespace Nojumpo.Managers
             _isHoldingDown = false;
             _currentHoldDownTime = 0.0f;
             _restartButtonFillImage.color = new Color(_restartButtonFillImage.color.r, _restartButtonFillImage.color.g, _restartButtonFillImage.color.b, 0);
+            _restartButtonTransform.DOLocalRotate(new Vector3(0, 0, 0), holdDownTime);
         }
 
         public void CallLoadLevelCoroutine(int levelToLoad) {
@@ -128,6 +132,7 @@ namespace Nojumpo.Managers
 
         IEnumerator HoldDownToRestartLevelCoroutine(float holdDownTime) {
             _isHoldingDown = true;
+            _restartButtonTransform.DOLocalRotate(new Vector3(0, 0, 360), holdDownTime, RotateMode.LocalAxisAdd);
             
             while (_isHoldingDown)
             {

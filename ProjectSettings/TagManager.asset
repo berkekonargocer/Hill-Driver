@@ -12,6 +12,7 @@ TagManager:
   - Environment
   - UI/Main Menu Panel
   - UI/Level Select Panel
+  - UI/Restart Button
   layers:
   - Default
   - TransparentFX
