@@ -4725,9 +4725,9 @@ MonoBehaviour:
   _startingTime: 0
   _hasLimit: 0
   _timerLimit: 0
-  _minutesAndSeconds: 0
+  _minutesAndSeconds: 1
   _timerFormat: 0
-  _changeTimerColor: 0
+  _changeTimerColor: 1
   _lastTimes: 10
   _timerTextFontSize: 0
 --- !u!4 &1851428727

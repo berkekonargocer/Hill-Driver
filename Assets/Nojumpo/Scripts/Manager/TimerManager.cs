@@ -1,5 +1,6 @@
-using System;
 using System.Collections.Generic;
+using Nojumpo.Managers;
+using Nojumpo.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,6 +22,7 @@ namespace Nojumpo.Scripts.Managers
 
         float _currentTime; // Make this a float variable if you want to use this data to do something 
         public float CurrentTime { get { return _currentTime; } }
+        public TimeScoresSO TimeScores { get; private set; }
 
         [Header("Limit  Settings")]
         [SerializeField] bool _hasLimit;
@@ -30,7 +32,7 @@ namespace Nojumpo.Scripts.Managers
         [SerializeField] bool _minutesAndSeconds;
         [SerializeField] TimerFormats _timerFormat;
 
-        Dictionary<TimerFormats, string> _timeFormatsDictionary = new Dictionary<TimerFormats, string>();
+        readonly Dictionary<TimerFormats, string> _timeFormatsDictionary = new Dictionary<TimerFormats, string>();
 
         enum TimerFormats { Whole, TenthDecimal }
 
@@ -45,12 +47,14 @@ namespace Nojumpo.Scripts.Managers
 
         void OnEnable() {
             SceneManager.sceneLoaded += SetComponents;
-            SceneManager.sceneLoaded += SetTimeToStartingTime;
+            SceneManager.sceneLoaded += ResetTimer;
+            GameManager.onLevelCompleted += StopTimer;
         }
 
         void OnDisable() {
             SceneManager.sceneLoaded -= SetComponents;
-            SceneManager.sceneLoaded -= SetTimeToStartingTime;
+            SceneManager.sceneLoaded -= ResetTimer;
+            GameManager.onLevelCompleted -= StopTimer;
         }
 
         void Awake() {
@@ -67,13 +71,17 @@ namespace Nojumpo.Scripts.Managers
 
         void Start() {
             SetDictionaryValues();
-            SetTimerFontSize();
+
+            if (_timerText != null)
+            {
+                SetTimerFontSize();
+            }
         }
 
         void Update() {
             if (!_isTimerActive)
                 return;
-            
+
             TimerCountdownOrUp();
 
             if (_changeTimerColor)
@@ -87,10 +95,10 @@ namespace Nojumpo.Scripts.Managers
             }
         }
 
-
         void SetComponents(Scene scene, LoadSceneMode loadSceneMode) {
             _timerText = GameObject.FindWithTag("UI/Timer Text")?.GetComponent<TextMeshProUGUI>();
         }
+
 
         void TimerCountdownOrUp() {
             _currentTime = _isCountdown ? _currentTime -= Time.deltaTime : _currentTime += Time.deltaTime;
@@ -140,28 +148,28 @@ namespace Nojumpo.Scripts.Managers
                 {
                     _timerText.color = Color.red;
                 }
+            }
+            else
+            {
+                if (_currentTime <= TimeScores.GoodTime)
+                {
+                    _timerText.color = Color.green;
+                }
+                else if (_currentTime >= TimeScores.BadTime)
+                {
+                    _timerText.color = Color.red;
+                }
                 else
                 {
-                    if (_currentTime <= (float)_lastTimes / 2)
-                    {
-                        _timerText.color = Color.green;
-                    }
-                    else if (_currentTime <= _startingTime / 2 && _currentTime > _lastTimes)
-                    {
-                        _timerText.color = Color.yellow;
-                    }
-                    else if (_currentTime <= _lastTimes)
-                    {
-                        _timerText.color = Color.red;
-                    }
+                    _timerText.color = Color.yellow;
                 }
             }
         }
 
-        void SetTimeToStartingTime(Scene scene, LoadSceneMode loadSceneMode) {
+        void ResetTimer(Scene scene, LoadSceneMode loadSceneMode) {
             _currentTime = _startingTime;
         }
-        
+
         void SetCurrentTime(bool startingTime, float timeToSet = 0) {
             _currentTime = startingTime ? _startingTime : timeToSet;
         }
@@ -173,6 +181,18 @@ namespace Nojumpo.Scripts.Managers
         void SetDictionaryValues() {
             _timeFormatsDictionary.Add(TimerFormats.Whole, "0");
             _timeFormatsDictionary.Add(TimerFormats.TenthDecimal, "0.0");
+        }
+
+        public void SetTimerActive(bool setActive) {
+            _isTimerActive = setActive;
+        }
+
+        public void StopTimer() {
+            _isTimerActive = false;
+        }
+
+        public void SetTimeScores(TimeScoresSO timeScoresSO) {
+            TimeScores = timeScoresSO;
         }
     }
 }
