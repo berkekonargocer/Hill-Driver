@@ -4,14 +4,12 @@ namespace Nojumpo
 {
     public class HowToPlayButton : MonoBehaviour
     {
-        // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] GameObject _tutorialPanel;
-        
-        
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
         public void OnClick() {
-            _tutorialPanel.SetActive(true);
+            CanvasGroup tutorialPanelCanvasGroup = GameObject.FindWithTag("UI/Tutorial Panel").GetComponent<CanvasGroup>();
+            tutorialPanelCanvasGroup.alpha = 1;
+            tutorialPanelCanvasGroup.interactable = true;
+            tutorialPanelCanvasGroup.blocksRaycasts = true;
         }
     }
 }

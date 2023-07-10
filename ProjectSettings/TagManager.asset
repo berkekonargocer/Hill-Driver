@@ -14,6 +14,7 @@ TagManager:
   - UI/Level Select Panel
   - UI/Restart Button
   - UI/Timer Text
+  - UI/Tutorial Panel
   layers:
   - Default
   - TransparentFX
