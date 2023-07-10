@@ -1,0 +1,178 @@
+using System;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace Nojumpo.Scripts.Managers
+{
+    public class TimerManager : MonoBehaviour
+    {
+        static TimerManager _instance;
+        public static TimerManager Instance { get { return _instance; } }
+
+        [Header("Components")]
+        [SerializeField] TextMeshProUGUI _timerText;
+
+        [Header("Timer Settings")]
+        [SerializeField] bool _isTimerActive;
+        [SerializeField] bool _isCountdown;
+        [SerializeField] float _startingTime;
+
+        float _currentTime; // Make this a float variable if you want to use this data to do something 
+        public float CurrentTime { get { return _currentTime; } }
+
+        [Header("Limit  Settings")]
+        [SerializeField] bool _hasLimit;
+        [SerializeField] float _timerLimit;
+
+        [Header("Time Format Settings")]
+        [SerializeField] bool _minutesAndSeconds;
+        [SerializeField] TimerFormats _timerFormat;
+
+        Dictionary<TimerFormats, string> _timeFormatsDictionary = new Dictionary<TimerFormats, string>();
+
+        enum TimerFormats { Whole, TenthDecimal }
+
+        [Header("Timer Visualization Settings")]
+        [Tooltip("GREEN = When you have more time than half of the starting time   " +
+            "YELLOW = When you have same or less time than half of the starting time   " +
+            "RED = When you have same or less time than LAST TIMES that you set")]
+        [SerializeField] bool _changeTimerColor;
+        [SerializeField] int _lastTimes = 10;
+        [SerializeField] int _timerTextFontSize;
+
+
+        void OnEnable() {
+            SceneManager.sceneLoaded += SetComponents;
+            SceneManager.sceneLoaded += SetTimeToStartingTime;
+        }
+
+        void OnDisable() {
+            SceneManager.sceneLoaded -= SetComponents;
+            SceneManager.sceneLoaded -= SetTimeToStartingTime;
+        }
+
+        void Awake() {
+            if (_instance == null)
+            {
+                _instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        void Start() {
+            SetDictionaryValues();
+            SetTimerFontSize();
+        }
+
+        void Update() {
+            if (!_isTimerActive)
+                return;
+            
+            TimerCountdownOrUp();
+
+            if (_changeTimerColor)
+            {
+                TimerTextColorChanger();
+            }
+
+            if (_hasLimit)
+            {
+                TimerLimit();
+            }
+        }
+
+
+        void SetComponents(Scene scene, LoadSceneMode loadSceneMode) {
+            _timerText = GameObject.FindWithTag("UI/Timer Text")?.GetComponent<TextMeshProUGUI>();
+        }
+
+        void TimerCountdownOrUp() {
+            _currentTime = _isCountdown ? _currentTime -= Time.deltaTime : _currentTime += Time.deltaTime;
+
+            if (_isCountdown && _currentTime <= 0)
+            {
+                _currentTime = 0;
+                _isTimerActive = false;
+            }
+
+            SetTimerText();
+        }
+
+        void TimerLimit() {
+            if ((_isCountdown && _currentTime <= _timerLimit) || (!_isCountdown && _currentTime >= _timerLimit))
+            {
+                _isTimerActive = false;
+                _currentTime = _timerLimit;
+                SetTimerText();
+            }
+        }
+
+        void SetTimerText() {
+            if (_minutesAndSeconds)
+            {
+                float minutes = Mathf.FloorToInt(_currentTime / 60);
+                _timerText.text = $"{minutes}:{_currentTime % 60:00}";
+            }
+            else if (!_minutesAndSeconds)
+            {
+                _timerText.text = _currentTime.ToString(_timeFormatsDictionary[_timerFormat]);
+            }
+        }
+
+        void TimerTextColorChanger() {
+            if (_isCountdown)
+            {
+                if (_currentTime > _startingTime / 2)
+                {
+                    _timerText.color = Color.green;
+                }
+                else if (_currentTime <= _startingTime / 2 && _currentTime > _lastTimes)
+                {
+                    _timerText.color = Color.yellow;
+                }
+                else if (_currentTime <= _lastTimes)
+                {
+                    _timerText.color = Color.red;
+                }
+                else
+                {
+                    if (_currentTime <= (float)_lastTimes / 2)
+                    {
+                        _timerText.color = Color.green;
+                    }
+                    else if (_currentTime <= _startingTime / 2 && _currentTime > _lastTimes)
+                    {
+                        _timerText.color = Color.yellow;
+                    }
+                    else if (_currentTime <= _lastTimes)
+                    {
+                        _timerText.color = Color.red;
+                    }
+                }
+            }
+        }
+
+        void SetTimeToStartingTime(Scene scene, LoadSceneMode loadSceneMode) {
+            _currentTime = _startingTime;
+        }
+        
+        void SetCurrentTime(bool startingTime, float timeToSet = 0) {
+            _currentTime = startingTime ? _startingTime : timeToSet;
+        }
+
+        void SetTimerFontSize() {
+            _timerText.fontSize = _timerTextFontSize;
+        }
+
+        void SetDictionaryValues() {
+            _timeFormatsDictionary.Add(TimerFormats.Whole, "0");
+            _timeFormatsDictionary.Add(TimerFormats.TenthDecimal, "0.0");
+        }
+    }
+}
