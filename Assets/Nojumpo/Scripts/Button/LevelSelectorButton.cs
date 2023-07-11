@@ -9,7 +9,11 @@ namespace Nojumpo
     public class LevelSelectorButton : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] LevelDataSO levelData;
+        [SerializeField] TimeScoresSO timeScoresSO;
+
+        [SerializeField] int levelBuildIndex;
+        [SerializeField] int levelCount;
+
         [SerializeField] Image[] stars;
         
 
@@ -25,14 +29,14 @@ namespace Nojumpo
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void UpdateStars(Scene scene, LoadSceneMode loadSceneMode) {
-            if (levelData.BestTime == 0)
+            if (timeScoresSO.PersonalBest == 0)
                 return;
             
-            if (levelData.BestTime >= levelData.OneStarTime)
+            if (timeScoresSO.PersonalBest >= timeScoresSO.BadTime)
             {
                 stars[0].color = Color.white;
             }
-            else if (levelData.BestTime <= levelData.ThreeStarTime)
+            else if (timeScoresSO.PersonalBest <= timeScoresSO.GoodTime)
             {
                 for (int i = 0; i < stars.Length; i++)
                 {
@@ -52,7 +56,7 @@ namespace Nojumpo
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void OnClick() {
             GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
-            LevelManager.Instance.StartGame(levelData.LevelBuildIndex);
+            LevelManager.Instance.StartGame(levelBuildIndex);
         }
     }
 }

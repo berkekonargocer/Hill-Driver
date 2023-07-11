@@ -17,6 +17,8 @@ namespace Nojumpo.ScriptableObjects
         
         [SerializeField] int badTime;
         public int BadTime { get { return badTime; } }
+
+        public int PersonalBest { get; set; }
         
     }
 }

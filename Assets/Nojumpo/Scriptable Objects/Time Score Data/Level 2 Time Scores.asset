@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa7e73c12168ff542a844c7593a5e9c5, type: 3}
-  m_Name: Level 3 Data
+  m_Script: {fileID: 11500000, guid: c7ab2d964aa497c4e95a9772b910f465, type: 3}
+  m_Name: Level 2 Time Scores
   m_EditorClassIdentifier: 
   _developerDescription: 
-  levelBuildIndex: 3
-  levelCount: 3
-  bestTime: 0
+  goodTime: 65
+  moderateTime: 90
+  badTime: 100

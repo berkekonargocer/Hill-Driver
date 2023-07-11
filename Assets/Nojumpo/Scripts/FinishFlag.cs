@@ -10,6 +10,7 @@ namespace Nojumpo
             if (other.CompareTag("Player"))
             {
                 GameManager.Instance.InvokeOnLevelCompleted();
+                GetComponent<BoxCollider2D>().enabled = false;
             }
         }
     }
