@@ -1,3 +1,4 @@
+using Nojumpo.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ namespace Nojumpo
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void RestartLevel() {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            AudioManager.Instance.RestartBGM();
         }
     }
 }

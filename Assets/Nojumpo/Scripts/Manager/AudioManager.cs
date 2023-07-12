@@ -51,6 +51,11 @@ namespace Nojumpo.Managers
             bgmAudioSource.Stop();
         }
 
+        public void RestartBGM() {
+            bgmAudioSource.Stop();
+            bgmAudioSource.Play();
+        }
+        
         public void SelectBGMAudioClipAndPlay(int clipNo) {
             bgmAudioSource.clip = bgmAudios[clipNo];
             bgmAudioSource.volume = clipNo == 1 ? 0.4f : 0.2f;
