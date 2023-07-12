@@ -16,28 +16,5 @@ namespace Nojumpo
             TimerManager.Instance.SetTimeScores(timeScoresSO);
             TimerManager.Instance.SetTimerActive(activateTimerOnSceneLoad);
         }
-
-        void OnDisable() {
-
-        }
-
-        void Awake() {
-
-        }
-
-        void Start() {
-
-        }
-
-        void Update() {
-
-        }
-
-
-        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-
-
-        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
     }
 }

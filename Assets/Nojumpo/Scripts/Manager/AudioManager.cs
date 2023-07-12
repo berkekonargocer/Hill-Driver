@@ -62,6 +62,5 @@ namespace Nojumpo.Managers
             bgmAudioSource.Play();
         }
 
-
     }
 }

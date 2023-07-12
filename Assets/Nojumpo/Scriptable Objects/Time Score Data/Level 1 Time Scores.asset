@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Level 1 Time Scores
   m_EditorClassIdentifier: 
   _developerDescription: 
+  levelCount: 1
   goodTime: 65
-  moderateTime: 90
   badTime: 100

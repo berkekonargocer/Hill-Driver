@@ -5509,6 +5509,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2170769862975901578, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: timeScoresSO
+      value: 
+      objectReference: {fileID: 11400000, guid: d43e6545acd084d42aad7ac8849916df, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
 --- !u!1001 &7819495941859865125

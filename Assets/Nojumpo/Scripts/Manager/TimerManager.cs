@@ -99,7 +99,6 @@ namespace Nojumpo.Scripts.Managers
             _timerText = GameObject.FindWithTag("UI/Timer Text")?.GetComponent<TextMeshProUGUI>();
         }
 
-
         void TimerCountdownOrUp() {
             _currentTime = _isCountdown ? _currentTime -= Time.deltaTime : _currentTime += Time.deltaTime;
 
@@ -163,9 +162,6 @@ namespace Nojumpo.Scripts.Managers
             _currentTime = _startingTime;
         }
 
-        void SetCurrentTime(bool startingTime, float timeToSet = 0) {
-            _currentTime = startingTime ? _startingTime : timeToSet;
-        }
 
         void SetTimerFontSize() {
             _timerText.fontSize = _timerTextFontSize;
@@ -175,7 +171,7 @@ namespace Nojumpo.Scripts.Managers
             _timeFormatsDictionary.Add(TimerFormats.Whole, "0");
             _timeFormatsDictionary.Add(TimerFormats.TenthDecimal, "0.0");
         }
-        
+
         public string GetCurrentTimeText(bool minutesAndSeconds) {
             if (minutesAndSeconds)
             {
@@ -186,6 +182,10 @@ namespace Nojumpo.Scripts.Managers
             return _currentTime.ToString(_timeFormatsDictionary[_timerFormat]);
         }
 
+        public void SetCurrentTime(bool startingTime, float timeToSet = 0) {
+            _currentTime = startingTime ? _startingTime : timeToSet;
+        }
+        
         public void SetTimerActive(bool setActive) {
             _isTimerActive = setActive;
         }
@@ -197,5 +197,6 @@ namespace Nojumpo.Scripts.Managers
         public void SetTimeScores(TimeScoresSO timeScoresSO) {
             TimeScores = timeScoresSO;
         }
+
     }
 }
