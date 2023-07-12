@@ -122,16 +122,9 @@ namespace Nojumpo.Scripts.Managers
         }
 
         void SetTimerText() {
-            if (_minutesAndSeconds)
-            {
-                float minutes = Mathf.FloorToInt(_currentTime / 60);
-                _timerText.text = $"{minutes}:{_currentTime % 60:00}";
-            }
-            else if (!_minutesAndSeconds)
-            {
-                _timerText.text = _currentTime.ToString(_timeFormatsDictionary[_timerFormat]);
-            }
+            _timerText.text = GetCurrentTimeText(_minutesAndSeconds);
         }
+
 
         void TimerTextColorChanger() {
             if (_isCountdown)
@@ -181,6 +174,16 @@ namespace Nojumpo.Scripts.Managers
         void SetDictionaryValues() {
             _timeFormatsDictionary.Add(TimerFormats.Whole, "0");
             _timeFormatsDictionary.Add(TimerFormats.TenthDecimal, "0.0");
+        }
+        
+        public string GetCurrentTimeText(bool minutesAndSeconds) {
+            if (minutesAndSeconds)
+            {
+                float minutes = Mathf.FloorToInt(_currentTime / 60);
+                return $"{minutes.ToString()}:{_currentTime % 60:00}";
+            }
+
+            return _currentTime.ToString(_timeFormatsDictionary[_timerFormat]);
         }
 
         public void SetTimerActive(bool setActive) {

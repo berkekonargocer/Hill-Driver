@@ -14,7 +14,8 @@ namespace Nojumpo.Managers
         public static LevelManager Instance { get { return _instance; } }
 
         [Header("GAME LEVEL VARIABLES")]
-        int _levelCount;
+        int _totalLevelCount;
+        public int CurrentLevel { get; set; }
 
         [Header("LOADING SCREEN SETTINGS")]
         [SerializeField] GameObject _loadingScreen;
@@ -38,7 +39,7 @@ namespace Nojumpo.Managers
 
         void Awake() {
             InitializeSingleton();
-            _levelCount = SceneManager.sceneCountInBuildSettings;
+            _totalLevelCount = SceneManager.sceneCountInBuildSettings;
         }
 
         void Update() {
@@ -77,7 +78,7 @@ namespace Nojumpo.Managers
         }
 
         IEnumerator LoadLevelCoroutine(int levelToLoad) {
-            if (levelToLoad > _levelCount)
+            if (levelToLoad > _totalLevelCount)
                 StopCoroutine(LoadLevelCoroutine(levelToLoad));
 
             if (_loadingScreen == null)

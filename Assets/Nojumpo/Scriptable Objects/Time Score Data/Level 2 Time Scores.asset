@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Level 2 Time Scores
   m_EditorClassIdentifier: 
   _developerDescription: 
-  goodTime: 65
-  moderateTime: 90
+  goodTime: 70
   badTime: 100

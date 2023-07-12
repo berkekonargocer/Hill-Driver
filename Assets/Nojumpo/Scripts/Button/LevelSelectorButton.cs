@@ -1,5 +1,7 @@
+using System;
 using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +12,8 @@ namespace Nojumpo
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] TimeScoresSO timeScoresSO;
-
+        [SerializeField] TextMeshProUGUI levelCountText;
+        
         [SerializeField] int levelBuildIndex;
         [SerializeField] int levelCount;
 
@@ -26,6 +29,9 @@ namespace Nojumpo
             SceneManager.sceneLoaded -= UpdateStars;
         }
 
+        void Awake() {
+            SetComponents();
+        }
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void UpdateStars(Scene scene, LoadSceneMode loadSceneMode) {
@@ -54,8 +60,13 @@ namespace Nojumpo
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        void SetComponents() {
+            levelCountText.text = levelCount.ToString();
+        }
+        
         public void OnClick() {
             GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
+            LevelManager.Instance.CurrentLevel = levelCount;
             LevelManager.Instance.StartGame(levelBuildIndex);
         }
     }

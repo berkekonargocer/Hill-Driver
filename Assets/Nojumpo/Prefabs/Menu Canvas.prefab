@@ -1712,6 +1712,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPanelRectTransform: {fileID: 2170769862196579364}
   backgroundPanel: {fileID: 2170769861984860254}
+  congratulationsText: {fileID: 2170769863092375951}
+  personalBestTextObject: {fileID: 2170769861936119397}
 --- !u!1 &2170769863092375945
 GameObject:
   m_ObjectHideFlags: 0
