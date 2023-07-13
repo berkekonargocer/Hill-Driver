@@ -9,13 +9,15 @@ namespace Nojumpo.Scripts.Managers
 {
     public class TimerManager : MonoBehaviour
     {
+        // -------------------------------- FIELDS ---------------------------------
+        [Header("SINGLETON")]
         static TimerManager _instance;
         public static TimerManager Instance { get { return _instance; } }
 
-        [Header("Components")]
+        [Header("COMPONENTS")]
         [SerializeField] TextMeshProUGUI _timerText;
 
-        [Header("Timer Settings")]
+        [Header("TIMER SETTINGS")]
         [SerializeField] bool _isTimerActive;
         [SerializeField] bool _isCountdown;
         [SerializeField] float _startingTime;
@@ -23,14 +25,12 @@ namespace Nojumpo.Scripts.Managers
         float _currentTime; // Make this a float variable if you want to use this data to do something 
         public float CurrentTime { get { return _currentTime; } }
         public TimeScores TimeScores { get; private set; }
-        public TimeScoresSO TimeScoresSO { get; private set; }
 
-
-        [Header("Limit  Settings")]
+        [Header("LIMIT SETTINGS")]
         [SerializeField] bool _hasLimit;
         [SerializeField] float _timerLimit;
 
-        [Header("Time Format Settings")]
+        [Header("TIME FORMAT SETTINGS")]
         [SerializeField] bool _minutesAndSeconds;
         [SerializeField] TimerFormats _timerFormat;
 

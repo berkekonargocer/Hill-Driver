@@ -63,7 +63,7 @@ namespace Nojumpo
         }
         
         void ActivatePersonalBestPanel() {
-            timeScores = GameObject.FindWithTag("Time Scores").GetComponent<TimeScores>();
+            timeScores = TimerManager.Instance.TimeScores;
             
             if (timeScores.IsPersonalBest())
             {
