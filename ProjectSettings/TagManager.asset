@@ -15,6 +15,7 @@ TagManager:
   - UI/Restart Button
   - UI/Timer Text
   - UI/Tutorial Panel
+  - Time Scores
   layers:
   - Default
   - TransparentFX

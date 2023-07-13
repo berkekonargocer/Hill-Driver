@@ -22,6 +22,7 @@ namespace Nojumpo.Managers
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
+            // SetPersonalBestPlayerPrefs();
             SceneManager.sceneLoaded += ResetVariables;
             onLevelCompleted += LevelCompleted;
         }
@@ -67,6 +68,20 @@ namespace Nojumpo.Managers
         void LevelCompleted() {
             IsLevelCompleted = true;
         }
+
+        // void SetPersonalBestPlayerPrefs() {
+        //     int totalLevelAmount = SceneManager.sceneCountInBuildSettings - 1;
+        //     
+        //     for (int i = 1; i < totalLevelAmount; i++)
+        //     {
+        //         string levelPBPlayerPrefsKey = $"Level {i} Personal Best";
+        //         
+        //         if (PlayerPrefs.GetFloat(levelPBPlayerPrefsKey) <= 0)
+        //         {
+        //             PlayerPrefs.SetFloat(levelPBPlayerPrefsKey, 900);
+        //         }
+        //     }
+        // }
 
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void InvokeOnLevelCompleted() {

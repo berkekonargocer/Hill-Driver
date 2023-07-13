@@ -8,13 +8,30 @@ namespace Nojumpo
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] TimeScoresSO timeScoresSO;
+        public TimeScoresSO TimeScoresSO { get { return timeScoresSO; } }
+
+        [SerializeField] int levelCount;
         [SerializeField] bool activateTimerOnSceneLoad;
-        
+
+        string LevelPBPlayerPrefsKey { get; set; }
+
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            TimerManager.Instance.SetTimeScores(timeScoresSO);
+            TimerManager.Instance.SetTimeScores(this);
             TimerManager.Instance.SetTimerActive(activateTimerOnSceneLoad);
+
+            LevelPBPlayerPrefsKey = $"Level {levelCount.ToString()} Personal Best";
+        }
+
+
+        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        public bool IsPersonalBest() {
+            return (int)TimerManager.Instance.CurrentTime < (int)PlayerPrefs.GetFloat(LevelPBPlayerPrefsKey) || PlayerPrefs.GetFloat(LevelPBPlayerPrefsKey) <= 0;
+        }
+
+        public void SetPersonalBest() {
+            PlayerPrefs.SetFloat(LevelPBPlayerPrefsKey, TimerManager.Instance.CurrentTime);
         }
     }
 }

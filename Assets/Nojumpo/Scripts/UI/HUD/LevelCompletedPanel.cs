@@ -1,7 +1,5 @@
-using System;
 using DG.Tweening;
 using Nojumpo.Managers;
-using Nojumpo.ScriptableObjects;
 using Nojumpo.Scripts.Managers;
 using TMPro;
 using UnityEngine;
@@ -11,7 +9,7 @@ namespace Nojumpo
     public class LevelCompletedPanel : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] TimeScoresSO timeScoresSO;
+        [SerializeField] TimeScores timeScores;
         [SerializeField] RectTransform mainPanelRectTransform;
         [SerializeField] GameObject backgroundPanel;
         [SerializeField] TextMeshProUGUI congratulationsText;
@@ -22,7 +20,6 @@ namespace Nojumpo
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             GameManager.onLevelCompleted += SetCongratulationsText;
-            GameManager.onLevelCompleted += timeScoresSO.SetPersonalBest;
             GameManager.onLevelCompleted += ActivatePersonalBestPanel;
             GameManager.onLevelCompleted += EnableBackgroundPanel;
             GameManager.onLevelCompleted += ScaleMainPanel;
@@ -30,7 +27,6 @@ namespace Nojumpo
 
         void OnDisable() {
             GameManager.onLevelCompleted -= SetCongratulationsText;
-            GameManager.onLevelCompleted -= timeScoresSO.SetPersonalBest;
             GameManager.onLevelCompleted -= ActivatePersonalBestPanel;
             GameManager.onLevelCompleted -= EnableBackgroundPanel;
             GameManager.onLevelCompleted -= ScaleMainPanel;
@@ -52,11 +48,11 @@ namespace Nojumpo
         }
 
         void SetStarScore() {
-            if (TimerManager.Instance.CurrentTime <= timeScoresSO.GoodTime)
+            if (TimerManager.Instance.CurrentTime <= timeScores.TimeScoresSO.GoodTime)
             {
                 //three star
             }
-            else if (TimerManager.Instance.CurrentTime >= timeScoresSO.BadTime)
+            else if (TimerManager.Instance.CurrentTime >= timeScores.TimeScoresSO.BadTime)
             {
                 //one star
             }
@@ -67,9 +63,12 @@ namespace Nojumpo
         }
         
         void ActivatePersonalBestPanel() {
-            if (timeScoresSO.IsPersonalBest())
+            timeScores = GameObject.FindWithTag("Time Scores").GetComponent<TimeScores>();
+            
+            if (timeScores.IsPersonalBest())
             {
                 personalBestTextObject.SetActive(true);
+                timeScores.SetPersonalBest();
             }
         }
     }

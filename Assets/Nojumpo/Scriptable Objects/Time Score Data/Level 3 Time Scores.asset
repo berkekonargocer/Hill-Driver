@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Level 3 Time Scores
   m_EditorClassIdentifier: 
   _developerDescription: 
-  levelCount: 3
-  goodTime: 65
-  badTime: 100
+  goodTime: 240
+  badTime: 300

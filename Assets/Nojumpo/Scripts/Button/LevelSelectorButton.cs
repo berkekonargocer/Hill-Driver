@@ -1,4 +1,3 @@
-using System;
 using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using TMPro;
@@ -11,8 +10,9 @@ namespace Nojumpo
     public class LevelSelectorButton : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] TimeScoresSO timeScoresSO;
         [SerializeField] TextMeshProUGUI levelCountText;
+        [SerializeField] TimeScoresSO timeScoresSO;
+        
         
         [SerializeField] int levelBuildIndex;
         [SerializeField] int levelCount;
@@ -35,14 +35,16 @@ namespace Nojumpo
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void UpdateStars(Scene scene, LoadSceneMode loadSceneMode) {
-            if (timeScoresSO.PersonalBest == 0)
+            string levelPbPlayerPrefsKey = $"Level {levelCount.ToString()} Personal Best";
+
+            if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) <= 0)
                 return;
             
-            if (timeScoresSO.PersonalBest >= timeScoresSO.BadTime)
+            if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) >= timeScoresSO.BadTime)
             {
                 stars[0].color = Color.white;
             }
-            else if (timeScoresSO.PersonalBest <= timeScoresSO.GoodTime)
+            else if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) <= timeScoresSO.GoodTime)
             {
                 for (int i = 0; i < stars.Length; i++)
                 {
