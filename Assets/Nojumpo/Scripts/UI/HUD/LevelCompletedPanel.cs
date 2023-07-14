@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using DG.Tweening;
 using Nojumpo.Managers;
 using Nojumpo.Scripts.Managers;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Nojumpo
 {
@@ -22,7 +20,6 @@ namespace Nojumpo
         [SerializeField] float buttonScaleAnimationDuration;
         [SerializeField] float eachStarAnimationDuration;
         [SerializeField] float starEnlargeAmount;
-        
         
         TimeScores _timeScores;
         
@@ -46,7 +43,6 @@ namespace Nojumpo
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
-            Debug.Log("<color=green>SetComponents</color>");
             _timeScores = TimerManager.Instance.TimeScores;
         }
         
@@ -64,8 +60,6 @@ namespace Nojumpo
         }
 
         void SetStarScore() {
-            _timeScores = TimerManager.Instance.TimeScores;
-            
             if (TimerManager.Instance.CurrentTime <= _timeScores.TimeScoresSO.GoodTime)
             {
                 StartCoroutine(StarAnimationRoutine(3));
