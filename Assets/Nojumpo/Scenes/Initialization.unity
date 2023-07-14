@@ -1080,8 +1080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4865b6c8c176dac4b9d2adc15239f2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScoresSO: {fileID: 11400000, guid: fd345ba810153be4380b901abe47ef19, type: 2}
   levelCountText: {fileID: 1032800959}
+  timeScoresSO: {fileID: 11400000, guid: fd345ba810153be4380b901abe47ef19, type: 2}
   levelBuildIndex: 3
   levelCount: 3
   stars:
@@ -3753,8 +3753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4865b6c8c176dac4b9d2adc15239f2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScoresSO: {fileID: 11400000, guid: 8eb9ef83d8ebd7543aaf606fc7fe8f8f, type: 2}
   levelCountText: {fileID: 1321681820}
+  timeScoresSO: {fileID: 11400000, guid: 8eb9ef83d8ebd7543aaf606fc7fe8f8f, type: 2}
   levelBuildIndex: 2
   levelCount: 2
   stars:
@@ -5506,8 +5506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4865b6c8c176dac4b9d2adc15239f2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScoresSO: {fileID: 11400000, guid: d43e6545acd084d42aad7ac8849916df, type: 2}
   levelCountText: {fileID: 1426377439}
+  timeScoresSO: {fileID: 11400000, guid: c7b6e947957d62c4e9bc84d00bc6f206, type: 2}
   levelBuildIndex: 1
   levelCount: 1
   stars:

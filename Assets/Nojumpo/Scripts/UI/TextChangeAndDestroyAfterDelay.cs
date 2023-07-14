@@ -85,7 +85,7 @@ namespace Nojumpo
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void StartChangingText() {
+        public void StartEffect() {
             StartCoroutine(nameof(ChangeText));
         }
     }

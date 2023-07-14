@@ -1735,7 +1735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8960aa1cbfc0f674d942d08a400b769f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScoresSO: {fileID: 11400000, guid: d43e6545acd084d42aad7ac8849916df, type: 2}
+  timeScoresSO: {fileID: 11400000, guid: c7b6e947957d62c4e9bc84d00bc6f206, type: 2}
   levelCount: 1
   activateTimerOnSceneLoad: 1
 --- !u!4 &1000482470
@@ -5508,14 +5508,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2170769861936119397, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2170769862975901578, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
-      propertyPath: timeScoresSO
-      value: 
-      objectReference: {fileID: 11400000, guid: d43e6545acd084d42aad7ac8849916df, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
 --- !u!1001 &7819495941859865125

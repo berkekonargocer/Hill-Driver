@@ -29,12 +29,11 @@ namespace Nojumpo
         }
 
         IEnumerator GoToFuelUIElement() {
-            Vector3 uIElementPosition;
             float elapsedTime = 0.0f;
 
             while (elapsedTime < animationTime)
             {
-                uIElementPosition = Helper.GetWorldPositionOfCanvasElement(fuelCanvasElement);
+                Vector3 uIElementPosition = Helper.GetWorldPositionOfCanvasElement(fuelCanvasElement);
                 transform.position = Vector3.Lerp(transform.position, uIElementPosition, elapsedTime / (animationTime * 6));
                 elapsedTime += Time.unscaledDeltaTime;
                 yield return null;

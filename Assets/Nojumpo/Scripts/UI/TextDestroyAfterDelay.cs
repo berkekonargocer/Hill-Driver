@@ -53,7 +53,7 @@ namespace Nojumpo
         
         
         // ------------------------- CUSTOM PUBLIC METHODS ------------------------
-        public void StartFadeAndDestroyCoroutine() {
+        public void StartEffect() {
             StartCoroutine(nameof(Destroy));
         }
     }
