@@ -4,6 +4,7 @@ using Nojumpo.Managers;
 using Nojumpo.Scripts.Managers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Nojumpo
 {
@@ -16,11 +17,14 @@ namespace Nojumpo
         [SerializeField] RectTransform mainPanelRectTransform;
         [SerializeField] RectTransform[] buttonRectTransforms;
         [SerializeField] RectTransform[] brightStarIconRectTransforms;
-
+        [SerializeField] AudioClip starAnimationAudio;
+        [SerializeField] AudioClip personalBestCelebrationAudio;
+        
         [SerializeField] float buttonScaleAnimationDuration;
         [SerializeField] float eachStarAnimationDuration;
         [SerializeField] float starEnlargeAmount;
-        
+
+        AudioSource levelCompletedPanelAudioSource;
         TimeScores _timeScores;
         
         
@@ -44,6 +48,7 @@ namespace Nojumpo
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
             _timeScores = TimerManager.Instance.TimeScores;
+            levelCompletedPanelAudioSource = GetComponent<AudioSource>();
         }
         
         void EnableBackgroundPanel() {
@@ -77,6 +82,8 @@ namespace Nojumpo
         void ActivatePersonalBestPanelAndButtons() {
             if (_timeScores.IsPersonalBest())
             {
+                levelCompletedPanelAudioSource.clip = personalBestCelebrationAudio;
+                levelCompletedPanelAudioSource.Play();
                 personalBestTextObject.SetActive(true);
                 _timeScores.SetPersonalBest();
             }
@@ -92,12 +99,20 @@ namespace Nojumpo
             {
                 brightStarIconRectTransforms[i].localScale = Vector3.zero;
             }
-
+            
+            levelCompletedPanelAudioSource.clip = starAnimationAudio;
+            levelCompletedPanelAudioSource.pitch = 1f;
+            
             for (int i = 0; i < numberOfStars; i++)
             {
+                levelCompletedPanelAudioSource.Play();
                 yield return StartCoroutine(EnlargeAndShrinkStars(brightStarIconRectTransforms[i]));
+                levelCompletedPanelAudioSource.pitch += 0.1f;
             }
+
+            yield return new WaitForSeconds(0.5f);
             
+            levelCompletedPanelAudioSource.pitch = 1;
             ActivatePersonalBestPanelAndButtons();
         }
 
