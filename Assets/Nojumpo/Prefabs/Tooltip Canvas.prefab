@@ -1531,7 +1531,6 @@ GameObject:
   - component: {fileID: 7704527944181879874}
   - component: {fileID: 7704527944181879872}
   - component: {fileID: 4340893293639628519}
-  - component: {fileID: 1382359032}
   m_Layer: 5
   m_Name: Basic Tooltip Panel
   m_TagString: Untagged
@@ -1573,22 +1572,6 @@ CanvasGroup:
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &4340893293639628519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7704527944181879875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceaf114bb1e9c0244902368507f0928a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tooltipBackgroundRectTransform: {fileID: 7704527943561782419}
-  _fixedPosition: 0
-  _tooltipText: {fileID: 7704527943771374871}
-  _autoSize: 1
---- !u!114 &1382359032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

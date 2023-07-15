@@ -3429,6 +3429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tooltip Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7704527943391348750, guid: 0f21735d0f10e6f41944cfff98f3743c, type: 3}
+      propertyPath: m_TagString
+      value: UI/Tooltip Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 7704527943391348754, guid: 0f21735d0f10e6f41944cfff98f3743c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5398,7 +5402,7 @@ MonoBehaviour:
   _startingTime: 0
   _hasLimit: 0
   _timerLimit: 0
-  _minutesAndSeconds: 1
+  _minutesAndSeconds: 0
   _timerFormat: 0
   _changeTimerColor: 1
   _lastTimes: 10

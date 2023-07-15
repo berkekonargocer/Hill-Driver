@@ -66,6 +66,7 @@ namespace Nojumpo
         
         public void OnClick() {
             GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
+            GameObject.FindWithTag("UI/Tooltip Canvas").SetActive(false);
             LevelManager.Instance.CurrentLevel = timeScoresSO.LevelCount;
             LevelManager.Instance.StartGame(levelBuildIndex);
         }

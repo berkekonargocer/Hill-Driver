@@ -4,7 +4,6 @@ using Nojumpo.Managers;
 using Nojumpo.Scripts.Managers;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Nojumpo
 {
@@ -60,8 +59,7 @@ namespace Nojumpo
         }
 
         void SetCongratulationsText() {
-            float minutes = Mathf.FloorToInt(TimerManager.Instance.CurrentTime / 60);
-            congratulationsText.text = $"Congratulations! \n You reached to the flag in: \n {minutes.ToString()} Minutes {TimerManager.Instance.CurrentTime % 60:00} Seconds";
+            congratulationsText.text = $"Congratulations! \n You reached to the flag in: \n {(int)TimerManager.Instance.CurrentTime} Seconds";
         }
 
         void SetStarScore() {
@@ -79,7 +77,7 @@ namespace Nojumpo
             }
         }
 
-        void ActivatePersonalBestPanelAndButtons() {
+        IEnumerator ActivatePersonalBestPanelAndButtons() {
             if (_timeScores.IsPersonalBest())
             {
                 levelCompletedPanelAudioSource.pitch = 1;
@@ -89,6 +87,8 @@ namespace Nojumpo
                 _timeScores.SetPersonalBest();
             }
 
+            yield return new WaitForSeconds(0.75f);
+            
             for (int i = 0; i < buttonRectTransforms.Length; i++)
             {
                 buttonRectTransforms[i].DOScale(1, buttonScaleAnimationDuration);
@@ -111,9 +111,9 @@ namespace Nojumpo
                 levelCompletedPanelAudioSource.pitch += 0.1f;
             }
 
-            yield return new WaitForSeconds(0.5f);
-            
-            ActivatePersonalBestPanelAndButtons();
+            yield return new WaitForSeconds(0.75f);
+
+            StartCoroutine(ActivatePersonalBestPanelAndButtons());
         }
 
         IEnumerator EnlargeAndShrinkStars(RectTransform rectTransform) {
