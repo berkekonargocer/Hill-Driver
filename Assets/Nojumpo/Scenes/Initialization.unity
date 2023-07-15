@@ -1160,6 +1160,9 @@ MonoBehaviour:
   _canvasGroup: {fileID: 1249669401}
   _showDelayed: 0
   _delayAmount: 5
+  tooltipPanelAnimationSettings:
+    animationDuration: 0.2
+    tooltipPanelAnimation: 1
 --- !u!1 &569305800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4271,6 +4274,9 @@ MonoBehaviour:
   _canvasGroup: {fileID: 1249669401}
   _showDelayed: 0
   _delayAmount: 5
+  tooltipPanelAnimationSettings:
+    animationDuration: 0.2
+    tooltipPanelAnimation: 1
 --- !u!1 &1534644581
 GameObject:
   m_ObjectHideFlags: 0
@@ -6040,6 +6046,9 @@ MonoBehaviour:
   _canvasGroup: {fileID: 1249669401}
   _showDelayed: 0
   _delayAmount: 5
+  tooltipPanelAnimationSettings:
+    animationDuration: 0.2
+    tooltipPanelAnimation: 1
 --- !u!1 &2020606761
 GameObject:
   m_ObjectHideFlags: 0

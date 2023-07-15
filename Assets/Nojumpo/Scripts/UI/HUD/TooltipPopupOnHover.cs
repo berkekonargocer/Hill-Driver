@@ -17,6 +17,8 @@ namespace Nojumpo.Systems.TooltipSystem
 
         [SerializeField] bool _showDelayed = true;
         [SerializeField] int _delayAmount = 5;
+        
+        [SerializeField] TooltipPanelAnimationSettings tooltipPanelAnimationSettings;
 
 
         public async void OnPointerEnter(PointerEventData eventData) {
@@ -28,11 +30,11 @@ namespace Nojumpo.Systems.TooltipSystem
                 await Task.Delay(delayAmountInSeconds);
             }
 
-            _canvasGroup.GetComponent<ITooltipPanel>().DisplayTooltip(eventData, _data);
+            _canvasGroup.GetComponent<ITooltipPanel>().DisplayTooltip(eventData, _data, tooltipPanelAnimationSettings);
         }
 
         public void OnPointerExit(PointerEventData eventData) {
-            _canvasGroup.GetComponent<ITooltipPanel>().CloseTooltip();
+            _canvasGroup.GetComponent<ITooltipPanel>().CloseTooltip(tooltipPanelAnimationSettings);
             _isCurrentlyHovering = false;
         }
     }

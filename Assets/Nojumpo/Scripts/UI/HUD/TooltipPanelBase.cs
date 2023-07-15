@@ -1,5 +1,6 @@
-using Nojumpo.Scripts.Interfaces;
+using DG.Tweening;
 using Nojumpo.ScriptableObjects.Datas;
+using Nojumpo.Scripts.Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -113,10 +114,11 @@ namespace Nojumpo.Systems.TooltipSystem.Panel
             _tooltipLayoutElement.enabled = Mathf.Max(_tooltipText.preferredWidth) >= _tooltipLayoutElement.preferredWidth;
         }
 
-        public virtual void DisplayTooltip(PointerEventData pointerEventData, Data data) {
+        public virtual void DisplayTooltip(PointerEventData pointerEventData, Data data, TooltipPanelAnimationSettings tooltipPanelAnimationSettings) {
             IsHovering(pointerEventData, data);
             UpdateTooltip(pointerEventData, data);
-            ShowTooltip(pointerEventData, data);
+            ShowTooltip(pointerEventData, data, tooltipPanelAnimationSettings);
+            
         }
         
         public virtual void UpdateTooltip(PointerEventData pointerEventData, Data data) {
@@ -131,25 +133,47 @@ namespace Nojumpo.Systems.TooltipSystem.Panel
             }
         }
 
-        public virtual void ShowTooltip(PointerEventData pointerEventData, Data data) {
-            _tooltipCanvasGroup.alpha = 1;
+        public virtual void ShowTooltip(PointerEventData pointerEventData, Data data, TooltipPanelAnimationSettings tooltipPanelAnimationSettings) {
+            switch (tooltipPanelAnimationSettings.TooltipPanelAnimation)
+            {
+                case TooltipPanelAnimations.NONE:
+                    _tooltipCanvasGroup.alpha = 1;
+                    break;
+                case TooltipPanelAnimations.SCALE:
+                    _tooltipBackgroundRectTransform.DOScale(1, tooltipPanelAnimationSettings.AnimationDuration);
+                    break;
+                case TooltipPanelAnimations.FADE:
+                    _tooltipCanvasGroup.DOFade(1, tooltipPanelAnimationSettings.AnimationDuration);
+                    break;
+            }
         }
 
         public virtual void IsHovering(PointerEventData pointerEventData, Data data) {
             _isHovering = true;
         }
 
-        public virtual void CloseTooltip() {
+        public virtual void CloseTooltip(TooltipPanelAnimationSettings tooltipPanelAnimationSettings) {
             IsNotHovering();
-            HideTooltip();
+            HideTooltip(tooltipPanelAnimationSettings);
         }
         
         public virtual void IsNotHovering() {
             _isHovering = false;
         }
 
-        public virtual void HideTooltip() {
-            _tooltipCanvasGroup.alpha = 0;
+        public virtual void HideTooltip(TooltipPanelAnimationSettings tooltipPanelAnimationSettings) {
+            switch (tooltipPanelAnimationSettings.TooltipPanelAnimation)
+            {
+                case TooltipPanelAnimations.NONE:
+                    _tooltipCanvasGroup.alpha = 0;
+                    break;
+                case TooltipPanelAnimations.SCALE:
+                    _tooltipBackgroundRectTransform.DOScale(0, tooltipPanelAnimationSettings.AnimationDuration);
+                    break;
+                case TooltipPanelAnimations.FADE:
+                    _tooltipCanvasGroup.DOFade(0, tooltipPanelAnimationSettings.AnimationDuration);
+                    break;
+            }
         }
     }
 }
