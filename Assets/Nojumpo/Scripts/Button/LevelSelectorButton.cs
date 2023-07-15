@@ -12,10 +12,8 @@ namespace Nojumpo
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] TextMeshProUGUI levelCountText;
         [SerializeField] TimeScoresSO timeScoresSO;
-        
-        
+
         [SerializeField] int levelBuildIndex;
-        [SerializeField] int levelCount;
 
         [SerializeField] Image[] stars;
         
@@ -35,7 +33,7 @@ namespace Nojumpo
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void UpdateStars(Scene scene, LoadSceneMode loadSceneMode) {
-            string levelPbPlayerPrefsKey = $"Level {levelCount.ToString()} Personal Best";
+            string levelPbPlayerPrefsKey = $"Level {timeScoresSO.LevelCount.ToString()} Personal Best";
 
             if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) <= 0)
                 return;
@@ -63,12 +61,12 @@ namespace Nojumpo
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         void SetComponents() {
-            levelCountText.text = levelCount.ToString();
+            levelCountText.text = timeScoresSO.LevelCount.ToString();
         }
         
         public void OnClick() {
             GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
-            LevelManager.Instance.CurrentLevel = levelCount;
+            LevelManager.Instance.CurrentLevel = timeScoresSO.LevelCount;
             LevelManager.Instance.StartGame(levelBuildIndex);
         }
     }

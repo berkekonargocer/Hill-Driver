@@ -9,8 +9,7 @@ namespace Nojumpo
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] TimeScoresSO timeScoresSO;
         public TimeScoresSO TimeScoresSO { get { return timeScoresSO; } }
-
-        [SerializeField] int levelCount;
+        
         [SerializeField] bool activateTimerOnSceneLoad;
 
         string LevelPBPlayerPrefsKey { get; set; }
@@ -21,7 +20,7 @@ namespace Nojumpo
             TimerManager.Instance.SetTimeScores(this);
             TimerManager.Instance.SetTimerActive(activateTimerOnSceneLoad);
 
-            LevelPBPlayerPrefsKey = $"Level {levelCount.ToString()} Personal Best";
+            LevelPBPlayerPrefsKey = $"Level {timeScoresSO.LevelCount.ToString()} Personal Best";
         }
 
 

@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: Level 2 Time Scores
   m_EditorClassIdentifier: 
   _developerDescription: 
+  _name: 
+  _description: 
+  levelCount: 2
   goodTime: 160
   badTime: 200

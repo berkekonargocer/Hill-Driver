@@ -82,6 +82,7 @@ namespace Nojumpo
         void ActivatePersonalBestPanelAndButtons() {
             if (_timeScores.IsPersonalBest())
             {
+                levelCompletedPanelAudioSource.pitch = 1;
                 levelCompletedPanelAudioSource.clip = personalBestCelebrationAudio;
                 levelCompletedPanelAudioSource.Play();
                 personalBestTextObject.SetActive(true);
@@ -112,7 +113,6 @@ namespace Nojumpo
 
             yield return new WaitForSeconds(0.5f);
             
-            levelCompletedPanelAudioSource.pitch = 1;
             ActivatePersonalBestPanelAndButtons();
         }
 
