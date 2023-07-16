@@ -78,24 +78,37 @@ namespace Nojumpo
             }
         }
 
-        IEnumerator ActivatePersonalBestPanelAndButtons() {
-            if (_levelDetailsSO.IsPersonalBest())
-            {
-                levelCompletedPanelAudioSource.pitch = 1;
-                levelCompletedPanelAudioSource.clip = personalBestCelebrationAudio;
-                levelCompletedPanelAudioSource.Play();
-                personalBestTextObject.SetActive(true);
-                _levelDetailsSO.SetPersonalBest();
-            }
+        void PlayPersonalBestSFX() {
+            levelCompletedPanelAudioSource.pitch = 1;
+            levelCompletedPanelAudioSource.clip = personalBestCelebrationAudio;
+            levelCompletedPanelAudioSource.Play();
+        }
 
-            yield return new WaitForSeconds(0.75f);
-            
+        void ActivateButtons() {
             for (int i = 0; i < buttonRectTransforms.Length; i++)
             {
                 buttonRectTransforms[i].DOScale(1, buttonScaleAnimationDuration);
             }
         }
         
+        IEnumerator ActivatePersonalBestPanelAndButtons() {
+            if (_levelDetailsSO.IsPersonalBest())
+            {
+                PlayPersonalBestSFX();
+                personalBestTextObject.SetActive(true);
+                _levelDetailsSO.SetPersonalBest();
+            }
+            else
+            {
+                ActivateButtons();
+                yield break;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+            
+            ActivateButtons();
+        }
+
         IEnumerator StarAnimationRoutine(int numberOfStars) {
             for (int i = 0; i < brightStarIconRectTransforms.Length; i++)
             {
@@ -112,7 +125,7 @@ namespace Nojumpo
                 levelCompletedPanelAudioSource.pitch += 0.1f;
             }
 
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(0.6f);
 
             StartCoroutine(ActivatePersonalBestPanelAndButtons());
         }

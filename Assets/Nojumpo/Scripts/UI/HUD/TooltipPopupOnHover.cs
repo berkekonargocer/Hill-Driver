@@ -21,7 +21,8 @@ namespace Nojumpo.Systems.TooltipSystem
         [SerializeField] TooltipPanelAnimationSettings tooltipPanelAnimationSettings;
 
 
-        public async void OnPointerEnter(PointerEventData eventData) {
+        async Task DisplayTooltip(PointerEventData eventData) {
+
             _isCurrentlyHovering = true;
 
             if (_showDelayed)
@@ -32,10 +33,19 @@ namespace Nojumpo.Systems.TooltipSystem
 
             _canvasGroup.GetComponent<ITooltipPanel>().DisplayTooltip(eventData, _data, tooltipPanelAnimationSettings);
         }
+        
+        void CloseTooltip() {
 
-        public void OnPointerExit(PointerEventData eventData) {
             _canvasGroup.GetComponent<ITooltipPanel>().CloseTooltip(tooltipPanelAnimationSettings);
             _isCurrentlyHovering = false;
+        }
+        
+        public async void OnPointerEnter(PointerEventData eventData) {
+            await DisplayTooltip(eventData);
+        }
+
+        public void OnPointerExit(PointerEventData eventData) {
+            CloseTooltip();
         }
     }
 }

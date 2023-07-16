@@ -44,24 +44,34 @@ namespace Nojumpo
         void UpdateButton(Scene scene, LoadSceneMode loadSceneMode) {
             if (levelDetailsSo.IsLocked)
             {
-                lockedState.gameObject.SetActive(true);
-                unlockedState.gameObject.SetActive(false);
-                _buttonCanvasGroup.blocksRaycasts = false;
-                _buttonCanvasGroup.interactable = false;
+                LockLevel();
                 return;
             }
 
             if (levelDetailsSo.LevelCount != 1)
             {
-                lockedState.gameObject.SetActive(false);
-                unlockedState.gameObject.SetActive(true);
-                _buttonCanvasGroup.blocksRaycasts = true;
-                _buttonCanvasGroup.interactable = true;
+                UnlockLevel();
             }
 
             UpdateStars();
         }
         
+        void LockLevel() {
+
+            lockedState.gameObject.SetActive(true);
+            unlockedState.gameObject.SetActive(false);
+            _buttonCanvasGroup.blocksRaycasts = false;
+            _buttonCanvasGroup.interactable = false;
+        }
+        
+        void UnlockLevel() {
+
+            lockedState.gameObject.SetActive(false);
+            unlockedState.gameObject.SetActive(true);
+            _buttonCanvasGroup.blocksRaycasts = true;
+            _buttonCanvasGroup.interactable = true;
+        }
+
         void UpdateStars() {
 
             string levelPbPlayerPrefsKey = $"Level {levelDetailsSo.LevelCount.ToString()} Personal Best";
@@ -91,13 +101,17 @@ namespace Nojumpo
             }
         }
         
-        
-        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void OnClick() {
+        void OpenLevel() {
+
             GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
             GameObject.FindWithTag("UI/Tooltip Canvas").SetActive(false);
             LevelManager.Instance.CurrentLevel = levelDetailsSo.LevelCount;
             LevelManager.Instance.StartGame(levelBuildIndex);
+        }
+        
+        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        public void OnClick() {
+            OpenLevel();
         }
     }
 }
