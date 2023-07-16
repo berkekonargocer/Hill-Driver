@@ -11,63 +11,92 @@ namespace Nojumpo
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] TextMeshProUGUI levelCountText;
-        [SerializeField] TimeScoresSO timeScoresSO;
+        [SerializeField] LevelDetailsSO levelDetailsSo;
+        [SerializeField] GameObject unlockedState;
+        [SerializeField] GameObject lockedState;
 
         [SerializeField] int levelBuildIndex;
 
         [SerializeField] Image[] stars;
-        
 
+        CanvasGroup _buttonCanvasGroup;
+        
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            SceneManager.sceneLoaded += UpdateStars;
+            SceneManager.sceneLoaded += UpdateButton;
         }
 
         void OnDisable() {
-            SceneManager.sceneLoaded -= UpdateStars;
+            SceneManager.sceneLoaded -= UpdateButton;
         }
 
         void Awake() {
             SetComponents();
         }
 
+        
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        void UpdateStars(Scene scene, LoadSceneMode loadSceneMode) {
-            string levelPbPlayerPrefsKey = $"Level {timeScoresSO.LevelCount.ToString()} Personal Best";
+        void SetComponents() {
+            levelCountText.text = levelDetailsSo.LevelCount.ToString();
+            _buttonCanvasGroup = GetComponent<CanvasGroup>();
+        }
+        
+        void UpdateButton(Scene scene, LoadSceneMode loadSceneMode) {
+            if (levelDetailsSo.IsLocked)
+            {
+                lockedState.gameObject.SetActive(true);
+                unlockedState.gameObject.SetActive(false);
+                _buttonCanvasGroup.blocksRaycasts = false;
+                _buttonCanvasGroup.interactable = false;
+                return;
+            }
+
+            if (levelDetailsSo.LevelCount != 1)
+            {
+                lockedState.gameObject.SetActive(false);
+                unlockedState.gameObject.SetActive(true);
+                _buttonCanvasGroup.blocksRaycasts = true;
+                _buttonCanvasGroup.interactable = true;
+            }
+
+            UpdateStars();
+        }
+        
+        void UpdateStars() {
+
+            string levelPbPlayerPrefsKey = $"Level {levelDetailsSo.LevelCount.ToString()} Personal Best";
 
             if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) <= 0)
                 return;
-            
-            if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) >= timeScoresSO.BadTime)
+
+            if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) >= levelDetailsSo.BadTime)
             {
                 stars[0].color = Color.white;
             }
-            else if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) <= timeScoresSO.GoodTime)
+            else if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) <= levelDetailsSo.GoodTime)
             {
                 for (int i = 0; i < stars.Length; i++)
                 {
-                    stars[i].color = Color.white;;
+                    stars[i].color = Color.white;
+                    ;
                 }
             }
             else
             {
                 for (int i = 0; i < stars.Length - 1; i++)
                 {
-                    stars[i].color = Color.white;;
+                    stars[i].color = Color.white;
+                    ;
                 }
             }
         }
-
-
-        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        void SetComponents() {
-            levelCountText.text = timeScoresSO.LevelCount.ToString();
-        }
         
+        
+        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void OnClick() {
             GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
             GameObject.FindWithTag("UI/Tooltip Canvas").SetActive(false);
-            LevelManager.Instance.CurrentLevel = timeScoresSO.LevelCount;
+            LevelManager.Instance.CurrentLevel = levelDetailsSo.LevelCount;
             LevelManager.Instance.StartGame(levelBuildIndex);
         }
     }

@@ -24,7 +24,7 @@ namespace Nojumpo.Scripts.Managers
 
         float _currentTime; // Make this a float variable if you want to use this data to do something 
         public float CurrentTime { get { return _currentTime; } }
-        public TimeScores TimeScores { get; private set; }
+        public LevelDetailsSO LevelDetailsSo { get; private set; }
 
         [Header("LIMIT SETTINGS")]
         [SerializeField] bool _hasLimit;
@@ -145,11 +145,11 @@ namespace Nojumpo.Scripts.Managers
             }
             else
             {
-                if (_currentTime <= TimeScores.TimeScoresSO.GoodTime)
+                if (_currentTime <= LevelDetailsSo.GoodTime)
                 {
                     _timerText.color = Color.green;
                 }
-                else if (_currentTime >= TimeScores.TimeScoresSO.BadTime)
+                else if (_currentTime >= LevelDetailsSo.BadTime)
                 {
                     _timerText.color = Color.red;
                 }
@@ -196,8 +196,8 @@ namespace Nojumpo.Scripts.Managers
             _isTimerActive = false;
         }
 
-        public void SetTimeScores(TimeScores timeScores) {
-            TimeScores = timeScores;
+        public void SetLevelDetails(LevelDetailsSO levelDetailsSO) {
+            LevelDetailsSo = levelDetailsSO;
         }
 
     }

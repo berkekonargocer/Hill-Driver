@@ -18,7 +18,8 @@ namespace Nojumpo.Managers
         [SerializeField] FloatVariableSO vehicleFuel;
 
         public bool IsLevelCompleted { get; private set; }
-        
+
+        public static bool IS_FIRST_LAUNCH = true;
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {

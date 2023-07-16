@@ -1,6 +1,7 @@
 using System.Collections;
 using DG.Tweening;
 using Nojumpo.Managers;
+using Nojumpo.ScriptableObjects;
 using Nojumpo.Scripts.Managers;
 using TMPro;
 using UnityEngine;
@@ -24,7 +25,7 @@ namespace Nojumpo
         [SerializeField] float starEnlargeAmount;
 
         AudioSource levelCompletedPanelAudioSource;
-        TimeScores _timeScores;
+        LevelDetailsSO _levelDetailsSO;
         
         
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
@@ -46,7 +47,7 @@ namespace Nojumpo
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
-            _timeScores = TimerManager.Instance.TimeScores;
+            _levelDetailsSO = TimerManager.Instance.LevelDetailsSo;
             levelCompletedPanelAudioSource = GetComponent<AudioSource>();
         }
         
@@ -63,11 +64,11 @@ namespace Nojumpo
         }
 
         void SetStarScore() {
-            if (TimerManager.Instance.CurrentTime <= _timeScores.TimeScoresSO.GoodTime)
+            if (TimerManager.Instance.CurrentTime <= _levelDetailsSO.GoodTime)
             {
                 StartCoroutine(StarAnimationRoutine(3));
             }
-            else if (TimerManager.Instance.CurrentTime >= _timeScores.TimeScoresSO.BadTime)
+            else if (TimerManager.Instance.CurrentTime >= _levelDetailsSO.BadTime)
             {
                 StartCoroutine(StarAnimationRoutine(1));
             }
@@ -78,13 +79,13 @@ namespace Nojumpo
         }
 
         IEnumerator ActivatePersonalBestPanelAndButtons() {
-            if (_timeScores.IsPersonalBest())
+            if (_levelDetailsSO.IsPersonalBest())
             {
                 levelCompletedPanelAudioSource.pitch = 1;
                 levelCompletedPanelAudioSource.clip = personalBestCelebrationAudio;
                 levelCompletedPanelAudioSource.Play();
                 personalBestTextObject.SetActive(true);
-                _timeScores.SetPersonalBest();
+                _levelDetailsSO.SetPersonalBest();
             }
 
             yield return new WaitForSeconds(0.75f);

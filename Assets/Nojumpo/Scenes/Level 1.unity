@@ -1816,7 +1816,7 @@ GameObject:
   - component: {fileID: 1000482470}
   - component: {fileID: 1000482469}
   m_Layer: 0
-  m_Name: Time Scores
+  m_Name: Level Details
   m_TagString: Time Scores
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1834,8 +1834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8960aa1cbfc0f674d942d08a400b769f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScoresSO: {fileID: 11400000, guid: c7b6e947957d62c4e9bc84d00bc6f206, type: 2}
-  levelCount: 1
+  levelDetailsSo: {fileID: 11400000, guid: c7b6e947957d62c4e9bc84d00bc6f206, type: 2}
   activateTimerOnSceneLoad: 1
 --- !u!4 &1000482470
 Transform:

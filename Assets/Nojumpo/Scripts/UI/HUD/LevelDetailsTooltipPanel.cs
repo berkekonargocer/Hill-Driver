@@ -8,7 +8,7 @@ namespace Nojumpo.Systems.TooltipSystem.Panel
 {
     public class LevelDetailsTooltipPanel : TooltipPanelBase
     {
-        TimeScoresSO _timeScoresSO;
+        LevelDetailsSO _levelDetailsSo;
 
         [Header("UI Texts")]
         [SerializeField] TextMeshProUGUI levelText;
@@ -23,12 +23,12 @@ namespace Nojumpo.Systems.TooltipSystem.Panel
         }
 
         public override void UpdateTooltip(PointerEventData pointerEventData, Data data) {
-            _timeScoresSO = data as TimeScoresSO;
-            levelText.text = $"<color=yellow>Level {_timeScoresSO.LevelCount.ToString()}</color>";
-            oneStarText.text = $"More Than <color=red>{_timeScoresSO.BadTime.ToString()}</color> Seconds";
-            twoStarText.text = $"Between <color=green>{_timeScoresSO.GoodTime.ToString()}</color> and <color=red>{_timeScoresSO.BadTime.ToString()}</color> Seconds";
-            threeStarText.text = $"Less Than <color=green>{_timeScoresSO.GoodTime.ToString()}</color> Seconds";
-            personalBestText.text = $"<color=orange>Personal Best: {(int)PlayerPrefs.GetFloat($"Level {_timeScoresSO.LevelCount.ToString()} Personal Best")} Seconds</color>";
+            _levelDetailsSo = data as LevelDetailsSO;
+            levelText.text = $"<color=yellow>Level {_levelDetailsSo.LevelCount.ToString()}</color>";
+            oneStarText.text = $"More Than <color=red>{_levelDetailsSo.BadTime.ToString()}</color> Seconds";
+            twoStarText.text = $"Between <color=green>{_levelDetailsSo.GoodTime.ToString()}</color> and <color=red>{_levelDetailsSo.BadTime.ToString()}</color> Seconds";
+            threeStarText.text = $"Less Than <color=green>{_levelDetailsSo.GoodTime.ToString()}</color> Seconds";
+            personalBestText.text = $"<color=orange>Personal Best: {(int)PlayerPrefs.GetFloat($"Level {_levelDetailsSo.LevelCount.ToString()} Personal Best")} Seconds</color>";
 
             base.UpdateTooltip(pointerEventData, data);
         }

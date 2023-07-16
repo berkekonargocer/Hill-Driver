@@ -1,7 +1,9 @@
 using System.Collections;
 using DG.Tweening;
+using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Nojumpo.Managers
@@ -20,32 +22,37 @@ namespace Nojumpo.Managers
         [Header("LOADING SCREEN SETTINGS")]
         [SerializeField] GameObject _loadingScreen;
 
-
         [SerializeField] float holdDownToRestartTime = 2.0f;
         float _currentHoldDownTime;
         bool _isHoldingDown;
         Image _restartButtonFillImage;
         Transform _restartButtonTransform;
 
+        LevelDetailsSO _levelDetailsSO;
+        
+        [SerializeField] LevelDetailsSO[] levelDetailsExceptLvlOne;
 
+        
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
+            InitializeSingleton();
+            SetInitialLockStates();
+            _totalLevelCount = SceneManager.sceneCountInBuildSettings;
+            SceneManager.sceneLoaded += SetLevelLockStates;
             SceneManager.sceneLoaded += SetComponents;
+            GameManager.onLevelCompleted += UnlockNextLevel;
         }
 
         void OnDisable() {
+            SceneManager.sceneLoaded -= SetLevelLockStates;
             SceneManager.sceneLoaded -= SetComponents;
-        }
-
-        void Awake() {
-            InitializeSingleton();
-            _totalLevelCount = SceneManager.sceneCountInBuildSettings;
+            GameManager.onLevelCompleted -= UnlockNextLevel;
         }
 
         void Update() {
             if (GameManager.Instance.IsLevelCompleted)
                 return;
-            
+
             if (Input.GetKeyDown(KeyCode.R))
             {
                 StartCoroutine(HoldDownToRestartLevelCoroutine(holdDownToRestartTime));
@@ -74,9 +81,32 @@ namespace Nojumpo.Managers
             _restartButtonFillImage = GameObject.FindWithTag("UI/Restart Button Fill Image")?.GetComponent<Image>();
             _restartButtonTransform = GameObject.FindWithTag("UI/Restart Button")?.GetComponent<Transform>();
             _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas");
-            _loadingScreen.SetActive(false);
+            _loadingScreen?.SetActive(false);
         }
 
+        void SetInitialLockStates() {
+            if (GameManager.IS_FIRST_LAUNCH)
+            {
+                for (int i = 0; i < levelDetailsExceptLvlOne.Length; i++)
+                {
+                    PlayerPrefs.SetInt(levelDetailsExceptLvlOne[i].CurrentLevelLockStatePlayerPrefsKey(), 1);
+                    // levelDetailsExceptLvlOne[i].SetLockState();
+                    GameManager.IS_FIRST_LAUNCH = false;
+                }
+            }
+        }
+        
+        void UnlockNextLevel() {
+            PlayerPrefs.SetInt(_levelDetailsSO.NextLevelLockStatePlayerPrefsKey(), 0);
+        }
+
+        void SetLevelLockStates(Scene scene, LoadSceneMode loadSceneMode) {
+            for (int i = 0; i < levelDetailsExceptLvlOne.Length; i++)
+            {
+                levelDetailsExceptLvlOne[i].SetLockState();
+            }
+        }
+        
         IEnumerator LoadLevelCoroutine(int levelToLoad) {
             if (levelToLoad > _totalLevelCount)
                 StopCoroutine(LoadLevelCoroutine(levelToLoad));
@@ -102,8 +132,30 @@ namespace Nojumpo.Managers
             if (_loadingScreen != null)
                 _loadingScreen.SetActive(false);
         }
+        
+        IEnumerator HoldDownToRestartLevelCoroutine(float holdDownTime) {
+            _isHoldingDown = true;
+            _restartButtonTransform.DOLocalRotate(new Vector3(0, 0, 360), holdDownTime, RotateMode.LocalAxisAdd);
 
+            while (_isHoldingDown)
+            {
+                _currentHoldDownTime += Time.deltaTime;
 
+                _restartButtonFillImage.color = new Color(_restartButtonFillImage.color.r, _restartButtonFillImage.color.g, _restartButtonFillImage.color.b, _currentHoldDownTime);
+
+                yield return null;
+
+                if (_currentHoldDownTime >= holdDownTime)
+                {
+                    StopCoroutine(nameof(HoldDownToRestartLevelCoroutine));
+                    _isHoldingDown = false;
+                    _currentHoldDownTime = 0.0f;
+                    RestartLevel();
+                }
+            }
+        }
+
+        
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void StartGame(int level) {
             Time.timeScale = 1;
@@ -131,26 +183,9 @@ namespace Nojumpo.Managers
             StartCoroutine(LoadLevelCoroutine(levelToLoad));
         }
 
-        IEnumerator HoldDownToRestartLevelCoroutine(float holdDownTime) {
-            _isHoldingDown = true;
-            _restartButtonTransform.DOLocalRotate(new Vector3(0, 0, 360), holdDownTime, RotateMode.LocalAxisAdd);
-            
-            while (_isHoldingDown)
-            {
-                _currentHoldDownTime += Time.deltaTime;
-
-                _restartButtonFillImage.color = new Color(_restartButtonFillImage.color.r, _restartButtonFillImage.color.g, _restartButtonFillImage.color.b, _currentHoldDownTime);
-                
-                yield return null;
-
-                if (_currentHoldDownTime >= holdDownTime)
-                {
-                    StopCoroutine(nameof(HoldDownToRestartLevelCoroutine));
-                    _isHoldingDown = false;
-                    _currentHoldDownTime = 0.0f;
-                    RestartLevel();
-                }
-            }
+        public void SetLevelDetailsSO(LevelDetailsSO levelDetailsSO) {
+            _levelDetailsSO = levelDetailsSO;
         }
+
     }
 }

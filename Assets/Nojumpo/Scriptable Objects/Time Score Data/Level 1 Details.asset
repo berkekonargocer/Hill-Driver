@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7ab2d964aa497c4e95a9772b910f465, type: 3}
-  m_Name: Level 3 Time Scores
+  m_Name: Level 1 Details
   m_EditorClassIdentifier: 
   _developerDescription: 
   _name: 
   _description: 
-  levelCount: 3
-  goodTime: 240
-  badTime: 300
+  levelCount: 1
+  isLocked: 0
+  goodTime: 65
+  badTime: 90
