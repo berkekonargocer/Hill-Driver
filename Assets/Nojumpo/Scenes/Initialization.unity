@@ -627,7 +627,7 @@ AudioSource:
   m_GameObject: {fileID: 86093080}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1673,7 +1673,7 @@ AudioSource:
   m_GameObject: {fileID: 451287063}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2091,7 +2091,7 @@ AudioSource:
   m_GameObject: {fileID: 568280781}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2378,9 +2378,9 @@ RectTransform:
   m_Children:
   - {fileID: 1881727580}
   - {fileID: 2037580703}
+  - {fileID: 1925439205}
   - {fileID: 2121834769}
   - {fileID: 2021938133}
-  - {fileID: 1925439205}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2468,7 +2468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &621661524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2998,7 +2998,7 @@ AudioSource:
   m_GameObject: {fileID: 670124798}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3438,7 +3438,7 @@ AudioSource:
   m_GameObject: {fileID: 698495462}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4087,7 +4087,7 @@ AudioSource:
   m_GameObject: {fileID: 859167970}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4648,7 +4648,7 @@ AudioSource:
   m_GameObject: {fileID: 1095329993}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5389,7 +5389,7 @@ AudioSource:
   m_GameObject: {fileID: 1289229191}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -6894,7 +6894,7 @@ AudioSource:
   m_GameObject: {fileID: 1523023959}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -7878,7 +7878,7 @@ AudioSource:
   m_GameObject: {fileID: 1754213845}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -8110,6 +8110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1814183520}
   - component: {fileID: 1814183521}
+  - component: {fileID: 1814183522}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -8164,8 +8165,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0.8823502, b: 0.3160377, a: 1}
     m_HighlightedColor: {r: 1, g: 0.847918, b: 0.11792451, a: 1}
     m_PressedColor: {r: 1, g: 0.7535237, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 1, g: 0.88235295, b: 0.31764707, a: 1}
+    m_DisabledColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -8190,7 +8191,44 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a73169ae78de29644b6fc6b8d72ded32, type: 2}
+        m_TargetAssemblyTypeName: Nojumpo.ScriptableObjects.FloatVariableSO, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: d5f2797ffbcde1f4480d95fded7dd44e, type: 2}
+        m_TargetAssemblyTypeName: Nojumpo.Systems.AudioMixerSystem.MixerData, Assembly-CSharp
+        m_MethodName: ChangeMixerValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1814183522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814183519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d916c699417fdb14d82759f3495797ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: a73169ae78de29644b6fc6b8d72ded32, type: 2}
 --- !u!1 &1827420686
 GameObject:
   m_ObjectHideFlags: 0
@@ -8336,6 +8374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1838060809}
   - component: {fileID: 1838060810}
+  - component: {fileID: 1838060811}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -8390,8 +8429,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0.8823502, b: 0.3160377, a: 1}
     m_HighlightedColor: {r: 1, g: 0.847918, b: 0.11792451, a: 1}
     m_PressedColor: {r: 1, g: 0.7535237, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 1, g: 0.88235295, b: 0.31764707, a: 1}
+    m_DisabledColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -8416,7 +8455,44 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 91806520866edbb4694448464bff1b18, type: 2}
+        m_TargetAssemblyTypeName: Nojumpo.ScriptableObjects.FloatVariableSO, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: eac0820a625df5b45b53aa5960398be5, type: 2}
+        m_TargetAssemblyTypeName: Nojumpo.Systems.AudioMixerSystem.MixerData, Assembly-CSharp
+        m_MethodName: ChangeMixerValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1838060811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838060808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d916c699417fdb14d82759f3495797ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: 91806520866edbb4694448464bff1b18, type: 2}
 --- !u!1 &1851428725
 GameObject:
   m_ObjectHideFlags: 0
@@ -8836,7 +8912,7 @@ RectTransform:
   - {fileID: 670124799}
   - {fileID: 786309667}
   m_Father: {fileID: 619412021}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9303,7 +9379,7 @@ AudioSource:
   m_GameObject: {fileID: 2011902446}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -9448,9 +9524,9 @@ AudioSource:
   m_GameObject: {fileID: 2020606761}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2310495490271419427, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 8300000, guid: d972fbf435923034fae1f3f53c2b8ccf, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
@@ -9562,7 +9638,7 @@ AudioSource:
   m_GameObject: {fileID: 2020606761}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6f0d2eb530d096448ad2c0feb2337bc1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -9686,7 +9762,7 @@ RectTransform:
   - {fileID: 1599876202}
   - {fileID: 698495463}
   m_Father: {fileID: 619412021}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9953,7 +10029,7 @@ RectTransform:
   - {fileID: 86093081}
   - {fileID: 1882788780}
   m_Father: {fileID: 619412021}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

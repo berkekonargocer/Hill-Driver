@@ -30,9 +30,11 @@ namespace Nojumpo
         public void OnPointerEnter(PointerEventData eventData) {
             _buttonAudioSource.PlayOneShot(hoverSFX);
         }
+        
         public void OnPointerDown(PointerEventData eventData) {
             _buttonAudioSource.PlayOneShot(pointerDownSFX);
         }
+        
         public void OnPointerUp(PointerEventData eventData) {
             _buttonAudioSource.PlayOneShot(pointerUpSFX);
         }
