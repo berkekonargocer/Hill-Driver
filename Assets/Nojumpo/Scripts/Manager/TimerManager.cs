@@ -51,12 +51,14 @@ namespace Nojumpo.Scripts.Managers
             SceneManager.sceneLoaded += SetComponents;
             SceneManager.sceneLoaded += ResetTimer;
             GameManager.onLevelCompleted += StopTimer;
+            GameManager.onGamePaused += StopTimer;
         }
 
         void OnDisable() {
             SceneManager.sceneLoaded -= SetComponents;
             SceneManager.sceneLoaded -= ResetTimer;
             GameManager.onLevelCompleted -= StopTimer;
+            GameManager.onGamePaused -= StopTimer;
         }
 
         void Awake() {

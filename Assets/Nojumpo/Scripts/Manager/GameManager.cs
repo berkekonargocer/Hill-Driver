@@ -9,6 +9,8 @@ namespace Nojumpo.Managers
     {
         // -------------------------------- FIELDS --------------------------------
         public static event Action onLevelCompleted;
+        public static event Action onGamePaused;
+        public static event Action onGameResumed;
         
         [Header("SINGLETON")]
         static GameManager _instance;
@@ -73,6 +75,14 @@ namespace Nojumpo.Managers
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void InvokeOnLevelCompleted() {
             onLevelCompleted?.Invoke();
+        }
+
+        public void InvokeOnGamePaused() {
+            onGamePaused?.Invoke();
+        }
+        
+        public void InvokeOnGameResumed() {
+            onGameResumed?.Invoke();
         }
     }
 }
