@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using Nojumpo.ScriptableObjects.ScriptableObjectReferences;
 using TMPro;
 using UnityEngine;
@@ -18,8 +20,8 @@ namespace Nojumpo.UI
             SetComponents();
         }
 
-        void Update() {
-            ChangeImageColorWithGradient();
+        void Start() {
+            StartCoroutine(ChangeImageColorWithGradient());
         }
 
 
@@ -28,9 +30,15 @@ namespace Nojumpo.UI
             _textToChangeColor = GetComponent<TextMeshProUGUI>();
         }
 
-        void ChangeImageColorWithGradient() {
-            float gradientValue = Mathf.Clamp01((float)currentValue.Value / maximumValue.Value);
-            _textToChangeColor.color = gradient.Evaluate(gradientValue);
+        IEnumerator ChangeImageColorWithGradient() {
+            yield return new WaitForSeconds(0.25f);
+            
+            while (true)
+            {
+                float gradientValue = Mathf.Clamp01((float)currentValue.Value / maximumValue.Value);
+                _textToChangeColor.color = gradient.Evaluate(gradientValue);
+                yield return null;
+            }
         }
     }
 }
