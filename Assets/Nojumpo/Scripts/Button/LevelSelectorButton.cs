@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 namespace Nojumpo
 {
+    [RequireComponent(typeof(CanvasGroup))]
     public class LevelSelectorButton : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------

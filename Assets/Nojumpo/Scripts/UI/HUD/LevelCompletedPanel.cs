@@ -91,7 +91,7 @@ namespace Nojumpo
             }
         }
         
-        IEnumerator ActivatePersonalBestPanelAndButtons() {
+        IEnumerator PersonalBestRoutine() {
             if (_levelDetailsSO.IsPersonalBest())
             {
                 PlayPersonalBestSFX();
@@ -127,7 +127,7 @@ namespace Nojumpo
 
             yield return new WaitForSeconds(0.6f);
 
-            StartCoroutine(ActivatePersonalBestPanelAndButtons());
+            StartCoroutine(PersonalBestRoutine());
         }
 
         IEnumerator EnlargeAndShrinkStars(RectTransform rectTransform) {
