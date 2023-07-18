@@ -52,6 +52,7 @@ namespace Nojumpo.Scripts.Managers
             SceneManager.sceneLoaded += ResetTimer;
             GameManager.onLevelCompleted += StopTimer;
             GameManager.onGamePaused += StopTimer;
+            GameManager.onGameResumed += StartTimer;
         }
 
         void OnDisable() {
@@ -59,6 +60,7 @@ namespace Nojumpo.Scripts.Managers
             SceneManager.sceneLoaded -= ResetTimer;
             GameManager.onLevelCompleted -= StopTimer;
             GameManager.onGamePaused -= StopTimer;
+            GameManager.onGameResumed -= StartTimer;
         }
 
         void Awake() {
@@ -197,7 +199,15 @@ namespace Nojumpo.Scripts.Managers
         public void StopTimer() {
             _isTimerActive = false;
         }
+        
+        public void StartTimer(int numberToMultiply) {
+            _isTimerActive = true;
+        }
 
+        public void StopTimer(int numberToDivide) {
+            _isTimerActive = false;
+        }
+        
         public void SetLevelDetails(LevelDetailsSO levelDetailsSO) {
             LevelDetailsSo = levelDetailsSO;
         }

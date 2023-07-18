@@ -9,8 +9,8 @@ namespace Nojumpo.Managers
     {
         // -------------------------------- FIELDS --------------------------------
         public static event Action onLevelCompleted;
-        public static event Action onGamePaused;
-        public static event Action onGameResumed;
+        public static event Action<int> onGamePaused;
+        public static event Action<int> onGameResumed;
         
         [Header("SINGLETON")]
         static GameManager _instance;
@@ -18,10 +18,10 @@ namespace Nojumpo.Managers
 
         [Header("VEHICLE VARIABLES")]
         [SerializeField] FloatVariableSO vehicleFuel;
-
+        
+        static bool IS_PAUSED;
         public bool IsLevelCompleted { get; private set; }
 
-        public static bool IS_FIRST_LAUNCH = true;
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
@@ -39,6 +39,11 @@ namespace Nojumpo.Managers
         }
 
         void Update() {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseOrUnpauseGame();
+            }
+            
             if (!IsLevelCompleted)
                 return;
             
@@ -63,7 +68,9 @@ namespace Nojumpo.Managers
         }
 
         void ResetVariables(Scene scene, LoadSceneMode loadSceneMode) {
+            Time.timeScale = 1;
             IsLevelCompleted = false;
+            IS_PAUSED = false;
             vehicleFuel.Value = 1.0f;
         }
 
@@ -71,18 +78,26 @@ namespace Nojumpo.Managers
             IsLevelCompleted = true;
         }
         
+        public void PauseOrUnpauseGame() {
+            if (IS_PAUSED)
+            {
+                onGameResumed?.Invoke(4);
+                Time.timeScale = 1;
+                IS_PAUSED = false;
+            }
+            else
+            {
+                onGamePaused?.Invoke(4);
+                Time.timeScale = 0;
+                IS_PAUSED = true;
+            }
+        }
 
+        
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void InvokeOnLevelCompleted() {
             onLevelCompleted?.Invoke();
         }
 
-        public void InvokeOnGamePaused() {
-            onGamePaused?.Invoke();
-        }
-        
-        public void InvokeOnGameResumed() {
-            onGameResumed?.Invoke();
-        }
     }
 }

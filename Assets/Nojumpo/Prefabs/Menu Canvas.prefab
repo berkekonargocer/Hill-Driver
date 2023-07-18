@@ -1031,7 +1031,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1399255709755928178}
         m_TargetAssemblyTypeName: Nojumpo.MainMenuButton, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1062,7 +1062,7 @@ AudioSource:
   m_GameObject: {fileID: 1399255709755928174}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1780,13 +1780,14 @@ RectTransform:
   m_GameObject: {fileID: 1399255710058593956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1399255711508991534}
   - {fileID: 1399255711669948209}
   - {fileID: 1399255709788424376}
   - {fileID: 1399255711472842365}
+  - {fileID: 1399255710498684757}
   m_Father: {fileID: 1399255710511875976}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1958,9 +1959,9 @@ GameObject:
   - component: {fileID: 1399255710148327182}
   - component: {fileID: 1399255710148327181}
   - component: {fileID: 1399255710148327180}
-  - component: {fileID: 1399255710148327179}
   - component: {fileID: 1399255710148327178}
   - component: {fileID: 1399255710148327177}
+  - component: {fileID: 1399255710121097634}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -2071,9 +2072,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1399255710148327179}
-        m_TargetAssemblyTypeName: Nojumpo.MainMenuButton, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+      - m_Target: {fileID: 1399255710121097634}
+        m_TargetAssemblyTypeName: Nojumpo.PauseStateChangeButton, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2083,18 +2084,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1399255710148327179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399255710148327175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9142361f2b0e2b241855b85dd77589ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1399255710148327178
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2104,7 +2093,7 @@ AudioSource:
   m_GameObject: {fileID: 1399255710148327175}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2206,6 +2195,18 @@ MonoBehaviour:
   hoverSFX: {fileID: 8300000, guid: be85de363bebe2b40bc0e949291c0773, type: 3}
   pointerDownSFX: {fileID: 8300000, guid: daeca5c9b115453469e9e67edcca9c3d, type: 3}
   pointerUpSFX: {fileID: 8300000, guid: fd14e0c4957b1024f9f7a5ef39c73fdb, type: 3}
+--- !u!114 &1399255710121097634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399255710148327175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a97f09cc97124d820ae0bfa57e268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1399255710203373635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,12 +2727,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1399255710511875976}
-  m_RootOrder: 2
+  m_Father: {fileID: 1399255710058593957}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 165}
+  m_AnchoredPosition: {x: 0, y: 240.55627}
   m_SizeDelta: {x: 375, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1399255710498684759
@@ -2841,7 +2842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1399255710511875976}
   - component: {fileID: 1399255710511875978}
-  - component: {fileID: 1399255710511875977}
+  - component: {fileID: 1053726061}
   m_Layer: 0
   m_Name: Pause Menu Panel
   m_TagString: UI/Settings Panel
@@ -2863,7 +2864,6 @@ RectTransform:
   m_Children:
   - {fileID: 1399255711595868422}
   - {fileID: 1399255710058593957}
-  - {fileID: 1399255710498684757}
   m_Father: {fileID: 1399255710586997968}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2880,18 +2880,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399255710511875975}
   m_CullTransparentMesh: 1
---- !u!225 &1399255710511875977
-CanvasGroup:
+--- !u!114 &1053726061
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399255710511875975}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e42561c9b23e841962ae4918b7732e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelRectTransform: {fileID: 1399255710058593957}
 --- !u!1 &1399255710586997967
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,7 +3082,7 @@ AudioSource:
   m_GameObject: {fileID: 1399255710672362852}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 8300000, guid: bc89033a026a90440b134734451615fc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3641,7 +3642,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 957921021077948990}
         m_TargetAssemblyTypeName: Nojumpo.MainMenuButton, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3672,7 +3673,7 @@ AudioSource:
   m_GameObject: {fileID: 1399255711146451319}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4401,7 +4402,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1399255711454570322}
         m_TargetAssemblyTypeName: Nojumpo.NextLevelButton, Assembly-CSharp
-        m_MethodName: LoadNextLevel
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4432,7 +4433,7 @@ AudioSource:
   m_GameObject: {fileID: 1399255711454570317}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4987,6 +4988,7 @@ GameObject:
   - component: {fileID: 1399255711595868422}
   - component: {fileID: 1399255711595868424}
   - component: {fileID: 1399255711595868423}
+  - component: {fileID: 1399255710121097636}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -5035,7 +5037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 0.4}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5052,6 +5054,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1399255710121097636
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399255711595868421}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1399255711669948208
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,7 +5271,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 957921020596071901}
         m_TargetAssemblyTypeName: Nojumpo.ClickToRestartButton, Assembly-CSharp
-        m_MethodName: RestartLevel
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5288,7 +5302,7 @@ AudioSource:
   m_GameObject: {fileID: 1399255711726896794}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4469025766216615869, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

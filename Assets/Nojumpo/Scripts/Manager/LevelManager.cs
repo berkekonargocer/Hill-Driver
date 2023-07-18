@@ -29,10 +29,10 @@ namespace Nojumpo.Managers
         Transform _restartButtonTransform;
 
         LevelDetailsSO _levelDetailsSO;
-        
+
         [SerializeField] LevelDetailsSO[] levelDetailsExceptLvlOne;
 
-        
+
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             InitializeSingleton();
@@ -85,17 +85,17 @@ namespace Nojumpo.Managers
         }
 
         void SetInitialLockStates() {
-            if (GameManager.IS_FIRST_LAUNCH)
+            if (PlayerPrefs.HasKey("Not First Launch"))
+                return;
+
+            for (int i = 0; i < levelDetailsExceptLvlOne.Length; i++)
             {
-                for (int i = 0; i < levelDetailsExceptLvlOne.Length; i++)
-                {
-                    PlayerPrefs.SetInt(levelDetailsExceptLvlOne[i].CurrentLevelLockStatePlayerPrefsKey(), 1);
-                    // levelDetailsExceptLvlOne[i].SetLockState();
-                    GameManager.IS_FIRST_LAUNCH = false;
-                }
+                PlayerPrefs.SetInt(levelDetailsExceptLvlOne[i].CurrentLevelLockStatePlayerPrefsKey(), 1);
             }
+            
+            PlayerPrefs.SetInt("Not First Launch", 1);
         }
-        
+
         void UnlockNextLevel() {
             PlayerPrefs.SetInt(_levelDetailsSO.NextLevelLockStatePlayerPrefsKey(), 0);
         }
@@ -106,7 +106,7 @@ namespace Nojumpo.Managers
                 levelDetailsExceptLvlOne[i].SetLockState();
             }
         }
-        
+
         IEnumerator LoadLevelCoroutine(int levelToLoad) {
             if (levelToLoad > _totalLevelCount)
                 StopCoroutine(LoadLevelCoroutine(levelToLoad));
@@ -132,7 +132,7 @@ namespace Nojumpo.Managers
             if (_loadingScreen != null)
                 _loadingScreen.SetActive(false);
         }
-        
+
         IEnumerator HoldDownToRestartLevelCoroutine(float holdDownTime) {
             _isHoldingDown = true;
             _restartButtonTransform.DOLocalRotate(new Vector3(0, 0, 360), holdDownTime, RotateMode.LocalAxisAdd);
@@ -155,7 +155,7 @@ namespace Nojumpo.Managers
             }
         }
 
-        
+
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void StartGame(int level) {
             Time.timeScale = 1;

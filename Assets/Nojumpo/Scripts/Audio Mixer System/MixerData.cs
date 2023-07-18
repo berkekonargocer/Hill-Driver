@@ -1,5 +1,4 @@
 using Nojumpo.ScriptableObjects;
-using Nojumpo.ScriptableObjects.Datas.Variable;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -22,8 +21,7 @@ namespace Nojumpo.Systems.AudioMixerSystem
 
         [Tooltip("Volume of the mixer group ")]
         [SerializeField] FloatVariableSO mixerVolume;
-
-
+        
         
         public void ChangeMixerValue() {
             float currentMixerVolume = mixerVolume.Value > 0.0f ? 20.0f * Mathf.Log10(mixerVolume.Value) : -80.0f;

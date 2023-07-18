@@ -22,6 +22,7 @@ namespace Nojumpo
 
         CanvasGroup _buttonCanvasGroup;
         
+        
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             SceneManager.sceneLoaded += UpdateButton;
@@ -102,7 +103,7 @@ namespace Nojumpo
             }
         }
         
-        void OpenLevel() {
+        void PlayLevel() {
 
             GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
             GameObject.FindWithTag("UI/Tooltip Canvas").SetActive(false);
@@ -112,7 +113,7 @@ namespace Nojumpo
         
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void OnClick() {
-            OpenLevel();
+            PlayLevel();
         }
     }
 }

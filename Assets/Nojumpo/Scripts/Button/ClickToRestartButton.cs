@@ -7,7 +7,7 @@ namespace Nojumpo
     public class ClickToRestartButton : MonoBehaviour
     {
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void RestartLevel() {
+        public void OnClick() {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             AudioManager.Instance.RestartBGM();
         }

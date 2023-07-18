@@ -29,27 +29,37 @@ namespace Nojumpo
         //[Header("VEHICLE WHEEL ROLLING SOUND SETTINGS")]
         //[SerializeField] AudioSource _vehicleWheelRollingSound;
 
+        
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             GameManager.onLevelCompleted += MinimumEngineSound;
             GameManager.onLevelCompleted += DisableUpdate;
+            GameManager.onGamePaused += PauseAudio;
+            GameManager.onGameResumed += ResumeAudio;
         }
 
         void OnDisable() {
             GameManager.onLevelCompleted -= MinimumEngineSound;
             GameManager.onLevelCompleted -= DisableUpdate;
+            GameManager.onGamePaused -= PauseAudio;
+            GameManager.onGameResumed -= ResumeAudio;
         }
 
         void Awake() {
-            _vehicleController = GetComponent<VehicleController>();
+            SetComponents();
         }
 
         void FixedUpdate() {
             ChangeEngineSoundPitch();
         }
 
-
+        
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
+        void SetComponents() {
+
+            _vehicleController = GetComponent<VehicleController>();
+        }
+        
         void ChangeEngineSoundPitch() {
             if (_vehicleFuel.Value <= 0)
             {
@@ -76,6 +86,14 @@ namespace Nojumpo
             enabled = false;
         }
 
+        void PauseAudio(int numberToDivide) {
+            _vehicleEngineSound.Pause();
+        }
+
+        void ResumeAudio(int numberToMultiply) {
+            _vehicleEngineSound.Play();
+        }
+        
         IEnumerator LowerEngineSoundToMinimum() {
             while (_vehicleEngineSound.pitch > _engineSoundMinimumPitch)
             {

@@ -5,7 +5,7 @@ namespace Nojumpo
     public class SettingsButton : MonoBehaviour
     {
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void OpenSettings() {
+        public void OnClick() {
             CanvasGroup mainMenuPanelCanvasGroup = GameObject.FindWithTag("UI/Main Menu Panel").GetComponent<CanvasGroup>();
             mainMenuPanelCanvasGroup.alpha = 0;
             mainMenuPanelCanvasGroup.interactable = false;

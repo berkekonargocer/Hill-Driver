@@ -1,8 +1,6 @@
-using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using DG.Tweening;
-using UnityEngine.Serialization;
 
 namespace Nojumpo
 {

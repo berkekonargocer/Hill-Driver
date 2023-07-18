@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Nojumpo/Scenes/Initialization.unity
+    path: Assets/Nojumpo/Scenes/Main Menu.unity
     guid: 2aa5fe4f7188acb45a66e161e79fda44
   - enabled: 1
     path: Assets/Nojumpo/Scenes/Level 1.unity

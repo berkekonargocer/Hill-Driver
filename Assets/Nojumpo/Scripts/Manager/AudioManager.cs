@@ -18,10 +18,14 @@ namespace Nojumpo.Managers
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             GameManager.onLevelCompleted += levelCompletedAudioSource.Play;
+            GameManager.onGamePaused += DecreaseBGMVolumeByDivision;
+            GameManager.onGameResumed += IncreaseBGMVolumeByMultiplication;
         }
 
         void OnDisable() {
             GameManager.onLevelCompleted -= levelCompletedAudioSource.Play;
+            GameManager.onGamePaused -= DecreaseBGMVolumeByDivision;
+            GameManager.onGameResumed -= IncreaseBGMVolumeByMultiplication;
         }
 
         void Awake() {
@@ -54,6 +58,14 @@ namespace Nojumpo.Managers
         public void RestartBGM() {
             bgmAudioSource.Stop();
             bgmAudioSource.Play();
+        }
+
+        public void DecreaseBGMVolumeByDivision(int numberToDivide) {
+            bgmAudioSource.volume /= numberToDivide;
+        }
+
+        public void IncreaseBGMVolumeByMultiplication(int numberToMultiply) {
+            bgmAudioSource.volume *= numberToMultiply;
         }
         
         public void SelectBGMAudioClipAndPlay(int clipNo) {

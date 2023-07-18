@@ -7,7 +7,7 @@ namespace Nojumpo
     public class NextLevelButton : MonoBehaviour
     {
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void LoadNextLevel() {
+        public void OnClick() {
             int currentLevel = SceneManager.GetActiveScene().buildIndex;
             GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
             GameObject.FindWithTag("UI/HUD Canvas").SetActive(false);

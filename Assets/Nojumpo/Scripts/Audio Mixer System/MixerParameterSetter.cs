@@ -1,6 +1,4 @@
 using Nojumpo.ScriptableObjects;
-using Nojumpo.ScriptableObjects.ScriptableObjectReferences;
-using Nojumpo.ScriptableObjects.Datas.Variable;
 using Nojumpo.Variables;
 using UnityEngine;
 using UnityEngine.Audio;
