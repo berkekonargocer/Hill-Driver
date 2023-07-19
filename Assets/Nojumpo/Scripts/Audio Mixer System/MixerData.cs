@@ -16,7 +16,7 @@ namespace Nojumpo.Systems.AudioMixerSystem
         [Tooltip("Mixer to control its mixer groups")]
         [SerializeField] AudioMixer mixer;
 
-        [Tooltip("Mixer group (EXPOSED PARAMETER NAME SHOULD BE EXACTLY SAME AS MIXER GROUP NAME)")]
+        [Tooltip("Mixer group (EXPOSED PARAMETER NAME SHOULD BE EXACTLY SAME AS ''MIXER GROUP'' NAME)")]
         [SerializeField] AudioMixerGroup mixerGroup;
 
         [Tooltip("Volume of the mixer group ")]

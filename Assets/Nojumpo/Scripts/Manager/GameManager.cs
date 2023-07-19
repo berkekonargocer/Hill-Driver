@@ -79,6 +79,8 @@ namespace Nojumpo.Managers
         }
         
         public void PauseOrUnpauseGame() {
+            AudioManager.Instance.PlayGamePauseAudioSource(IS_PAUSED);
+            
             if (IS_PAUSED)
             {
                 onGameResumed?.Invoke(4);
