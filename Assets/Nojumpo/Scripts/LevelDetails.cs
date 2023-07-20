@@ -9,7 +9,6 @@ namespace Nojumpo
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] LevelDetailsSO levelDetailsSo;
-
         [SerializeField] bool activateTimerOnSceneLoad;
         
 
@@ -19,6 +18,7 @@ namespace Nojumpo
             TimerManager.Instance.SetLevelDetailsSO(levelDetailsSo);
             TimerManager.Instance.SetTimerActive(activateTimerOnSceneLoad);
         }
+        
 
     }
 }

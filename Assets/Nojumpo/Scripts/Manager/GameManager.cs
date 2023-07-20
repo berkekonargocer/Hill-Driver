@@ -8,9 +8,14 @@ namespace Nojumpo.Managers
     public class GameManager : MonoBehaviour
     {
         // -------------------------------- FIELDS --------------------------------
-        public static event Action onLevelCompleted;
-        public static event Action<int> onGamePaused;
-        public static event Action<int> onGameResumed;
+        public delegate void OnLevelCompleted();
+        public static OnLevelCompleted onLevelCompleted;
+
+        public delegate void OnGamePaused(int volumeDivision);
+        public static OnGamePaused onGamePaused;
+        
+        public delegate void OnGameResumed(int volumeMultiply);
+        public static OnGameResumed onGameResumed;
         
         [Header("SINGLETON")]
         static GameManager _instance;

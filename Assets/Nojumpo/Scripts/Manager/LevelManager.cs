@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using Nojumpo.ScriptableObjects;
@@ -29,9 +30,8 @@ namespace Nojumpo.Managers
         Transform _restartButtonTransform;
 
         LevelDetailsSO _levelDetailsSO;
-
         [SerializeField] LevelDetailsSO[] levelDetailsExceptLvlOne;
-
+        
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
