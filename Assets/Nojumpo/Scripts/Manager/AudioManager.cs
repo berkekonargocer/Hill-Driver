@@ -19,16 +19,15 @@ namespace Nojumpo.Managers
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            GameManager.onLevelCompleted += levelCompletedAudioSource.Play;
-            GameManager.onLevelCompleted += OnLevelCompleteDecreaseBGMVolume;
-            GameManager.onGamePaused += DecreaseBGMVolumeByDivision;
-            GameManager.onGameResumed += IncreaseBGMVolumeByMultiplication;
+            GameManager.onLevelCompleted += AudioManager_OnLevelCompleted;
+            GameManager.onGamePaused += AudioManager_OnGamePaused;
+            GameManager.onGameResumed += AudioManager_OnGameResumed;
         }
 
         void OnDisable() {
-            GameManager.onLevelCompleted -= levelCompletedAudioSource.Play;
-            GameManager.onGamePaused -= DecreaseBGMVolumeByDivision;
-            GameManager.onGameResumed -= IncreaseBGMVolumeByMultiplication;
+            GameManager.onLevelCompleted -= AudioManager_OnLevelCompleted;
+            GameManager.onGamePaused -= AudioManager_OnGamePaused;
+            GameManager.onGameResumed -= AudioManager_OnGameResumed;
         }
 
         void Awake() {
@@ -49,6 +48,19 @@ namespace Nojumpo.Managers
             }
         }
 
+        void AudioManager_OnLevelCompleted() {
+            DecreaseBGMVolumeTo25Percent();
+            levelCompletedAudioSource.Play();
+        }
+
+        void AudioManager_OnGamePaused(int numberToDivide) {
+            DecreaseBGMVolumeByDivision(numberToDivide);
+        }
+
+        void AudioManager_OnGameResumed(int numberToMultiply) {
+            IncreaseBGMVolumeByMultiplication(numberToMultiply);
+        }
+        
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void StartBGM() {
             bgmAudioSource.Play();
@@ -63,7 +75,7 @@ namespace Nojumpo.Managers
             bgmAudioSource.Play();
         }
 
-        public void OnLevelCompleteDecreaseBGMVolume() {
+        public void DecreaseBGMVolumeTo25Percent() {
             bgmAudioSource.volume /= 4;
         }
         

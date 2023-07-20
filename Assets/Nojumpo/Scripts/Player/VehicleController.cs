@@ -28,14 +28,11 @@ namespace Nojumpo
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            GameManager.onLevelCompleted += DisableUpdate;
-            GameManager.onLevelCompleted += StopCarSlowly;
-
+            GameManager.onLevelCompleted += VehicleController_OnLevelCompleted;
         }
 
         void OnDisable() {
-            GameManager.onLevelCompleted -= DisableUpdate;
-            GameManager.onLevelCompleted -= StopCarSlowly;
+            GameManager.onLevelCompleted -= VehicleController_OnLevelCompleted;
         }
 
         void Awake() {
@@ -88,6 +85,11 @@ namespace Nojumpo
 
         void DisableUpdate() {
             enabled = false;
+        }
+
+        void VehicleController_OnLevelCompleted() {
+            StopCarSlowly();
+            DisableUpdate();
         }
         
         IEnumerator ChangeVehicleWheelsAngularDrag() {

@@ -30,15 +30,11 @@ namespace Nojumpo
         
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            GameManager.onLevelCompleted += SetCongratulationsText;
-            GameManager.onLevelCompleted += EnableBackgroundPanel;
-            GameManager.onLevelCompleted += ScaleMainPanel;
+            GameManager.onLevelCompleted += LevelCompletedPanel_OnLevelCompleted;
         }
 
         void OnDisable() {
-            GameManager.onLevelCompleted -= SetCongratulationsText;
-            GameManager.onLevelCompleted -= EnableBackgroundPanel;
-            GameManager.onLevelCompleted -= ScaleMainPanel;
+            GameManager.onLevelCompleted -= LevelCompletedPanel_OnLevelCompleted;
         }
 
         void Start() {
@@ -89,6 +85,12 @@ namespace Nojumpo
             {
                 buttonRectTransforms[i].DOScale(1, buttonScaleAnimationDuration);
             }
+        }
+
+        void LevelCompletedPanel_OnLevelCompleted() {
+            SetCongratulationsText();
+            EnableBackgroundPanel();
+            ScaleMainPanel();
         }
         
         IEnumerator PersonalBestRoutine() {

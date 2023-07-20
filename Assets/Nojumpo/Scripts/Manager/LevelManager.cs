@@ -38,15 +38,13 @@ namespace Nojumpo.Managers
             InitializeSingleton();
             SetInitialLockStates();
             _totalLevelCount = SceneManager.sceneCountInBuildSettings;
-            SceneManager.sceneLoaded += SetLevelLockStates;
-            SceneManager.sceneLoaded += SetComponents;
-            GameManager.onLevelCompleted += UnlockNextLevel;
+            SceneManager.sceneLoaded += LevelManager_OnSceneLoaded;
+            GameManager.onLevelCompleted += LevelManager_OnLevelCompleted;
         }
 
         void OnDisable() {
-            SceneManager.sceneLoaded -= SetLevelLockStates;
-            SceneManager.sceneLoaded -= SetComponents;
-            GameManager.onLevelCompleted -= UnlockNextLevel;
+            SceneManager.sceneLoaded -= LevelManager_OnSceneLoaded;
+            GameManager.onLevelCompleted -= LevelManager_OnLevelCompleted;
         }
 
         void Update() {
@@ -110,6 +108,15 @@ namespace Nojumpo.Managers
             }
         }
 
+        void LevelManager_OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
+            SetComponents(scene, loadSceneMode);
+            SetLevelLockStates(scene, loadSceneMode);
+        }
+
+        void LevelManager_OnLevelCompleted() {
+            UnlockNextLevel();
+        }
+        
         IEnumerator LoadLevelCoroutine(int levelToLoad) {
             if (levelToLoad > _totalLevelCount)
                 StopCoroutine(LoadLevelCoroutine(levelToLoad));

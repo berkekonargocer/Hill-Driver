@@ -32,17 +32,15 @@ namespace Nojumpo
         
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            GameManager.onLevelCompleted += MinimumEngineSound;
-            GameManager.onLevelCompleted += DisableUpdate;
-            GameManager.onGamePaused += PauseAudio;
-            GameManager.onGameResumed += ResumeAudio;
+            GameManager.onLevelCompleted += VehicleSoundsController_OnLevelCompleted;
+            GameManager.onGamePaused += VehicleSoundsController_OnGamePaused;
+            GameManager.onGameResumed += VehicleSoundsController_OnGameResumed;
         }
 
         void OnDisable() {
-            GameManager.onLevelCompleted -= MinimumEngineSound;
-            GameManager.onLevelCompleted -= DisableUpdate;
-            GameManager.onGamePaused -= PauseAudio;
-            GameManager.onGameResumed -= ResumeAudio;
+            GameManager.onLevelCompleted -= VehicleSoundsController_OnLevelCompleted;
+            GameManager.onGamePaused -= VehicleSoundsController_OnGamePaused;
+            GameManager.onGameResumed -= VehicleSoundsController_OnGameResumed;
         }
 
         void Awake() {
@@ -92,6 +90,19 @@ namespace Nojumpo
 
         void ResumeAudio(int numberToMultiply) {
             _vehicleEngineSound.Play();
+        }
+
+        void VehicleSoundsController_OnLevelCompleted() {
+            MinimumEngineSound();
+            DisableUpdate();
+        }
+
+        void VehicleSoundsController_OnGamePaused(int numberToDivide) {
+            PauseAudio(numberToDivide);
+        }
+        
+        void VehicleSoundsController_OnGameResumed(int numberToMultiply) {
+            ResumeAudio(numberToMultiply);
         }
         
         IEnumerator LowerEngineSoundToMinimum() {

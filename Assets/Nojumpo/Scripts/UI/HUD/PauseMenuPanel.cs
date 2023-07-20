@@ -12,13 +12,13 @@ namespace Nojumpo
         
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            GameManager.onGamePaused += DisplayPanel;
-            GameManager.onGameResumed += ClosePanel;
+            GameManager.onGamePaused += PauseMenuPanel_OnGamePaused;
+            GameManager.onGameResumed += PauseMenuPanel_OnGameResumed;
         }
 
         void OnDisable() {
-            GameManager.onGamePaused -= DisplayPanel;
-            GameManager.onGameResumed -= ClosePanel;
+            GameManager.onGamePaused -= PauseMenuPanel_OnGamePaused;
+            GameManager.onGameResumed -= PauseMenuPanel_OnGameResumed;
         }
 
         void Awake() {
@@ -43,6 +43,14 @@ namespace Nojumpo
             _pauseMenuBackgroundCanvasGroup.interactable = false;
             _pauseMenuBackgroundCanvasGroup.blocksRaycasts = false;
             panelRectTransform.DOScale(0, 0.15f).SetUpdate(true);
+        }
+
+        void PauseMenuPanel_OnGamePaused(int numberToDivide) {
+            DisplayPanel(numberToDivide);
+        }
+
+        void PauseMenuPanel_OnGameResumed(int numberToMultiply) {
+            ClosePanel(numberToMultiply);
         }
     }
 }

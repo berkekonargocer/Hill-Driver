@@ -31,12 +31,12 @@ namespace Nojumpo.Managers
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             SceneManager.sceneLoaded += ResetVariables;
-            onLevelCompleted += LevelCompleted;
+            onLevelCompleted += GameManager_OnLevelCompleted;
         }
 
         void OnDisable() {
             SceneManager.sceneLoaded -= ResetVariables;
-            onLevelCompleted -= LevelCompleted;
+            onLevelCompleted -= GameManager_OnLevelCompleted;
         }
 
         void Awake() {
@@ -79,7 +79,7 @@ namespace Nojumpo.Managers
             vehicleFuel.Value = 1.0f;
         }
 
-        void LevelCompleted() {
+        void GameManager_OnLevelCompleted() {
             IsLevelCompleted = true;
         }
         

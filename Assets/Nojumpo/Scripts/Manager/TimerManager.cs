@@ -47,20 +47,19 @@ namespace Nojumpo.Scripts.Managers
         [SerializeField] int _timerTextFontSize;
 
 
+        // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            SceneManager.sceneLoaded += SetComponents;
-            SceneManager.sceneLoaded += ResetTimer;
-            GameManager.onLevelCompleted += StopTimer;
-            GameManager.onGamePaused += StopTimer;
-            GameManager.onGameResumed += StartTimer;
+            SceneManager.sceneLoaded += TimerManager_OnSceneLoaded;
+            GameManager.onLevelCompleted += TimerManager_OnLevelCompleted;
+            GameManager.onGamePaused += TimerManager_OnGamePaused;
+            GameManager.onGameResumed += TimerManager_OnGameResumed;
         }
 
         void OnDisable() {
-            SceneManager.sceneLoaded -= SetComponents;
-            SceneManager.sceneLoaded -= ResetTimer;
-            GameManager.onLevelCompleted -= StopTimer;
-            GameManager.onGamePaused -= StopTimer;
-            GameManager.onGameResumed -= StartTimer;
+            SceneManager.sceneLoaded -= TimerManager_OnSceneLoaded;
+            GameManager.onLevelCompleted -= TimerManager_OnLevelCompleted;
+            GameManager.onGamePaused -= TimerManager_OnGamePaused;
+            GameManager.onGameResumed -= TimerManager_OnGameResumed;
         }
 
         void Awake() {
@@ -101,6 +100,8 @@ namespace Nojumpo.Scripts.Managers
             }
         }
 
+        
+        // ------------------------ CUSTOM PRIVATE METHODS ------------------------
         void SetComponents(Scene scene, LoadSceneMode loadSceneMode) {
             _timerText = GameObject.FindWithTag("UI/Timer Text")?.GetComponent<TextMeshProUGUI>();
         }
@@ -178,6 +179,24 @@ namespace Nojumpo.Scripts.Managers
             _timeFormatsDictionary.Add(TimerFormats.TenthDecimal, "0.0");
         }
 
+        void TimerManager_OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
+            SetComponents(scene, loadSceneMode);
+            ResetTimer(scene, loadSceneMode);
+        }
+        
+        void TimerManager_OnLevelCompleted() {
+            StopTimer();
+        }
+        
+        void TimerManager_OnGamePaused(int numberToDivide) {
+            StopTimer(numberToDivide);
+        }
+        
+        void TimerManager_OnGameResumed(int numberToMultiply) {
+            StartTimer(numberToMultiply);
+        }
+        
+        // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public string GetCurrentTimeText(bool minutesAndSeconds) {
             if (minutesAndSeconds)
             {
