@@ -104,7 +104,7 @@ namespace Nojumpo
                 yield break;
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.75f);
             
             ActivateButtons();
         }

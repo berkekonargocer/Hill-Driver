@@ -208,7 +208,7 @@ namespace Nojumpo.Scripts.Managers
             _isTimerActive = false;
         }
         
-        public void SetLevelDetails(LevelDetailsSO levelDetailsSO) {
+        public void SetLevelDetailsSO(LevelDetailsSO levelDetailsSO) {
             LevelDetailsSo = levelDetailsSO;
         }
 

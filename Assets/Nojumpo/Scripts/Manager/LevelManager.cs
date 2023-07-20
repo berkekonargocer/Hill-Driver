@@ -97,6 +97,9 @@ namespace Nojumpo.Managers
         }
 
         void UnlockNextLevel() {
+            if (PlayerPrefs.HasKey(_levelDetailsSO.NextLevelLockStatePlayerPrefsKey()))
+                return;
+            
             PlayerPrefs.SetInt(_levelDetailsSO.NextLevelLockStatePlayerPrefsKey(), 0);
         }
 

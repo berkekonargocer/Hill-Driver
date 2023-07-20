@@ -15,8 +15,8 @@ namespace Nojumpo
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            TimerManager.Instance.SetLevelDetails(levelDetailsSo);
             LevelManager.Instance.SetLevelDetailsSO(levelDetailsSo);
+            TimerManager.Instance.SetLevelDetailsSO(levelDetailsSo);
             TimerManager.Instance.SetTimerActive(activateTimerOnSceneLoad);
         }
 

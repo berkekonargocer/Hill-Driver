@@ -76,7 +76,7 @@ namespace Nojumpo
         }
 
         void DrainFuel() {
-            if (MoveInput != Vector2.zero)
+            if (MoveInput.y != 0)
             {
                 vehicleFuel.ApplyChange(fuelDrainAmount);
             }
