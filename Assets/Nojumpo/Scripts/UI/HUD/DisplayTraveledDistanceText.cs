@@ -1,4 +1,3 @@
-using Nojumpo.Interfaces;
 using Nojumpo.ScriptableObjects;
 using TMPro;
 using UnityEngine;

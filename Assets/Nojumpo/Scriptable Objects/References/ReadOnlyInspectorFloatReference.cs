@@ -1,5 +1,5 @@
-using Nojumpo.ScriptableObjects.Datas.Variable;
 using System;
+using Nojumpo.ScriptableObjects.Datas.Variable;
 using UnityEngine;
 
 namespace Nojumpo.ScriptableObjects.ScriptableObjectReferences

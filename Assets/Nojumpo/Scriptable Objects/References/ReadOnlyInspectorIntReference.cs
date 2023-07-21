@@ -1,4 +1,3 @@
-using Nojumpo.ScriptableObjects.Datas.Variable;
 using System;
 using UnityEngine;
 

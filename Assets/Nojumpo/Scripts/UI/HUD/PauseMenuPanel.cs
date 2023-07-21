@@ -31,14 +31,14 @@ namespace Nojumpo
             _pauseMenuBackgroundCanvasGroup = GetComponentInChildren<CanvasGroup>();
         }
         
-        void DisplayPanel(int numberToDivide) {
+        void DisplayPanel() {
             _pauseMenuBackgroundCanvasGroup.alpha = 1;
             _pauseMenuBackgroundCanvasGroup.interactable = true;
             _pauseMenuBackgroundCanvasGroup.blocksRaycasts = true;
             panelRectTransform.DOScale(1, 0.15f).SetUpdate(true);
         }
 
-        void ClosePanel(int numberToMultiply) {
+        void ClosePanel() {
             _pauseMenuBackgroundCanvasGroup.alpha = 0;
             _pauseMenuBackgroundCanvasGroup.interactable = false;
             _pauseMenuBackgroundCanvasGroup.blocksRaycasts = false;
@@ -46,11 +46,11 @@ namespace Nojumpo
         }
 
         void PauseMenuPanel_OnGamePaused(int numberToDivide) {
-            DisplayPanel(numberToDivide);
+            DisplayPanel();
         }
 
         void PauseMenuPanel_OnGameResumed(int numberToMultiply) {
-            ClosePanel(numberToMultiply);
+            ClosePanel();
         }
     }
 }

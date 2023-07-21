@@ -1,6 +1,5 @@
 using Nojumpo.Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Nojumpo.ScriptableObjects
 {

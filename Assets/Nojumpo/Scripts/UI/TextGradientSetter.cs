@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Nojumpo.ScriptableObjects.ScriptableObjectReferences;
 using TMPro;

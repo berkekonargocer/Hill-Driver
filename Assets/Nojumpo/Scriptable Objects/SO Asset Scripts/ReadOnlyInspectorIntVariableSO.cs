@@ -1,5 +1,5 @@
-using UnityEngine;
 using Nojumpo.EditorAttributes;
+using UnityEngine;
 
 namespace Nojumpo.ScriptableObjects
 {

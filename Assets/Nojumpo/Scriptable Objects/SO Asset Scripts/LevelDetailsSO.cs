@@ -1,4 +1,3 @@
-using System;
 using Nojumpo.ScriptableObjects.Datas;
 using Nojumpo.Scripts.Managers;
 using UnityEngine;

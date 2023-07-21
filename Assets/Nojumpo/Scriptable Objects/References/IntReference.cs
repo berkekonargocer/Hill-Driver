@@ -1,6 +1,6 @@
 using System;
-using UnityEngine;
 using Nojumpo.ScriptableObjects;
+using UnityEngine;
 
 namespace Nojumpo.Variables
 {

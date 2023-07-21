@@ -1,5 +1,5 @@
-using UnityEngine;
 using Nojumpo.Interfaces;
+using UnityEngine;
 
 namespace Nojumpo
 {

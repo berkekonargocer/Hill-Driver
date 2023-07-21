@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using DG.Tweening;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Nojumpo.Managers

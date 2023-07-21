@@ -1,6 +1,6 @@
+using System.Threading.Tasks;
 using Nojumpo.ScriptableObjects.Datas;
 using Nojumpo.Scripts.Interfaces;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
