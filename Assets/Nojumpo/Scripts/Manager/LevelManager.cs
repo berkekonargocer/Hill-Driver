@@ -146,6 +146,7 @@ namespace Nojumpo.Managers
         IEnumerator HoldDownToRestartLevelCoroutine(float holdDownTime) {
             _isHoldingDown = true;
             _restartButtonTransform.DOLocalRotate(new Vector3(0, 0, 360), holdDownTime, RotateMode.LocalAxisAdd);
+            _restartButtonTransform.DOScale(0.8f, 0.25f);
 
             while (_isHoldingDown)
             {
@@ -187,6 +188,7 @@ namespace Nojumpo.Managers
             _currentHoldDownTime = 0.0f;
             _restartButtonFillImage.color = new Color(_restartButtonFillImage.color.r, _restartButtonFillImage.color.g, _restartButtonFillImage.color.b, 0);
             _restartButtonTransform.DOLocalRotate(new Vector3(0, 0, 0), holdDownTime);
+            _restartButtonTransform.DOScale(1f, 0.25f);
         }
 
         public void CallLoadLevelCoroutine(int levelToLoad) {

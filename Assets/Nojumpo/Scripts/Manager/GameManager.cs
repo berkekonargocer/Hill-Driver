@@ -8,34 +8,34 @@ namespace Nojumpo.Managers
     public class GameManager : MonoBehaviour
     {
         // -------------------------------- FIELDS --------------------------------
-        public delegate void OnLevelCompleted();
-        public static OnLevelCompleted onLevelCompleted;
-
-        public delegate void OnGamePaused(int volumeDivision);
-        public static OnGamePaused onGamePaused;
-        
-        public delegate void OnGameResumed(int volumeMultiply);
-        public static OnGameResumed onGameResumed;
-        
         [Header("SINGLETON")]
         static GameManager _instance;
         public static GameManager Instance { get { return _instance; } }
+        
+        public delegate void OnLevelCompleted();
+        public static event OnLevelCompleted onLevelCompleted;
+        public bool IsLevelCompleted { get; private set; }
 
+        public delegate void OnGamePaused(int volumeDivision);
+        public static event OnGamePaused onGamePaused;
+
+        static bool IS_PAUSED;
+
+        public delegate void OnGameResumed(int volumeMultiply);
+        public static event OnGameResumed onGameResumed;
+        
         [Header("VEHICLE VARIABLES")]
         [SerializeField] FloatVariableSO vehicleFuel;
-        
-        static bool IS_PAUSED;
-        public bool IsLevelCompleted { get; private set; }
 
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
-            SceneManager.sceneLoaded += ResetVariables;
+            SceneManager.sceneLoaded += GameManager_OnSceneLoaded;
             onLevelCompleted += GameManager_OnLevelCompleted;
         }
 
         void OnDisable() {
-            SceneManager.sceneLoaded -= ResetVariables;
+            SceneManager.sceneLoaded -= GameManager_OnSceneLoaded;
             onLevelCompleted -= GameManager_OnLevelCompleted;
         }
 
@@ -72,13 +72,17 @@ namespace Nojumpo.Managers
             }
         }
 
-        void ResetVariables(Scene scene, LoadSceneMode loadSceneMode) {
+        void ResetVariables() {
             Time.timeScale = 1;
             IsLevelCompleted = false;
             IS_PAUSED = false;
             vehicleFuel.Value = 1.0f;
         }
 
+        void GameManager_OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
+            ResetVariables();
+        }
+        
         void GameManager_OnLevelCompleted() {
             IsLevelCompleted = true;
         }
