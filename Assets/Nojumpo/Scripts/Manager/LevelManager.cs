@@ -75,7 +75,7 @@ namespace Nojumpo.Managers
             }
         }
 
-        void SetComponents(Scene scene, LoadSceneMode loadSceneMode) {
+        void SetComponents() {
             _restartButtonFillImage = GameObject.FindWithTag("UI/Restart Button Fill Image")?.GetComponent<Image>();
             _restartButtonTransform = GameObject.FindWithTag("UI/Restart Button")?.GetComponent<Transform>();
             _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas");
@@ -95,13 +95,13 @@ namespace Nojumpo.Managers
         }
 
         void UnlockNextLevel() {
-            if (PlayerPrefs.HasKey(_levelDetailsSO.NextLevelLockStatePlayerPrefsKey()))
+            if (!_levelDetailsSO.IsLocked)
                 return;
-            
+
             PlayerPrefs.SetInt(_levelDetailsSO.NextLevelLockStatePlayerPrefsKey(), 0);
         }
 
-        void SetLevelLockStates(Scene scene, LoadSceneMode loadSceneMode) {
+        void SetLevelLockStates() {
             for (int i = 0; i < levelDetailsExceptLvlOne.Length; i++)
             {
                 levelDetailsExceptLvlOne[i].SetLockState();
@@ -109,8 +109,8 @@ namespace Nojumpo.Managers
         }
 
         void LevelManager_OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
-            SetComponents(scene, loadSceneMode);
-            SetLevelLockStates(scene, loadSceneMode);
+            SetLevelLockStates();
+            SetComponents();
         }
 
         void LevelManager_OnLevelCompleted() {

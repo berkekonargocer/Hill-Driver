@@ -18,6 +18,7 @@ TagManager:
   - Time Scores
   - UI/Tooltip Canvas
   - UI/Settings Panel
+  - UI/Tutorial HUD
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,8 @@ namespace Nojumpo
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void BackToMenuFromTutorialPanel() {
             CanvasGroup tutorialPanelCanvasGroup = GameObject.FindWithTag("UI/Tutorial Panel").GetComponent<CanvasGroup>();
+            TutorialHUD tutorialHUD = GameObject.FindWithTag("UI/Tutorial HUD").GetComponent<TutorialHUD>();
+            tutorialHUD.DisableAnimators();
             tutorialPanelCanvasGroup.alpha = 0;
             tutorialPanelCanvasGroup.interactable = false;
             tutorialPanelCanvasGroup.blocksRaycasts = false;

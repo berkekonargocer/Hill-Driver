@@ -748,35 +748,35 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: ChangeText
-    data: 440
+    data: 440m
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.5
     functionName: ChangeText
-    data: 439
+    data: 439m
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1
     functionName: ChangeText
-    data: 438
+    data: 438m
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.5
     functionName: ChangeText
-    data: 437
+    data: 437m
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.8333334
     functionName: ChangeText
-    data: 436
+    data: 436m
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
