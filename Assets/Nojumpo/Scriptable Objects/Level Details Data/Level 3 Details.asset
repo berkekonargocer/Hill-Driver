@@ -15,7 +15,7 @@ MonoBehaviour:
   _developerDescription: 
   _name: 
   _description: 
-  levelCount: 3
+  levelNumber: 3
   isLocked: 0
-  goodTime: 240
-  badTime: 300
+  goodTime: 140
+  badTime: 160

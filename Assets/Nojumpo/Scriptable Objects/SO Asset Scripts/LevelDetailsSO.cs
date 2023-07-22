@@ -1,15 +1,16 @@
 using Nojumpo.ScriptableObjects.Datas;
 using Nojumpo.Scripts.Managers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Nojumpo.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "NewLevelDetailsSO", menuName = "Nojumpo/Scriptable Objects/Datas/Level/New Level Details SO")]
     public class LevelDetailsSO : Data
     {
-
-        [SerializeField] int levelCount;
-        public int LevelCount { get { return levelCount; } }
+        
+        [SerializeField] int levelNumber;
+        public int LevelNumber { get { return levelNumber; } }
 
         [SerializeField] bool isLocked;
         public bool IsLocked { get { return isLocked; } }
@@ -22,15 +23,15 @@ namespace Nojumpo.ScriptableObjects
         
 
         public string LevelPBPlayerPrefsKey() {
-            return $"Level {levelCount.ToString()} Personal Best";
+            return $"Level {levelNumber.ToString()} Personal Best";
         }
 
         public string CurrentLevelLockStatePlayerPrefsKey() {
-            return $"Level {levelCount.ToString()} Lock State";
+            return $"Level {levelNumber.ToString()} Lock State";
         }
 
         public string NextLevelLockStatePlayerPrefsKey() {
-            return $"Level {levelCount + 1} Lock State";
+            return $"Level {levelNumber + 1} Lock State";
         }
 
         public bool IsPersonalBest() {
@@ -39,11 +40,11 @@ namespace Nojumpo.ScriptableObjects
         }
         
         public void SetLockState() {
-            isLocked = PlayerPrefs.GetInt(CurrentLevelLockStatePlayerPrefsKey()) == 1 ? true : false;
+            isLocked = PlayerPrefs.GetInt(CurrentLevelLockStatePlayerPrefsKey()) == 0 ? true : false;
         }
 
         public void SetPersonalBest() {
-            PlayerPrefs.SetFloat(LevelPBPlayerPrefsKey(), TimerManager.Instance.CurrentTime);
+            PlayerPrefs.SetFloat(LevelPBPlayerPrefsKey(), (int)TimerManager.Instance.CurrentTime);
         }
     }
 }

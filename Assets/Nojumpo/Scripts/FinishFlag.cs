@@ -15,9 +15,9 @@ namespace Nojumpo
         void OnTriggerEnter2D(Collider2D other) {
             if (other.CompareTag("Player"))
             {
+                GetComponent<BoxCollider2D>().enabled = false;
                 GameManager.Instance.InvokeOnLevelCompleted();
                 levelCompleteParticleEffect.Play();
-                GetComponent<BoxCollider2D>().enabled = false;
             }
         }
     }

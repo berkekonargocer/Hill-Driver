@@ -4,6 +4,7 @@ using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.PlayerPrefs;
 
 namespace Nojumpo.Managers
 {
@@ -81,25 +82,27 @@ namespace Nojumpo.Managers
         }
 
         void SetInitialLockStates() {
-            if (PlayerPrefs.HasKey("Not First Launch"))
+            if (HasKey("Not First Launch"))
                 return;
 
+            // Debug.Log("Setting up initial lock states");
             for (int i = 0; i < levelDetailsExceptLvlOne.Length; i++)
             {
-                PlayerPrefs.SetInt(levelDetailsExceptLvlOne[i].CurrentLevelLockStatePlayerPrefsKey(), 1);
+                SetInt(levelDetailsExceptLvlOne[i].CurrentLevelLockStatePlayerPrefsKey(), 0);
             }
             
-            PlayerPrefs.SetInt("Not First Launch", 1);
+            SetInt("Not First Launch", 1);
         }
 
         void UnlockNextLevel() {
-            if (!_levelDetailsSO.IsLocked)
+            if (GetInt(_levelDetailsSO.NextLevelLockStatePlayerPrefsKey()) == 1 || _levelDetailsSO.LevelNumber == _totalLevelCount)
                 return;
 
-            PlayerPrefs.SetInt(_levelDetailsSO.NextLevelLockStatePlayerPrefsKey(), 0);
+            SetInt(_levelDetailsSO.NextLevelLockStatePlayerPrefsKey(), 1);
         }
 
         void SetLevelLockStates() {
+            // Debug.Log("Setting up level lock states");
             for (int i = 0; i < levelDetailsExceptLvlOne.Length; i++)
             {
                 levelDetailsExceptLvlOne[i].SetLockState();

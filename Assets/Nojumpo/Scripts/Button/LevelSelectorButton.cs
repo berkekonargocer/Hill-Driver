@@ -39,7 +39,7 @@ namespace Nojumpo
         
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
-            levelCountText.text = levelDetailsSo.LevelCount.ToString();
+            levelCountText.text = levelDetailsSo.LevelNumber.ToString();
             _buttonCanvasGroup = GetComponent<CanvasGroup>();
         }
         
@@ -50,7 +50,7 @@ namespace Nojumpo
                 return;
             }
 
-            if (levelDetailsSo.LevelCount != 1)
+            if (levelDetailsSo.LevelNumber != 1)
             {
                 UnlockLevel();
             }
@@ -76,7 +76,7 @@ namespace Nojumpo
 
         void UpdateStars() {
 
-            string levelPbPlayerPrefsKey = $"Level {levelDetailsSo.LevelCount.ToString()} Personal Best";
+            string levelPbPlayerPrefsKey = $"Level {levelDetailsSo.LevelNumber.ToString()} Personal Best";
 
             if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) <= 0)
                 return;
@@ -107,7 +107,7 @@ namespace Nojumpo
 
             GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
             GameObject.FindWithTag("UI/Tooltip Canvas").SetActive(false);
-            LevelManager.Instance.CurrentLevel = levelDetailsSo.LevelCount;
+            LevelManager.Instance.CurrentLevel = levelDetailsSo.LevelNumber;
             LevelManager.Instance.StartGame(levelBuildIndex);
         }
         
