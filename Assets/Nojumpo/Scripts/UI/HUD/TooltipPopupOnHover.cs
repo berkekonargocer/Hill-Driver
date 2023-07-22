@@ -9,9 +9,6 @@ namespace Nojumpo.Systems.TooltipSystem
     [ExecuteInEditMode]
     public class TooltipPopupOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [Header("Tooltip Settings")]
-        bool _isCurrentlyHovering;
-
         [SerializeField] Data _data;
         [SerializeField] CanvasGroup _canvasGroup;
 
@@ -22,9 +19,6 @@ namespace Nojumpo.Systems.TooltipSystem
 
 
         async Task DisplayTooltip(PointerEventData eventData) {
-
-            _isCurrentlyHovering = true;
-
             if (_showDelayed)
             {
                 int delayAmountInSeconds = _delayAmount * 100;
@@ -35,9 +29,7 @@ namespace Nojumpo.Systems.TooltipSystem
         }
         
         void CloseTooltip() {
-
             _canvasGroup.GetComponent<ITooltipPanel>().CloseTooltip(tooltipPanelAnimationSettings);
-            _isCurrentlyHovering = false;
         }
         
         public async void OnPointerEnter(PointerEventData eventData) {

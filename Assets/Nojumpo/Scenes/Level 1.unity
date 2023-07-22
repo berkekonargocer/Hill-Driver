@@ -1321,7 +1321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224752037997790487, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.04
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 8224752037997790487, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1648,7 +1648,7 @@ GameObject:
   - component: {fileID: 1000482469}
   m_Layer: 0
   m_Name: Level Details
-  m_TagString: Time Scores
+  m_TagString: Level Details
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5595,7 +5595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224752037997790487, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.29
+      value: 4.35
       objectReference: {fileID: 0}
     - target: {fileID: 8224752037997790487, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6236,7 +6236,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.019738778, y: -0.15132391}
-  m_ConnectedAnchor: {x: 0.0317688, y: 0.32804632}
+  m_ConnectedAnchor: {x: 0.031723022, y: 0.32804632}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

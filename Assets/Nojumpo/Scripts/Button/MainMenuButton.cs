@@ -11,6 +11,7 @@ namespace Nojumpo
         public void OnClick() {
             AudioManager.Instance.StopBGM();
             TimerManager.Instance.StopTimer();
+            GameManager.Instance.SetIsPlaying(false);
             SceneManager.LoadScene(0);
         }
     }

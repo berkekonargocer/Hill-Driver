@@ -2599,7 +2599,7 @@ GameObject:
   - component: {fileID: 1796254591}
   m_Layer: 0
   m_Name: Level Details
-  m_TagString: Time Scores
+  m_TagString: Level Details
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

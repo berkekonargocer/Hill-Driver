@@ -1,4 +1,5 @@
 using Nojumpo.Managers;
+using Nojumpo.Scripts.Managers;
 using UnityEngine;
 
 namespace Nojumpo
@@ -16,6 +17,7 @@ namespace Nojumpo
             if (other.CompareTag("Player"))
             {
                 GetComponent<BoxCollider2D>().enabled = false;
+                TimerManager.Instance.StopTimer();
                 GameManager.Instance.InvokeOnLevelCompleted();
                 levelCompleteParticleEffect.Play();
             }

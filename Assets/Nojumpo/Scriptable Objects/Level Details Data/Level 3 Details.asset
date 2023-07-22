@@ -16,6 +16,6 @@ MonoBehaviour:
   _name: 
   _description: 
   levelNumber: 3
-  isLocked: 0
+  isLocked: 1
   goodTime: 140
   badTime: 160

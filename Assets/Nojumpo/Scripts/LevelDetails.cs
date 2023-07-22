@@ -1,4 +1,3 @@
-using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using Nojumpo.Scripts.Managers;
 using UnityEngine;
@@ -9,16 +8,14 @@ namespace Nojumpo
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] LevelDetailsSO levelDetailsSo;
+        public LevelDetailsSO LevelDetailsSo { get { return levelDetailsSo; } }
+        
         [SerializeField] bool activateTimerOnSceneLoad;
         
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void OnEnable() {
-            LevelManager.Instance.SetLevelDetailsSO(levelDetailsSo);
-            TimerManager.Instance.SetLevelDetailsSO(levelDetailsSo);
+        void Start() {
             TimerManager.Instance.SetTimerActive(activateTimerOnSceneLoad);
         }
-        
-
     }
 }

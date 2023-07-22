@@ -50,14 +50,12 @@ namespace Nojumpo.Scripts.Managers
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             SceneManager.sceneLoaded += TimerManager_OnSceneLoaded;
-            GameManager.onLevelCompleted += TimerManager_OnLevelCompleted;
             GameManager.onGamePaused += TimerManager_OnGamePaused;
             GameManager.onGameResumed += TimerManager_OnGameResumed;
         }
 
         void OnDisable() {
             SceneManager.sceneLoaded -= TimerManager_OnSceneLoaded;
-            GameManager.onLevelCompleted -= TimerManager_OnLevelCompleted;
             GameManager.onGamePaused -= TimerManager_OnGamePaused;
             GameManager.onGameResumed -= TimerManager_OnGameResumed;
         }
@@ -102,8 +100,9 @@ namespace Nojumpo.Scripts.Managers
 
         
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
-        void SetComponents(Scene scene, LoadSceneMode loadSceneMode) {
+        void SetComponents() {
             _timerText = GameObject.FindWithTag("UI/Timer Text")?.GetComponent<TextMeshProUGUI>();
+            LevelDetailsSo = GameObject.FindWithTag("Level Details")?.GetComponent<LevelDetails>().LevelDetailsSo;
         }
 
         void TimerCountdownOrUp() {
@@ -165,10 +164,9 @@ namespace Nojumpo.Scripts.Managers
             }
         }
 
-        void ResetTimer(Scene scene, LoadSceneMode loadSceneMode) {
+        void ResetTimer() {
             _currentTime = _startingTime;
         }
-
 
         void SetTimerFontSize() {
             _timerText.fontSize = _timerTextFontSize;
@@ -180,14 +178,10 @@ namespace Nojumpo.Scripts.Managers
         }
 
         void TimerManager_OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
-            SetComponents(scene, loadSceneMode);
-            ResetTimer(scene, loadSceneMode);
+            SetComponents();
+            ResetTimer();
         }
-        
-        void TimerManager_OnLevelCompleted() {
-            StopTimer();
-        }
-        
+
         void TimerManager_OnGamePaused(int numberToDivide) {
             StopTimer(numberToDivide);
         }
@@ -226,10 +220,5 @@ namespace Nojumpo.Scripts.Managers
         public void StopTimer(int numberToDivide) {
             _isTimerActive = false;
         }
-        
-        public void SetLevelDetailsSO(LevelDetailsSO levelDetailsSO) {
-            LevelDetailsSo = levelDetailsSO;
-        }
-
     }
 }

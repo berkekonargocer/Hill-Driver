@@ -30,7 +30,7 @@ namespace Nojumpo.Managers
 
         LevelDetailsSO _levelDetailsSO;
         [SerializeField] LevelDetailsSO[] levelDetailsExceptLvlOne;
-        
+
 
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
@@ -47,7 +47,7 @@ namespace Nojumpo.Managers
         }
 
         void Update() {
-            if (GameManager.Instance.IsLevelCompleted)
+            if (GameManager.Instance.IsLevelCompleted || !GameManager.Instance.IsPlaying)
                 return;
 
             if (Input.GetKeyDown(KeyCode.R))
@@ -75,6 +75,7 @@ namespace Nojumpo.Managers
         }
 
         void SetComponents() {
+            _levelDetailsSO = GameObject.FindWithTag("Level Details")?.GetComponent<LevelDetails>().LevelDetailsSo;
             _restartButtonFillImage = GameObject.FindWithTag("UI/Restart Button Fill Image")?.GetComponent<Image>();
             _restartButtonTransform = GameObject.FindWithTag("UI/Restart Button")?.GetComponent<Transform>();
             _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas");
@@ -90,7 +91,7 @@ namespace Nojumpo.Managers
             {
                 SetInt(levelDetailsExceptLvlOne[i].CurrentLevelLockStatePlayerPrefsKey(), 0);
             }
-            
+
             SetInt("Not First Launch", 1);
         }
 
@@ -117,7 +118,7 @@ namespace Nojumpo.Managers
         void LevelManager_OnLevelCompleted() {
             UnlockNextLevel();
         }
-        
+
         IEnumerator LoadLevelCoroutine(int levelToLoad) {
             if (levelToLoad > _totalLevelCount)
                 StopCoroutine(LoadLevelCoroutine(levelToLoad));
@@ -169,12 +170,6 @@ namespace Nojumpo.Managers
 
 
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
-        public void StartGame(int level) {
-            Time.timeScale = 1;
-            AudioManager.Instance.SelectBGMAudioClipAndPlay(level - 1);
-            CallLoadLevelCoroutine(level);
-        }
-
         public void RestartLevel() {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -194,10 +189,6 @@ namespace Nojumpo.Managers
 
         public void CallLoadLevelCoroutine(int levelToLoad) {
             StartCoroutine(LoadLevelCoroutine(levelToLoad));
-        }
-
-        public void SetLevelDetailsSO(LevelDetailsSO levelDetailsSO) {
-            _levelDetailsSO = levelDetailsSO;
         }
 
     }

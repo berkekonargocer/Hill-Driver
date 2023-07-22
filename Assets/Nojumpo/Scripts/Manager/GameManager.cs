@@ -22,6 +22,8 @@ namespace Nojumpo.Managers
 
         public delegate void OnGameResumed(int volumeMultiply);
         public static event OnGameResumed onGameResumed;
+
+        public bool IsPlaying { get; private set; }
         
         [Header("VEHICLE VARIABLES")]
         [SerializeField] FloatVariableSO vehicleFuel;
@@ -43,7 +45,7 @@ namespace Nojumpo.Managers
         }
 
         void Update() {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && IsPlaying)
             {
                 PauseOrUnpauseGame();
             }
@@ -105,9 +107,19 @@ namespace Nojumpo.Managers
 
         
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
+        public void StartGame(int level) {
+            Time.timeScale = 1;
+            AudioManager.Instance.SelectBGMAudioClipAndPlay(level - 1);
+            LevelManager.Instance.CallLoadLevelCoroutine(level);
+            SetIsPlaying(true);
+        }
+
+        public void SetIsPlaying(bool isPlaying) {
+            IsPlaying = isPlaying;
+        }
+        
         public void InvokeOnLevelCompleted() {
             onLevelCompleted?.Invoke();
         }
-
     }
 }
