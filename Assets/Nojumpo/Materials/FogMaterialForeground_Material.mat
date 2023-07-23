@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FogMaterialBackground
+  m_Name: FogMaterialForeground_Material
   m_Shader: {fileID: -6465566751694194690, guid: 8ad3689118968574db8c57ec6f788457, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -38,8 +38,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FogSize: 4
+    - _FogSize: 1
     m_Colors:
-    - _FogColor: {r: 1, g: 1, b: 1, a: 0.39215687}
-    - _FogSpeed: {r: 0.5, g: 0.015, b: 0, a: 0}
+    - _FogColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    - _FogSpeed: {r: 0.02, g: 0.01, b: 0, a: 0}
   m_BuildTextureStacks: []
