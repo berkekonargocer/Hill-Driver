@@ -384,7 +384,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -6
   m_Sprite: {fileID: 21300000, guid: 244001f7cb282f8408bd3de9889c98dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -733,7 +733,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: 244001f7cb282f8408bd3de9889c98dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -863,12 +863,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
+  m_RenderShadows: 0
+  m_RequiresDepthTextureOption: 1
+  m_RequiresOpaqueTextureOption: 1
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -1611,7 +1611,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: da21ae971b12ecf4fb107bce54ed7898, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2251,7 +2251,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: c04ced8553ce9664da84298b8fd3a399, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5198,7 +5198,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: 3bcd036f8289b2048bc79dd1a586adab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5944,6 +5944,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 499692564}
     m_Modifications:
+    - target: {fileID: 8316574930233726669, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8316574930501731836, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Name
       value: Vehicle
@@ -6236,7 +6240,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.019738778, y: -0.15132391}
-  m_ConnectedAnchor: {x: 0.031723022, y: 0.32804632}
+  m_ConnectedAnchor: {x: 0.03176168, y: 0.32803422}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
