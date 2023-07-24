@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPosition: {fileID: 62303085555152513}
-  arrivingDestination: {fileID: 0}
+  arrivingDestination: {fileID: 337940005}
   currentDistance: {fileID: 11400000, guid: f0505489d8f93c74d823dfb122c0b7e0, type: 2}
   totalDistance: {fileID: 11400000, guid: 17394da5bc1c6d54bb97342b6e504abd, type: 2}
 --- !u!4 &377151259
@@ -8275,7 +8275,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.019738778, y: -0.15132391}
-  m_ConnectedAnchor: {x: 0.031803943, y: 0.32806322}
+  m_ConnectedAnchor: {x: 0.031747706, y: 0.32802096}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
