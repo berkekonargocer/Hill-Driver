@@ -15,5 +15,5 @@ MonoBehaviour:
   developerDescription: 
   value: 1
   useMinMaxValue: 1
-  minValue: 0
+  minValue: 1
   maxValue: 1
