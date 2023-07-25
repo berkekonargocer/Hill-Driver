@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Nojumpo.ScriptableObjects.Datas.Variable
 {
-    [CreateAssetMenu(fileName = "NewReadOnlyInspectorFloatVariableSO", menuName = "Nojumpo/Scriptable Objects/Datas/Variable/New Read Only Inspector Float Variable SO")]
+    [CreateAssetMenu(fileName = "NewReadOnlyInspectorFloatVariableSO", menuName = "Nojumpo/Scriptable Objects/Data/Variable/New Read Only Inspector Float Variable SO")]
     public class ReadOnlyInspectorFloatVariableSO : ScriptableObject
     {
         

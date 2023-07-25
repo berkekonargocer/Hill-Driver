@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Nojumpo.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "NewIntVariable", menuName = "Nojumpo/Scriptable Objects/Datas/Variable/New Integer Variable")]
+    [CreateAssetMenu(fileName = "NewIntVariable", menuName = "Nojumpo/Scriptable Objects/Data/Variable/New Integer Variable")]
     public class IntVariableSO : ScriptableObject, IVariableSO<int>
     {
         

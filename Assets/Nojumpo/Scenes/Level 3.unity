@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 86854296}
   - component: {fileID: 86854298}
   - component: {fileID: 86854297}
+  - component: {fileID: 86854299}
+  - component: {fileID: 86854300}
   m_Layer: 0
   m_Name: Rain Foreground 3
   m_TagString: Untagged
@@ -245,7 +247,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4935,6 +4937,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &86854299
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86854295}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.556118, y: 0.00000016391282}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &86854300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86854295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &96642028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,6 +5211,8 @@ GameObject:
   - component: {fileID: 201660400}
   - component: {fileID: 201660402}
   - component: {fileID: 201660401}
+  - component: {fileID: 201660403}
+  - component: {fileID: 201660404}
   m_Layer: 0
   m_Name: Rain Foreground 2
   m_TagString: Untagged
@@ -5292,7 +5324,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9982,6 +10014,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &201660403
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201660399}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.034700394, y: -0.00000006798656}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &201660404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201660399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &211113259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10007,6 +10067,8 @@ GameObject:
   - component: {fileID: 234943522}
   - component: {fileID: 234943524}
   - component: {fileID: 234943523}
+  - component: {fileID: 234943525}
+  - component: {fileID: 234943526}
   m_Layer: 0
   m_Name: Rain Foreground 6
   m_TagString: Untagged
@@ -10118,7 +10180,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -14808,6 +14870,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &234943525
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234943521}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.82377243, y: -0.000000021420425}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &234943526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234943521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &236703135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15390,6 +15480,8 @@ GameObject:
   - component: {fileID: 396668000}
   - component: {fileID: 396668002}
   - component: {fileID: 396668001}
+  - component: {fileID: 396668003}
+  - component: {fileID: 396668004}
   m_Layer: 0
   m_Name: Rain Foreground 10
   m_TagString: Untagged
@@ -15501,7 +15593,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -20191,6 +20283,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &396668003
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396667999}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.21897507, y: 0.0000000018626456}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &396668004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396667999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &411793713
 GameObject:
   m_ObjectHideFlags: 0
@@ -20202,6 +20322,8 @@ GameObject:
   - component: {fileID: 411793714}
   - component: {fileID: 411793716}
   - component: {fileID: 411793715}
+  - component: {fileID: 411793717}
+  - component: {fileID: 411793718}
   m_Layer: 0
   m_Name: Rain Foreground 9
   m_TagString: Untagged
@@ -20313,7 +20435,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -25003,6 +25125,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &411793717
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411793713}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.5499783, y: 0.00000015553091}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &411793718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411793713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &441180603
 GameObject:
   m_ObjectHideFlags: 0
@@ -25014,6 +25164,8 @@ GameObject:
   - component: {fileID: 441180604}
   - component: {fileID: 441180606}
   - component: {fileID: 441180605}
+  - component: {fileID: 441180607}
+  - component: {fileID: 441180608}
   m_Layer: 0
   m_Name: Rain Foreground 4
   m_TagString: Untagged
@@ -25125,7 +25277,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -29815,6 +29967,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &441180607
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441180603}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.16886711, y: 0.00000008754434}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &441180608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441180603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &448205421
 GameObject:
   m_ObjectHideFlags: 3
@@ -36031,6 +36211,8 @@ GameObject:
   - component: {fileID: 1022652853}
   - component: {fileID: 1022652855}
   - component: {fileID: 1022652854}
+  - component: {fileID: 1022652856}
+  - component: {fileID: 1022652857}
   m_Layer: 0
   m_Name: Rain Foreground 7
   m_TagString: Untagged
@@ -36142,7 +36324,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -40832,6 +41014,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &1022652856
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022652852}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5043812, y: 0.00000009778889}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &1022652857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022652852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1107543794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40923,6 +41133,8 @@ GameObject:
   - component: {fileID: 1265821713}
   - component: {fileID: 1265821715}
   - component: {fileID: 1265821714}
+  - component: {fileID: 1265821716}
+  - component: {fileID: 1265821717}
   m_Layer: 0
   m_Name: Rain Foreground 1
   m_TagString: Untagged
@@ -41034,7 +41246,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -45724,6 +45936,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &1265821716
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265821712}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5465908, y: -0.000000045634817}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &1265821717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265821712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1291933217
 GameObject:
   m_ObjectHideFlags: 0
@@ -45735,6 +45975,8 @@ GameObject:
   - component: {fileID: 1291933218}
   - component: {fileID: 1291933220}
   - component: {fileID: 1291933219}
+  - component: {fileID: 1291933221}
+  - component: {fileID: 1291933222}
   m_Layer: 0
   m_Name: Rain Foreground 5
   m_TagString: Untagged
@@ -45846,7 +46088,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -50536,6 +50778,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &1291933221
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291933217}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.0358315, y: 0.00000023934996}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &1291933222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291933217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1306787062
 GameObject:
   m_ObjectHideFlags: 0
@@ -51198,6 +51468,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffectMultiplier: {x: 0.05, y: 0.06}
+--- !u!1 &1960384299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8316574930501731836, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
+  m_PrefabInstance: {fileID: 62303085555152512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1971025807
 GameObject:
   m_ObjectHideFlags: 0
@@ -57624,6 +57899,8 @@ GameObject:
   - component: {fileID: 2073521362}
   - component: {fileID: 2073521364}
   - component: {fileID: 2073521363}
+  - component: {fileID: 2073521365}
+  - component: {fileID: 2073521366}
   m_Layer: 0
   m_Name: Rain Foreground 11
   m_TagString: Untagged
@@ -57735,7 +58012,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -62425,6 +62702,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &2073521365
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073521361}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.0397129, y: 0.000000017695132}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &2073521366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073521361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2084928265
 GameObject:
   m_ObjectHideFlags: 0
@@ -62436,6 +62741,8 @@ GameObject:
   - component: {fileID: 2084928266}
   - component: {fileID: 2084928268}
   - component: {fileID: 2084928267}
+  - component: {fileID: 2084928269}
+  - component: {fileID: 2084928270}
   m_Layer: 0
   m_Name: Rain Foreground 8
   m_TagString: Untagged
@@ -62547,7 +62854,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -67237,6 +67544,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!58 &2084928269
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084928265}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.25855827, y: -0.000000054948046}
+  serializedVersion: 2
+  m_Radius: 62
+--- !u!114 &2084928270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084928265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe3afbed546c74c985df1b5abfca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2093991868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67669,6 +68004,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8316574930501731837, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
   m_PrefabInstance: {fileID: 62303085555152512}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &62303085555152523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960384299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd760d4665ad6d4c9c078f8bfdff4af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tag: {fileID: 11400000, guid: 2d49385b5b07d8247a7500e84789c51f, type: 2}
 --- !u!1001 &7819495941859865125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67967,7 +68315,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.019738778, y: -0.15132391}
-  m_ConnectedAnchor: {x: 0.031747706, y: 0.32805866}
+  m_ConnectedAnchor: {x: 0.031692218, y: 0.32806027}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -68547,10 +68895,6 @@ PrefabInstance:
     - target: {fileID: 9152989158228393616, guid: f6357e00a96e5da41ad30206bd2f4cb0, type: 3}
       propertyPath: m_Name
       value: Rain Foreground 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152989158228393630, guid: f6357e00a96e5da41ad30206bd2f4cb0, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 9152989158228393631, guid: f6357e00a96e5da41ad30206bd2f4cb0, type: 3}
       propertyPath: m_RootOrder

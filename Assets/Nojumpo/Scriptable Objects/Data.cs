@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Nojumpo.ScriptableObjects.Datas
 {
-    [CreateAssetMenu(fileName = "NewData", menuName = "Nojumpo/Scriptable Objects/Datas/Description/New Description")]
+    [CreateAssetMenu(fileName = "NewData", menuName = "Nojumpo/Scriptable Objects/Data/Description/New Description")]
     public class Data : ScriptableObject
     {
 #if UNITY_EDITOR

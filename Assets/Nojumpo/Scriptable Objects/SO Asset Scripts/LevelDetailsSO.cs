@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 namespace Nojumpo.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "NewLevelDetailsSO", menuName = "Nojumpo/Scriptable Objects/Datas/Level/New Level Details SO")]
+    [CreateAssetMenu(fileName = "NewLevelDetailsSO", menuName = "Nojumpo/Scriptable Objects/Data/Level/New Level Details SO")]
     public class LevelDetailsSO : Data
     {
         

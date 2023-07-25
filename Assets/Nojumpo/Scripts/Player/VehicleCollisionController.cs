@@ -6,9 +6,9 @@ namespace Nojumpo
     public class VehicleCollisionController : MonoBehaviour
     {
         void OnTriggerEnter2D(Collider2D other) {
-            if (other.CompareTag("Collectable"))
+            if (other.TryGetComponent(out ICollectable iCollectable))
             {
-                other.GetComponent<ICollectable>().Collect();
+                iCollectable.Collect();
             }
         }
     }
