@@ -59,7 +59,6 @@ namespace Nojumpo
         }
         
         void LockLevel() {
-
             lockedState.gameObject.SetActive(true);
             unlockedState.gameObject.SetActive(false);
             _buttonCanvasGroup.blocksRaycasts = false;
@@ -67,7 +66,6 @@ namespace Nojumpo
         }
         
         void UnlockLevel() {
-
             lockedState.gameObject.SetActive(false);
             unlockedState.gameObject.SetActive(true);
             _buttonCanvasGroup.blocksRaycasts = true;
@@ -104,7 +102,6 @@ namespace Nojumpo
         }
         
         void PlayLevel() {
-            GameObject.FindWithTag("UI/Menu Canvas").SetActive(false);
             GameObject.FindWithTag("UI/Tooltip Canvas").SetActive(false);
             LevelManager.Instance.CurrentLevel = levelDetailsSo.LevelNumber;
             GameManager.Instance.StartGame(levelBuildIndex);

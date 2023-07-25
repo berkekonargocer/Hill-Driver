@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8316574930233726669}
   - component: {fileID: 8316574930233726514}
   m_Layer: 0
-  m_Name: CharacterBody
+  m_Name: Character Body
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8316574930440649887}
   - component: {fileID: 8316574930440649884}
   m_Layer: 0
-  m_Name: VehicleBody
+  m_Name: Vehicle Body
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 8316574932154999145}
   - component: {fileID: 8316574932154999144}
   m_Layer: 0
-  m_Name: FrontTire
+  m_Name: Front Tire
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 8316574932285930343}
   - component: {fileID: 8316574932285930342}
   m_Layer: 0
-  m_Name: BackTire
+  m_Name: Back Tire
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 8316574932366581790}
   - component: {fileID: 8316574932366581785}
   m_Layer: 0
-  m_Name: CharacterHead
+  m_Name: Character Head
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,7 +908,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.019738778, y: -0.15132391}
-  m_ConnectedAnchor: {x: 0.031738777, y: 0.32807603}
+  m_ConnectedAnchor: {x: 0.03173828, y: 0.32807603}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

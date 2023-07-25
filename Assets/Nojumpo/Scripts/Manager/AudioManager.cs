@@ -49,7 +49,7 @@ namespace Nojumpo.Managers
         }
 
         void AudioManager_OnLevelCompleted() {
-            DecreaseBGMVolumeTo25Percent();
+            DecreaseBGMVolumeToHalf();
             levelCompletedAudioSource.Play();
         }
 
@@ -75,8 +75,8 @@ namespace Nojumpo.Managers
             bgmAudioSource.Play();
         }
 
-        public void DecreaseBGMVolumeTo25Percent() {
-            bgmAudioSource.volume /= 4;
+        public void DecreaseBGMVolumeToHalf() {
+            bgmAudioSource.volume /= 2;
         }
         
         public void DecreaseBGMVolumeByDivision(int numberToDivide) {

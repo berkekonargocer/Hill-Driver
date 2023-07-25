@@ -1,6 +1,7 @@
 using System.Collections;
 using DG.Tweening;
 using Nojumpo.ScriptableObjects;
+using Nojumpo.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,8 +20,7 @@ namespace Nojumpo.Managers
         int _totalLevelCount;
         public int CurrentLevel { get; set; }
 
-        [Header("LOADING SCREEN SETTINGS")]
-        [SerializeField] GameObject _loadingScreen;
+        CanvasGroup _loadingScreen;
 
         [SerializeField] float holdDownToRestartTime = 2.0f;
         float _currentHoldDownTime;
@@ -78,8 +78,7 @@ namespace Nojumpo.Managers
             _levelDetailsSO = GameObject.FindWithTag("Level Details")?.GetComponent<LevelDetails>().LevelDetailsSo;
             _restartButtonFillImage = GameObject.FindWithTag("UI/Restart Button Fill Image")?.GetComponent<Image>();
             _restartButtonTransform = GameObject.FindWithTag("UI/Restart Button")?.GetComponent<Transform>();
-            _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas");
-            _loadingScreen?.SetActive(false);
+            _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas").GetComponent<CanvasGroup>();
         }
 
         void SetInitialLockStates() {
@@ -123,10 +122,9 @@ namespace Nojumpo.Managers
             if (levelToLoad > _totalLevelCount)
                 StopCoroutine(LoadLevelCoroutine(levelToLoad));
 
-            if (_loadingScreen == null)
-                _loadingScreen = GameObject.FindWithTag("UI/Loading Screen Canvas");
-
-            _loadingScreen.SetActive(true);
+            _loadingScreen.alpha = 1;
+            _loadingScreen.interactable = true;
+            _loadingScreen.blocksRaycasts = true;
 
             AsyncOperation loadScene = SceneManager.LoadSceneAsync(levelToLoad);
             loadScene.allowSceneActivation = false;
@@ -140,9 +138,6 @@ namespace Nojumpo.Managers
 
                 yield return null;
             }
-
-            if (_loadingScreen != null)
-                _loadingScreen.SetActive(false);
         }
 
         IEnumerator HoldDownToRestartLevelCoroutine(float holdDownTime) {
@@ -171,7 +166,22 @@ namespace Nojumpo.Managers
 
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void RestartLevel() {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            int currentLevel = SceneManager.GetActiveScene().buildIndex;
+            StartCoroutine(LoadLevelCoroutine(currentLevel));
+            AudioManager.Instance.SelectBGMAudioClipAndPlay(currentLevel);
+        }
+
+        public void GoToNextLevel() {
+            int currentLevel = SceneManager.GetActiveScene().buildIndex;
+            StartCoroutine(LoadLevelCoroutine(currentLevel + 1));
+            AudioManager.Instance.SelectBGMAudioClipAndPlay(currentLevel + 1);
+        }
+
+        public void GoToMainMenu() {
+            StartCoroutine(LoadLevelCoroutine(0));
+            TimerManager.Instance.StopTimer();
+            GameManager.Instance.SetIsPlaying(false);
+            AudioManager.Instance.SelectBGMAudioClipAndPlay(0);
         }
 
         public void StartHoldDownToRestartLevelCoroutine(float holdDownTime) {

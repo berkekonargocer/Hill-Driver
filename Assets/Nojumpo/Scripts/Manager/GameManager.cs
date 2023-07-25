@@ -45,7 +45,7 @@ namespace Nojumpo.Managers
         }
 
         void Update() {
-            if (Input.GetKeyDown(KeyCode.Escape) && IsPlaying)
+            if (Input.GetKeyDown(KeyCode.Escape) && IsPlaying && !IsLevelCompleted)
             {
                 PauseOrUnpauseGame();
             }
@@ -86,6 +86,7 @@ namespace Nojumpo.Managers
         
         void GameManager_OnLevelCompleted() {
             IsLevelCompleted = true;
+            IsPlaying = false;
         }
         
         public void PauseOrUnpauseGame() {

@@ -9,10 +9,7 @@ namespace Nojumpo
     {
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void OnClick() {
-            AudioManager.Instance.SelectBGMAudioClipAndPlay(0);
-            TimerManager.Instance.StopTimer();
-            GameManager.Instance.SetIsPlaying(false);
-            SceneManager.LoadScene(0);
+            LevelManager.Instance.GoToMainMenu();
         }
     }
 }
