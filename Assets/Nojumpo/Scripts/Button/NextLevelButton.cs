@@ -13,7 +13,7 @@ namespace Nojumpo
             GameObject.FindWithTag("UI/HUD Canvas").SetActive(false);
             GameObject.FindWithTag("Environment").SetActive(false);
             GameObject.FindWithTag("Player").SetActive(false);
-            AudioManager.Instance.SelectBGMAudioClipAndPlay(currentLevel);
+            AudioManager.Instance.SelectBGMAudioClipAndPlay(currentLevel + 1);
             LevelManager.Instance.CallLoadLevelCoroutine(currentLevel + 1);
         }
     }

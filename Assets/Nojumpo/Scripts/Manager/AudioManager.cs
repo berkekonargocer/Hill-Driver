@@ -102,7 +102,7 @@ namespace Nojumpo.Managers
         
         public void SelectBGMAudioClipAndPlay(int clipNo) {
             bgmAudioSource.clip = bgmAudios[clipNo];
-            bgmAudioSource.volume = clipNo == 1 ? 0.4f : 0.2f;
+            bgmAudioSource.volume = clipNo == 2 ? 0.4f : 0.2f;
             bgmAudioSource.Play();
         }
 

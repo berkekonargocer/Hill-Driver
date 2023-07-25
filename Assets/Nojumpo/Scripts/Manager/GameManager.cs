@@ -109,7 +109,7 @@ namespace Nojumpo.Managers
         // ------------------------ CUSTOM PUBLIC METHODS ------------------------
         public void StartGame(int level) {
             Time.timeScale = 1;
-            AudioManager.Instance.SelectBGMAudioClipAndPlay(level - 1);
+            AudioManager.Instance.SelectBGMAudioClipAndPlay(level);
             LevelManager.Instance.CallLoadLevelCoroutine(level);
             SetIsPlaying(true);
         }

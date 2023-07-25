@@ -51468,11 +51468,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffectMultiplier: {x: 0.05, y: 0.06}
---- !u!1 &1960384299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8316574930501731836, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
-  m_PrefabInstance: {fileID: 62303085555152512}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1971025807
 GameObject:
   m_ObjectHideFlags: 0
@@ -68004,19 +67999,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8316574930501731837, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
   m_PrefabInstance: {fileID: 62303085555152512}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &62303085555152523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960384299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd760d4665ad6d4c9c078f8bfdff4af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tag: {fileID: 11400000, guid: 2d49385b5b07d8247a7500e84789c51f, type: 2}
 --- !u!1001 &7819495941859865125
 PrefabInstance:
   m_ObjectHideFlags: 0

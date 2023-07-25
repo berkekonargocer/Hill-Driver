@@ -14288,8 +14288,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2310495490271419427, guid: e8bd2ee5c950d4a4892e3261080ce8e1, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d972fbf435923034fae1f3f53c2b8ccf, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 0c12fecf3caeada44aa80e5ce1b8d526, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
@@ -14390,9 +14390,10 @@ MonoBehaviour:
   levelCompletedAudioSource: {fileID: 2020606765}
   gamePauseAudioSource: {fileID: 2020606766}
   bgmAudios:
+  - {fileID: 8300000, guid: 0c12fecf3caeada44aa80e5ce1b8d526, type: 3}
   - {fileID: 8300000, guid: d972fbf435923034fae1f3f53c2b8ccf, type: 3}
   - {fileID: 8300000, guid: 03843327aa024af4ca588044cfb894d7, type: 3}
-  - {fileID: 8300000, guid: ebbeab13503e7404e8ab074b87bc5906, type: 3}
+  - {fileID: 8300000, guid: 59d784a3fb4863d498043d9a2ed8fd01, type: 3}
   pauseSFXClips:
   - {fileID: 8300000, guid: 68543f8f858177546b90a653b77ca2c0, type: 3}
   - {fileID: 8300000, guid: 298ea499dc0823845adadd71b279cb39, type: 3}
@@ -15270,7 +15271,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.019738778, y: -0.15132391}
-  m_ConnectedAnchor: {x: 0.031754386, y: 0.32808402}
+  m_ConnectedAnchor: {x: 0.031689767, y: 0.32808432}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
