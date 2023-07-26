@@ -1,3 +1,4 @@
+using Nojumpo.Scripts;
 using UnityEngine;
 
 namespace Nojumpo
@@ -27,7 +28,7 @@ namespace Nojumpo
         
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
-            _cameraTransform = Camera.main.transform;
+            _cameraTransform = Helper.MainCamera.transform;
             _lastCameraPosition = _cameraTransform.position;
             
             Sprite objectSprite = GetComponent<SpriteRenderer>().sprite;
@@ -37,16 +38,18 @@ namespace Nojumpo
         }
 
         void ApplyParallax() {
-            Vector3 deltaMovement = _cameraTransform.position - _lastCameraPosition;
+            Vector3 cameraPosition = _cameraTransform.position;
+            Vector3 deltaMovement = cameraPosition - _lastCameraPosition;
             transform.position += new Vector3(deltaMovement.x * parallaxEffectMultiplier.x, deltaMovement.y * parallaxEffectMultiplier.y);
-            _lastCameraPosition = _cameraTransform.position;
+            _lastCameraPosition = cameraPosition;
         }
         
         void RepeatXPosition() {
             if (Mathf.Abs(_cameraTransform.position.x - transform.position.x) >= _textureUnitSizeX)
             {
-                //float offsetPositionX = (_cameraTransform.position.x - transform.position.x) % _textureUnitSizeX; use this like (_cameraTransform.position.x + offsetPositionX, ...) if needed 
-                transform.position = new Vector3(_cameraTransform.position.x, transform.position.y);
+                Vector3 cameraPosition = _cameraTransform.position;
+                float offsetPositionX = (cameraPosition.x - transform.position.x) % _textureUnitSizeX; 
+                transform.position = new Vector3(cameraPosition.x - offsetPositionX, transform.position.y);
             }
         }
 
@@ -56,7 +59,8 @@ namespace Nojumpo
         void RepeatYPosition() {
             if (Mathf.Abs(_cameraTransform.position.y - transform.position.y) >= _textureUnitSizeY)
             {
-                //float offsetPositionY = (_cameraTransform.position.y - transform.position.y) % _textureUnitSizeY; use this like (..., _cameraTransform.position.y + offsetPositionY) if needed 
+                //use this like transform.position = new Vector3(..., _cameraTransform.position.y - offsetPositionY); if needed
+                //float offsetPositionY = (_cameraTransform.position.y - transform.position.y) % _textureUnitSizeY;  
                 transform.position = new Vector3(transform.position.x, _cameraTransform.position.y);
             }
         }

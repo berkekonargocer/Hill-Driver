@@ -6078,6 +6078,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8316574930501731815, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
+      propertyPath: vehicleFuelSettingsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: dc322b559441af04f8c70e438af725eb, type: 2}
+    - target: {fileID: 8316574930501731815, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
+      propertyPath: vehicleMovementSettingsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: bfcd3e16466f710468c7283735d4fc6d, type: 2}
     - target: {fileID: 8316574930501731836, guid: 5fb97f53dd0c5f34eb712ff869fb17d0, type: 3}
       propertyPath: m_Name
       value: Vehicle

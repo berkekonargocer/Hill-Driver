@@ -14,7 +14,7 @@ namespace Nojumpo
         Rigidbody2D _vehicleRigidbody2D;
 
         [Header("VEHICLE MOVEMENT SETTINGS")]
-        const float VEHICLE_MOVEMENT_SPEED = 45.0f;
+        [SerializeField] VehicleMovementSettingsSO vehicleMovementSettingsSO;
         const float VEHICLE_ROTATION_SPEED = 300.0f;
         const float ANGULAR_DRAG_ON_OUT_OF_FUEL = 20.0f;
         const float TIME_TO_CHANGE_ANGULAR_DRAG = 10.0f;
@@ -22,7 +22,7 @@ namespace Nojumpo
 
         [Header("VEHICLE FUEL SETTINGS")]
         [SerializeField] FloatVariableSO vehicleFuel;
-        [SerializeField] float fuelDrainAmount = -0.0018f;
+        [SerializeField] VehicleFuelSettingsSO vehicleFuelSettingsSO;
         bool _isOutOfFuelMethodCalled;
 
 
@@ -67,15 +67,15 @@ namespace Nojumpo
         }
 
         void ApplyCarMovement() {
-            frontTireRigidbody2D.AddTorque(-MoveInput.y * VEHICLE_MOVEMENT_SPEED * Time.fixedDeltaTime);
-            backTireRigidbody2D.AddTorque(-MoveInput.y * VEHICLE_MOVEMENT_SPEED * Time.fixedDeltaTime);
+            frontTireRigidbody2D.AddTorque(-MoveInput.y * vehicleMovementSettingsSO.MovementSpeed * Time.fixedDeltaTime);
+            backTireRigidbody2D.AddTorque(-MoveInput.y * vehicleMovementSettingsSO.MovementSpeed * Time.fixedDeltaTime);
             _vehicleRigidbody2D.AddTorque(MoveInput.y * VEHICLE_ROTATION_SPEED * Time.fixedDeltaTime);
         }
 
         void DrainFuel() {
             if (MoveInput.y != 0)
             {
-                vehicleFuel.ApplyChange(fuelDrainAmount);
+                vehicleFuel.ApplyChange(-vehicleFuelSettingsSO.FuelDrainAmount);
             }
         }
         
