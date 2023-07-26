@@ -15,8 +15,8 @@ namespace Nojumpo
         
         [SerializeField] FloatVariableSO vehicleFuel;
         
+        [SerializeField] FloatVariableSO fuelAddAmount;
         [SerializeField] float animationTime;
-        [SerializeField] float fuelAddAmount;
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------

@@ -399,6 +399,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
+      propertyPath: fuelAddAmount
+      value: 
+      objectReference: {fileID: 11400000, guid: ede0e2538e3cf9b459c265656a58df30, type: 2}
+    - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
       objectReference: {fileID: 1013662728}
@@ -1582,6 +1586,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
+      propertyPath: fuelAddAmount
+      value: 
+      objectReference: {fileID: 11400000, guid: ede0e2538e3cf9b459c265656a58df30, type: 2}
+    - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
       objectReference: {fileID: 1013662728}
@@ -1684,6 +1692,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
+      propertyPath: fuelAddAmount
+      value: 
+      objectReference: {fileID: 11400000, guid: ede0e2538e3cf9b459c265656a58df30, type: 2}
+    - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
       objectReference: {fileID: 1013662728}
@@ -1749,6 +1761,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
+      propertyPath: fuelAddAmount
+      value: 
+      objectReference: {fileID: 11400000, guid: ede0e2538e3cf9b459c265656a58df30, type: 2}
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
@@ -5526,6 +5542,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
+      propertyPath: fuelAddAmount
+      value: 
+      objectReference: {fileID: 11400000, guid: ede0e2538e3cf9b459c265656a58df30, type: 2}
+    - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
       objectReference: {fileID: 1013662728}
@@ -6052,6 +6072,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
+      propertyPath: fuelAddAmount
+      value: 
+      objectReference: {fileID: 11400000, guid: ede0e2538e3cf9b459c265656a58df30, type: 2}
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
