@@ -45,7 +45,11 @@ namespace Nojumpo.Managers
         }
 
         void Update() {
-            if (Input.GetKeyDown(KeyCode.Escape) && IsPlaying && !IsLevelCompleted)
+            if (!IsPlaying)
+                return;
+            
+            
+            if (Input.GetKeyDown(KeyCode.Escape) && !IsLevelCompleted)
             {
                 PauseOrUnpauseGame();
             }
@@ -88,7 +92,16 @@ namespace Nojumpo.Managers
             IsLevelCompleted = true;
             IsPlaying = false;
         }
-        
+
+
+        // ------------------------ CUSTOM PUBLIC METHODS ------------------------
+        public void StartGame(int level) {
+            Time.timeScale = 1;
+            AudioManager.Instance.SelectBGMAudioClipAndPlay(level);
+            LevelManager.Instance.CallLoadLevelCoroutine(level);
+            SetIsPlaying(true);
+        }
+
         public void PauseOrUnpauseGame() {
             AudioManager.Instance.PlayGamePauseAudioSource(IS_PAUSED);
             
@@ -105,16 +118,7 @@ namespace Nojumpo.Managers
                 IS_PAUSED = true;
             }
         }
-
         
-        // ------------------------ CUSTOM PUBLIC METHODS ------------------------
-        public void StartGame(int level) {
-            Time.timeScale = 1;
-            AudioManager.Instance.SelectBGMAudioClipAndPlay(level);
-            LevelManager.Instance.CallLoadLevelCoroutine(level);
-            SetIsPlaying(true);
-        }
-
         public void SetIsPlaying(bool isPlaying) {
             IsPlaying = isPlaying;
         }

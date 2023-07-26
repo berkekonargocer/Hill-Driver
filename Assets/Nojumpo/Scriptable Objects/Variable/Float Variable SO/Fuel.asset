@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fuel
   m_EditorClassIdentifier: 
   developerDescription: 
-  value: 1
+  value: 0
   useMinMaxValue: 1
-  minValue: 1
+  minValue: 0
   maxValue: 1
