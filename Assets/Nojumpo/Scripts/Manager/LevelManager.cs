@@ -169,12 +169,14 @@ namespace Nojumpo.Managers
             int currentLevel = SceneManager.GetActiveScene().buildIndex;
             StartCoroutine(LoadLevelCoroutine(currentLevel));
             AudioManager.Instance.SelectBGMAudioClipAndPlay(currentLevel);
+            GameManager.Instance.SetIsPlaying(true);
         }
 
         public void GoToNextLevel() {
             int currentLevel = SceneManager.GetActiveScene().buildIndex;
             StartCoroutine(LoadLevelCoroutine(currentLevel + 1));
             AudioManager.Instance.SelectBGMAudioClipAndPlay(currentLevel + 1);
+            GameManager.Instance.SetIsPlaying(true);
         }
 
         public void GoToMainMenu() {
