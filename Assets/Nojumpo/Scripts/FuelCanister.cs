@@ -25,7 +25,7 @@ namespace Nojumpo
         }
 
         void ShrinkAnimation() {
-            transform.DOScale(0, animationTime / 1.5f);
+            transform.DOScale(0, animationTime / 1.75f).SetUpdate(true);
         }
 
         IEnumerator GoToFuelUIElement() {
@@ -44,7 +44,10 @@ namespace Nojumpo
             BoxCollider2D fuelCanisterBoxCollider2D = GetComponent<BoxCollider2D>();
             fuelCanisterBoxCollider2D.enabled = false;
         }
-        
+
+        void DestroySelf(float delayAmount) {
+            Destroy(gameObject, delayAmount);
+        }
 
         // ------------------------- CUSTOM PUBLIC METHODS ------------------------
         public void Collect() {
@@ -53,6 +56,7 @@ namespace Nojumpo
             AddFuelToVehicle();
             ShrinkAnimation();
             StartCoroutine(nameof(GoToFuelUIElement));
+            DestroySelf(animationTime);
         }
     }
 }

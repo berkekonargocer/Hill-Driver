@@ -18,7 +18,6 @@ namespace Nojumpo.Managers
 
         [Header("GAME LEVEL VARIABLES")]
         int _totalLevelCount;
-        public int CurrentLevel { get; set; }
 
         CanvasGroup _loadingScreen;
 

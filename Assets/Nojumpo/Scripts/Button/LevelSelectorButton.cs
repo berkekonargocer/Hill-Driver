@@ -103,7 +103,6 @@ namespace Nojumpo
         
         void PlayLevel() {
             GameObject.FindWithTag("UI/Tooltip Canvas").SetActive(false);
-            LevelManager.Instance.CurrentLevel = levelDetailsSo.LevelNumber;
             GameManager.Instance.StartGame(levelBuildIndex);
         }
         

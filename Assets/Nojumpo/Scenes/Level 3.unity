@@ -36058,6 +36058,7 @@ Transform:
   - {fileID: 1707296275}
   - {fileID: 462355572}
   - {fileID: 183661821}
+  - {fileID: 967040326}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36567,8 +36568,8 @@ Transform:
   - {fileID: 411793714}
   - {fileID: 396668000}
   - {fileID: 2073521362}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 661779893}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &967040327
 AudioSource:

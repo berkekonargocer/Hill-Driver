@@ -5850,10 +5850,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 661779893}
     m_Modifications:
-    - target: {fileID: 5762865942139418307, guid: f51805622b6cd504b9eeb74512477d8b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 5762865942139418317, guid: f51805622b6cd504b9eeb74512477d8b, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
@@ -5861,10 +5857,6 @@ PrefabInstance:
     - target: {fileID: 5762865942248959619, guid: f51805622b6cd504b9eeb74512477d8b, type: 3}
       propertyPath: m_Name
       value: Finish Flag
-      objectReference: {fileID: 0}
-    - target: {fileID: 5762865942248959619, guid: f51805622b6cd504b9eeb74512477d8b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5762865942248959629, guid: f51805622b6cd504b9eeb74512477d8b, type: 3}
       propertyPath: m_RootOrder
