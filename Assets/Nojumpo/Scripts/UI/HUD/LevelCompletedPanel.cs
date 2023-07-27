@@ -60,11 +60,11 @@ namespace Nojumpo
         }
 
         void SetStarScore() {
-            if (TimerManager.Instance.CurrentTime <= _levelDetailsSO.GoodTime)
+            if ((int)TimerManager.Instance.CurrentTime <= _levelDetailsSO.GoodTime)
             {
                 StartCoroutine(StarAnimationRoutine(3));
             }
-            else if (TimerManager.Instance.CurrentTime >= _levelDetailsSO.BadTime)
+            else if ((int)TimerManager.Instance.CurrentTime >= _levelDetailsSO.BadTime)
             {
                 StartCoroutine(StarAnimationRoutine(1));
             }

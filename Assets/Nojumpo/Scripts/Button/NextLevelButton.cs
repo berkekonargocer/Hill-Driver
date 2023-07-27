@@ -1,6 +1,5 @@
 using Nojumpo.Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Nojumpo
 {

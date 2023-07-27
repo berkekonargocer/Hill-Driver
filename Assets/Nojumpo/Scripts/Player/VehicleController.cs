@@ -15,7 +15,7 @@ namespace Nojumpo
 
         [Header("VEHICLE MOVEMENT SETTINGS")]
         [SerializeField] VehicleMovementSettingsSO vehicleMovementSettingsSO;
-        const float VEHICLE_ROTATION_SPEED = 300.0f;
+        const float VEHICLE_ROTATION_SPEED = 175.0f;
         const float ANGULAR_DRAG_ON_OUT_OF_FUEL = 20.0f;
         const float TIME_TO_CHANGE_ANGULAR_DRAG = 10.0f;
         public Vector2 MoveInput { get; private set; } = Vector2.zero;

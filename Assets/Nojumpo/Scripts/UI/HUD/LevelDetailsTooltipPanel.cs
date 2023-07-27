@@ -28,7 +28,7 @@ namespace Nojumpo.Systems.TooltipSystem.Panel
             oneStarText.text = $"More Than <color=red>{_levelDetailsSo.BadTime.ToString()}</color> Seconds";
             twoStarText.text = $"Between <color=green>{_levelDetailsSo.GoodTime.ToString()}</color> and <color=red>{_levelDetailsSo.BadTime.ToString()}</color> Seconds";
             threeStarText.text = $"Less Than <color=green>{_levelDetailsSo.GoodTime.ToString()}</color> Seconds";
-            personalBestText.text = $"<color=orange>Personal Best: {(int)PlayerPrefs.GetFloat($"Level {_levelDetailsSo.LevelNumber.ToString()} Personal Best")} Seconds</color>";
+            personalBestText.text = $"<color=orange>Personal Best: {PlayerPrefs.GetInt($"Level {_levelDetailsSo.LevelNumber.ToString()} Personal Best")} Seconds</color>";
 
             base.UpdateTooltip(pointerEventData, data);
         }

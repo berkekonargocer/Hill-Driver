@@ -76,14 +76,14 @@ namespace Nojumpo
 
             string levelPbPlayerPrefsKey = $"Level {levelDetailsSo.LevelNumber.ToString()} Personal Best";
 
-            if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) <= 0)
+            if (PlayerPrefs.GetInt(levelPbPlayerPrefsKey) <= 0)
                 return;
 
-            if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) >= levelDetailsSo.BadTime)
+            if (PlayerPrefs.GetInt(levelPbPlayerPrefsKey) >= levelDetailsSo.BadTime)
             {
                 stars[0].color = Color.white;
             }
-            else if (PlayerPrefs.GetFloat(levelPbPlayerPrefsKey) <= levelDetailsSo.GoodTime)
+            else if (PlayerPrefs.GetInt(levelPbPlayerPrefsKey) <= levelDetailsSo.GoodTime)
             {
                 for (int i = 0; i < stars.Length; i++)
                 {

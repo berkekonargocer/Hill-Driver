@@ -1,7 +1,6 @@
 using Nojumpo.ScriptableObjects.Datas;
 using Nojumpo.Scripts.Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Nojumpo.ScriptableObjects
 {
@@ -35,8 +34,8 @@ namespace Nojumpo.ScriptableObjects
         }
 
         public bool IsPersonalBest() {
-            return (int)TimerManager.Instance.CurrentTime < (int)PlayerPrefs.GetFloat(LevelPBPlayerPrefsKey()) || 
-                PlayerPrefs.GetFloat(LevelPBPlayerPrefsKey()) <= 0;
+            return (int)TimerManager.Instance.CurrentTime < PlayerPrefs.GetInt(LevelPBPlayerPrefsKey()) || 
+                PlayerPrefs.GetInt(LevelPBPlayerPrefsKey()) <= 0;
         }
         
         public void SetLockState() {
@@ -44,7 +43,7 @@ namespace Nojumpo.ScriptableObjects
         }
 
         public void SetPersonalBest() {
-            PlayerPrefs.SetFloat(LevelPBPlayerPrefsKey(), (int)TimerManager.Instance.CurrentTime);
+            PlayerPrefs.SetInt(LevelPBPlayerPrefsKey(), (int)TimerManager.Instance.CurrentTime);
         }
     }
 }
