@@ -3,6 +3,7 @@ using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Nojumpo
 {
@@ -29,14 +30,12 @@ namespace Nojumpo
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             GameManager.onLevelCompleted += VehicleController_OnLevelCompleted;
+            SceneManager.sceneLoaded += VehicleController_OnSceneLoaded;
         }
 
         void OnDisable() {
             GameManager.onLevelCompleted -= VehicleController_OnLevelCompleted;
-        }
-
-        void Awake() {
-            SetComponents();
+            SceneManager.sceneLoaded -= VehicleController_OnSceneLoaded;
         }
 
         void FixedUpdate() {
@@ -92,6 +91,10 @@ namespace Nojumpo
         void VehicleController_OnLevelCompleted() {
             StopCarSlowly();
             DisableUpdate();
+        }
+
+        void VehicleController_OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
+            SetComponents();
         }
 
         IEnumerator ChangeVehicleWheelsAngularDrag() {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8316574930233726514}
   m_Layer: 0
   m_Name: Character Body
-  m_TagString: Player
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 8316574930440649884}
   m_Layer: 0
   m_Name: Vehicle Body
-  m_TagString: Player
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 8316574930501731812}
   m_Layer: 0
   m_Name: Vehicle
-  m_TagString: Player
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,8 +319,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontTireRigidbody2D: {fileID: 8316574932154999145}
   backTireRigidbody2D: {fileID: 8316574932285930343}
+  vehicleMovementSettingsSO: {fileID: 0}
   vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
-  fuelDrainAmount: -0.0013
+  vehicleFuelSettingsSO: {fileID: 0}
 --- !u!114 &8344913283379969828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,7 +538,7 @@ GameObject:
   - component: {fileID: 8316574932154999144}
   m_Layer: 0
   m_Name: Front Tire
-  m_TagString: Player
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -660,7 +661,7 @@ GameObject:
   - component: {fileID: 8316574932285930342}
   m_Layer: 0
   m_Name: Back Tire
-  m_TagString: Player
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -784,7 +785,7 @@ GameObject:
   - component: {fileID: 8316574932366581785}
   m_Layer: 0
   m_Name: Character Head
-  m_TagString: Player
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
