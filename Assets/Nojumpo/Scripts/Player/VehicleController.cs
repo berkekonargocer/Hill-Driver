@@ -56,9 +56,11 @@ namespace Nojumpo
         }
 
         // ---------------------------- INPUT METHODS -----------------------------
-        // void OnMove(InputValue inputValue) {
-        //     MoveInput = inputValue.Get<Vector2>();
-        // }
+#if !UNITY_ANDROID
+        void OnMove(InputValue inputValue) {
+            MoveInput = inputValue.Get<Vector2>();
+        }
+  #endif
 
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------

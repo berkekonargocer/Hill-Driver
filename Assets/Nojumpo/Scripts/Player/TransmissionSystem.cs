@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace Nojumpo
 {
-    public class TransmissionSystem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class TransmissionSystem : MonoBehaviour, IPointerDownHandler
     {
         // -------------------------------- FIELDS ---------------------------------
         public static bool DRIVE_FORWARD { get; private set; } = true;
@@ -36,10 +36,6 @@ namespace Nojumpo
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void OnPointerDown(PointerEventData eventData) {
             ShiftGear();
-        }
-        
-        public void OnPointerUp(PointerEventData eventData) {
-            throw new System.NotImplementedException();
         }
     }
 }

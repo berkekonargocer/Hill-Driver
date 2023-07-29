@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
