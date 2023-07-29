@@ -25,7 +25,7 @@ namespace Nojumpo
         }
         
         void StepOnGasPedal() {
-            if (TransmissionSystem.DriveForward)
+            if (TransmissionSystem.DRIVE_FORWARD)
             {
                 _vehicleController.SetMoveInputY(1);
             }

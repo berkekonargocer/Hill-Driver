@@ -6,50 +6,36 @@ namespace Nojumpo
     public class TransmissionSystem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         // -------------------------------- FIELDS ---------------------------------
-        public static bool DriveForward { get; private set; } = true;
+        public static bool DRIVE_FORWARD { get; private set; } = true;
 
         [SerializeField] AudioClip transmissionStateChangeSFX;
-        AudioSource transmissionSystemAudioSource;
-        Animator transmissionSystemAnimator;
-        
+        AudioSource _transmissionSystemAudioSource;
+        Animator _transmissionSystemAnimator;
+        static readonly int DRIVE_FORWARD_ANIM_PARAM = Animator.StringToHash("driveForward");
+
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void OnEnable() {
-
-        }
-
-        void OnDisable() {
-
-        }
-
         void Awake() {
-
-        }
-
-        void Start() {
-
-        }
-
-        void Update() {
-
+            SetComponents();
         }
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
-            transmissionSystemAudioSource = GetComponent<AudioSource>();
-            transmissionSystemAnimator = GetComponent<Animator>();
-            transmissionSystemAudioSource.clip = transmissionStateChangeSFX;
+            _transmissionSystemAudioSource = GetComponent<AudioSource>();
+            _transmissionSystemAnimator = GetComponent<Animator>();
+            _transmissionSystemAudioSource.clip = transmissionStateChangeSFX;
         }
 
-        void ChangeTransmissionState() {
-            transmissionSystemAudioSource.Play();
-            DriveForward = !DriveForward;
+        void ShiftGear() {
+            _transmissionSystemAudioSource.Play();
+            DRIVE_FORWARD = !DRIVE_FORWARD;
+            _transmissionSystemAnimator.SetBool(DRIVE_FORWARD_ANIM_PARAM, DRIVE_FORWARD);
         }
         
         
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void OnPointerDown(PointerEventData eventData) {
-            ChangeTransmissionState();
+            ShiftGear();
         }
         
         public void OnPointerUp(PointerEventData eventData) {
