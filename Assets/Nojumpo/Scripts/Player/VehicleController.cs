@@ -55,7 +55,7 @@ namespace Nojumpo
             }
         }
 
-        //---------------------------- INPUT METHODS -----------------------------
+        // ---------------------------- INPUT METHODS -----------------------------
 #if !UNITY_ANDROID
         void OnMove(InputValue inputValue) {
             MoveInput = inputValue.Get<Vector2>();
