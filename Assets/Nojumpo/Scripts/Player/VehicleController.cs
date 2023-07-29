@@ -48,7 +48,7 @@ namespace Nojumpo
 
             if (_isOutOfFuelMethodCalled)
                 return;
-            
+
             if (vehicleFuel.Value < 0)
             {
                 StopCarSlowly();
@@ -56,9 +56,9 @@ namespace Nojumpo
         }
 
         // ---------------------------- INPUT METHODS -----------------------------
-        void OnMove(InputValue inputValue) {
-            MoveInput = inputValue.Get<Vector2>();
-        }
+        // void OnMove(InputValue inputValue) {
+        //     MoveInput = inputValue.Get<Vector2>();
+        // }
 
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
@@ -78,7 +78,7 @@ namespace Nojumpo
                 vehicleFuel.ApplyChange(-vehicleFuelSettingsSO.FuelDrainAmount);
             }
         }
-        
+
         void StopCarSlowly() {
             StartCoroutine(nameof(ChangeVehicleWheelsAngularDrag));
         }
@@ -91,11 +91,11 @@ namespace Nojumpo
             StopCarSlowly();
             DisableUpdate();
         }
-        
+
         IEnumerator ChangeVehicleWheelsAngularDrag() {
             float timeElapsed = 0.0f;
             float angularDragChangeTimeElapsed = 0.0f;
-            
+
             while (timeElapsed < TIME_TO_CHANGE_ANGULAR_DRAG)
             {
                 backTireRigidbody2D.angularDrag = Mathf.MoveTowards(backTireRigidbody2D.angularDrag, ANGULAR_DRAG_ON_OUT_OF_FUEL, angularDragChangeTimeElapsed / TIME_TO_CHANGE_ANGULAR_DRAG);
@@ -105,5 +105,11 @@ namespace Nojumpo
                 yield return null;
             }
         }
+
+        // ------------------------ CUSTOM PUBLIC METHODS -------------------------
+        public void SetMoveInputY(float value) {
+            MoveInput = new Vector2(MoveInput.x, value);
+        }
+
     }
 }
