@@ -1,5 +1,5 @@
+#if UNITY_ANDROID
 using DG.Tweening;
-using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -60,3 +60,4 @@ namespace Nojumpo
         }
     }
 }
+  #endif

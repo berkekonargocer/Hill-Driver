@@ -44,6 +44,7 @@ namespace Nojumpo.Managers
             InitializeSingleton();
         }
 
+#if !UNITY_ANDROID
         void Update() {
             if (!IsPlaying)
                 return;
@@ -62,6 +63,7 @@ namespace Nojumpo.Managers
                 LevelManager.Instance.CallLoadLevelCoroutine(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
+  #endif
 
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
