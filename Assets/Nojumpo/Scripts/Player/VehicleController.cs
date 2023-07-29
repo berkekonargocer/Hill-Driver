@@ -2,13 +2,14 @@ using System.Collections;
 using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Nojumpo
 {
     public class VehicleController : MonoBehaviour
     {
+        public static VehicleController VEHICLE_CONTROLLER { get; private set; }
+        
         [Header("COMPONENTS")]
         [SerializeField] Rigidbody2D frontTireRigidbody2D;
         [SerializeField] Rigidbody2D backTireRigidbody2D;
@@ -30,12 +31,13 @@ namespace Nojumpo
         // ------------------------ UNITY BUILT-IN METHODS ------------------------
         void OnEnable() {
             GameManager.onLevelCompleted += VehicleController_OnLevelCompleted;
-            SceneManager.sceneLoaded += VehicleController_OnSceneLoaded;
+            SceneManager.sceneLoaded += VehicleController_OnSceneLoaded; 
         }
 
         void OnDisable() {
             GameManager.onLevelCompleted -= VehicleController_OnLevelCompleted;
             SceneManager.sceneLoaded -= VehicleController_OnSceneLoaded;
+            VEHICLE_CONTROLLER = null;
         }
 
         void FixedUpdate() {
@@ -64,6 +66,7 @@ namespace Nojumpo
 
         // ------------------------ CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
+            VEHICLE_CONTROLLER = this;
             _vehicleRigidbody2D = GetComponent<Rigidbody2D>();
         }
 

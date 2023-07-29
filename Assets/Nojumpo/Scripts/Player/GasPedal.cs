@@ -24,23 +24,22 @@ namespace Nojumpo
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
-            _vehicleController = GameObject.FindWithTag("Vehicle").GetComponent<VehicleController>();
             _gasPedalTransform = GetComponent<Transform>();
         }
         
         void StepOnGasPedal() {
             if (TransmissionSystem.DRIVE_FORWARD)
             {
-                _vehicleController.SetMoveInputY(1);
+                VehicleController.VEHICLE_CONTROLLER.SetMoveInputY(1);
             }
             else
             {
-                _vehicleController.SetMoveInputY(-1);
+                VehicleController.VEHICLE_CONTROLLER.SetMoveInputY(-1);
             }
         }
 
         void ReleaseGasPedal() {
-            _vehicleController.SetMoveInputY(0);
+            VehicleController.VEHICLE_CONTROLLER.SetMoveInputY(0);
         }
 
         void OnPointerDownAnimation() {
