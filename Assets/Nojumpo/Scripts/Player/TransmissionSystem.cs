@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace Nojumpo
 {
@@ -14,8 +16,12 @@ namespace Nojumpo
         static readonly int DRIVE_FORWARD_ANIM_PARAM = Animator.StringToHash("driveForward");
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
-            SetComponents();
+        void OnEnable() {
+            SceneManager.sceneLoaded += TransmissionSystem_OnSceneLoaded;
+        }
+
+        void OnDisable() {
+            SceneManager.sceneLoaded -= TransmissionSystem_OnSceneLoaded;
         }
 
 
@@ -24,12 +30,17 @@ namespace Nojumpo
             _transmissionSystemAudioSource = GetComponent<AudioSource>();
             _transmissionSystemAnimator = GetComponent<Animator>();
             _transmissionSystemAudioSource.clip = transmissionStateChangeSFX;
+            DRIVE_FORWARD = true;
         }
 
         void ShiftGear() {
             _transmissionSystemAudioSource.Play();
             DRIVE_FORWARD = !DRIVE_FORWARD;
             _transmissionSystemAnimator.SetBool(DRIVE_FORWARD_ANIM_PARAM, DRIVE_FORWARD);
+        }
+
+        void TransmissionSystem_OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
+            SetComponents();
         }
         
         
