@@ -282,10 +282,10 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 10 (1)
+      value: Fuel Canister 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -5231,7 +5231,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 3
@@ -5301,10 +5301,10 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 10 (8)
+      value: Fuel Canister 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -15159,10 +15159,10 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 10 (4)
+      value: Fuel Canister 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -20766,10 +20766,10 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 10 (5)
+      value: Fuel Canister 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -30763,10 +30763,10 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 10 (7)
+      value: Fuel Canister 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -30931,10 +30931,10 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 10 (2)
+      value: Fuel Canister 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -36740,7 +36740,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 1
@@ -36950,7 +36950,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 2
@@ -37025,7 +37025,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 5
@@ -37595,7 +37595,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 7
@@ -42659,7 +42659,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 9
@@ -52849,7 +52849,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 6
@@ -53720,10 +53720,10 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 10 (3)
+      value: Fuel Canister 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -53882,10 +53882,10 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
-      value: Fuel Canister 10 (6)
+      value: Fuel Canister 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
@@ -54028,7 +54028,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 10
@@ -70472,7 +70472,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 4
@@ -70640,7 +70640,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 8
@@ -71009,7 +71009,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 544492603}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 0

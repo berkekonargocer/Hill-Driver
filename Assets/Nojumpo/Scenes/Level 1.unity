@@ -635,7 +635,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 522552368}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 3
@@ -2061,7 +2061,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 522552368}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 1
@@ -2251,7 +2251,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 522552368}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 2
@@ -2329,7 +2329,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 522552368}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 5
@@ -7174,7 +7174,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 522552368}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 4
@@ -7299,6 +7299,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 96642029}
     m_Modifications:
+    - target: {fileID: 957921019855272687, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921019855272687, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921019855272687, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921019855272687, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921020939094030, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921020939094030, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921020939094030, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921020939094030, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921021325791995, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921021325791995, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921021325791995, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957921021325791995, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1399255709913585948, guid: 1fbec5c0b153847488f7ceaa42333f7b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7446,7 +7494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762865942248959629, guid: f51805622b6cd504b9eeb74512477d8b, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5762865942248959629, guid: f51805622b6cd504b9eeb74512477d8b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7645,7 +7693,7 @@ PrefabInstance:
     - target: {fileID: 8224752037997790488, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: fuelCanvasElement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 522552368}
     - target: {fileID: 8224752037997790491, guid: 8a42ba2ff32c4cc45a9da89381166dad, type: 3}
       propertyPath: m_Name
       value: Fuel Canister 0
