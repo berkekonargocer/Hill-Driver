@@ -44,7 +44,7 @@ namespace Nojumpo.Managers
             InitializeSingleton();
         }
 
-#if !UNITY_ANDROID
+#if !UNITY_ANDROID && !ANDROID_BUILD && !PLATFORM_ANDROID
         void Update() {
             if (!IsPlaying)
                 return;
