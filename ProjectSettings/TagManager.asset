@@ -19,6 +19,7 @@ TagManager:
   - UI/Tooltip Canvas
   - UI/Settings Panel
   - UI/Tutorial HUD
+  - Vehicle
   layers:
   - Default
   - TransparentFX

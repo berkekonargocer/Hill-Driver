@@ -319,8 +319,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontTireRigidbody2D: {fileID: 8316574932154999145}
   backTireRigidbody2D: {fileID: 8316574932285930343}
+  vehicleMovementSettingsSO: {fileID: 0}
   vehicleFuel: {fileID: 11400000, guid: 70bdcf76514687347a1c3b383ddeeb9b, type: 2}
-  fuelDrainAmount: -0.0013
+  vehicleFuelSettingsSO: {fileID: 0}
 --- !u!114 &8344913283379969828
 MonoBehaviour:
   m_ObjectHideFlags: 0

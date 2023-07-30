@@ -2,6 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace Nojumpo
 {
@@ -13,30 +14,33 @@ namespace Nojumpo
         
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
-            SetComponents();
+        void OnEnable() {
+            SceneManager.sceneLoaded += GasPedal_OnSceneLoaded;
         }
-        
-        
+
+        void OnDisable() {
+            SceneManager.sceneLoaded -= GasPedal_OnSceneLoaded;
+        }
+
+
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
-            _vehicleController = GameObject.FindWithTag("Player").GetComponent<VehicleController>();
             _gasPedalTransform = GetComponent<Transform>();
         }
         
         void StepOnGasPedal() {
             if (TransmissionSystem.DRIVE_FORWARD)
             {
-                _vehicleController.SetMoveInputY(1);
+                VehicleController.VEHICLE_CONTROLLER.SetMoveInputY(1);
             }
             else
             {
-                _vehicleController.SetMoveInputY(-1);
+                VehicleController.VEHICLE_CONTROLLER.SetMoveInputY(-1);
             }
         }
 
         void ReleaseGasPedal() {
-            _vehicleController.SetMoveInputY(0);
+            VehicleController.VEHICLE_CONTROLLER.SetMoveInputY(0);
         }
 
         void OnPointerDownAnimation() {
@@ -47,6 +51,9 @@ namespace Nojumpo
             _gasPedalTransform.DOScale(1f, 0.15f);
         }
 
+        void GasPedal_OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
+            SetComponents();
+        }
         
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void OnPointerDown(PointerEventData eventData) {
