@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Level 2 Fuel Settings
   m_EditorClassIdentifier: 
   _developerDescription: 
-  fuelDrainAmount: 0.001
+  fuelDrainAmount: 0.00075

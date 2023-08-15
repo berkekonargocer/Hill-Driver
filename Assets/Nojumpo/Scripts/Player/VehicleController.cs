@@ -3,6 +3,10 @@ using Nojumpo.Managers;
 using Nojumpo.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
+<<<<<<< Updated upstream
+=======
+using UnityEngine.SceneManagement;
+>>>>>>> Stashed changes
 
 namespace Nojumpo
 {
