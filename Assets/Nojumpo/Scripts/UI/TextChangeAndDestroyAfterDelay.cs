@@ -10,7 +10,7 @@ namespace Nojumpo
         enum TextChangeAnimation
         {
             FADE,
-            SCALE,
+            SCALE
         }
 
         // -------------------------------- FIELDS ---------------------------------

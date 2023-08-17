@@ -8,7 +8,7 @@ namespace Nojumpo
     {
         // -------------------------------- FIELDS ---------------------------------
         ParticleSystem _rainParticleSystem;
-
+        ParticleSystem.EmissionModule _rainParticleEmission;
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
@@ -22,7 +22,7 @@ namespace Nojumpo
             }
         }
 
-        void OnTriggerExit(Collider other) {
+        void OnTriggerExit2D(Collider2D other) {
             if (other.CompareTag("Player"))
             {
                 StopRain();
@@ -33,13 +33,16 @@ namespace Nojumpo
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void SetComponents() {
             _rainParticleSystem = GetComponent<ParticleSystem>();
+            _rainParticleEmission = _rainParticleSystem.emission;
         }
 
         void StartRain() {
             _rainParticleSystem.Play();
+            _rainParticleEmission.enabled = true;
         }
 
         void StopRain() {
+            _rainParticleEmission.enabled = false;
             _rainParticleSystem.Stop();
         }
     }
