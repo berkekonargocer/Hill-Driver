@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 namespace Nojumpo.UI
 {
-    [RequireComponent(typeof(Slider))]
     public class SliderSetterFloat : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------

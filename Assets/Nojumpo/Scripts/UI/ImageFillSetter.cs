@@ -9,8 +9,11 @@ namespace Nojumpo.UI
         // -------------------------------- FIELDS --------------------------------
         Image _imageToSetFill;
         float _oldValue;
+        
         [SerializeField] FloatReference currentValue;
         [SerializeField] FloatReference maximumValue;
+        
+        [SerializeField] bool useGradientColorChange;
         [SerializeField] Gradient imageGradient;
 
 
@@ -23,6 +26,10 @@ namespace Nojumpo.UI
             if (currentValue.Value != _oldValue)
             {
                 SetImageFill();
+                
+                if (!useGradientColorChange)
+                    return;
+                
                 ChangeImageColorWithGradient();
             }
         }
