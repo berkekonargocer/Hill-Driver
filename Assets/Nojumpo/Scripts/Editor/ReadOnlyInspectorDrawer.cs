@@ -5,7 +5,6 @@ using UnityEngine;
 namespace Nojumpo.Editor
 {
     [CustomPropertyDrawer(typeof(ReadOnlyInspectorAttribute))]
-
     public class ReadOnlyInspectorDrawer : PropertyDrawer
     {
         public override float GetPropertyHeight(SerializedProperty property,

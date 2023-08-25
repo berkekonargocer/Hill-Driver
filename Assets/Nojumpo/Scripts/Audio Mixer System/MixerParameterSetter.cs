@@ -25,8 +25,8 @@ namespace Nojumpo.Systems.AudioMixerSystem
         [Tooltip("Maximum value of the Variable that is mapped to the curve")]
         [SerializeField] FloatReference _maximum;
 
-        [Tooltip("Curve to evalueate in order to look up a final value to send as the parameter \n" +
-            "T=0 when Variabe == Min \n" +
+        [Tooltip("Curve to evaluate in order to look up a final value to send as the parameter \n" +
+            "T=0 when Variable == Min \n" +
             "T=1 when Variable == Max")]
         [SerializeField] AnimationCurve _curve;
         
